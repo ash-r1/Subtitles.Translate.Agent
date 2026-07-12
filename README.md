@@ -12,9 +12,9 @@
 リポジトリルートで Claude Code を起動し:
 
 ```
-/analyze-subtitles subtitle-ja-toolkit/input/source.srt   # Step 1–3: 分析
-/translate-subtitles                                      # Step 4–7: 翻訳＋監査
-/review-subtitles                                         # Step 8–9: 出力・最終監査
+/analyze-subtitles subtitle-ja-toolkit/input/source.srt   # Step 1–4: 分析＋翻訳前検証
+/translate-subtitles                                      # Step 5–8: 翻訳＋監査
+/review-subtitles                                         # Step 9–10: 出力・最終監査
 ```
 
 （コマンドは `.claude/commands/` にあり、作業は `subtitle-ja-toolkit/` を
@@ -24,7 +24,7 @@
 
 このリポジトリは元々 C# 製の Multi-Agent 字幕翻訳エンジンだった。
 その 6 段階パイプラインのプロンプトを抽出・分析して日本語字幕向けに
-9 工程へ再構成したのが本ツールキットであり、C# 実装は役目を終えたため
+10 工程へ再構成したのが本ツールキットであり、C# 実装は役目を終えたため
 削除済み（git 履歴、および
 [`subtitle-ja-toolkit/source-prompts/`](subtitle-ja-toolkit/source-prompts/)
 の抽出記録に残っている）。

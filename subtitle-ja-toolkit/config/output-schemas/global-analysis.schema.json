@@ -2,8 +2,8 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Step 1: Global Analysis Output",
   "type": "object",
-  "required": ["target_language", "category", "overall_tone", "register_baseline",
-               "style_instruction", "orthography", "summary"],
+  "required": ["target_language", "category", "world_and_atmosphere", "overall_tone",
+               "register_baseline", "style_instruction", "orthography", "summary"],
   "additionalProperties": false,
   "properties": {
     "detected_source_language": {"type": ["string", "null"]},
@@ -13,6 +13,20 @@
     "audience": {"type": ["string", "null"]},
     "era_and_place": {"type": "string", "description": "不明なら unknown"},
     "themes": {"type": "array", "items": {"type": "string"}},
+    "world_and_atmosphere": {
+      "type": "object",
+      "description": "作品に通底する世界観・雰囲気の読み。個別のスタイル決定の根拠",
+      "required": ["premise", "atmosphere", "translation_implications"],
+      "properties": {
+        "premise": {"type": "string"},
+        "world_rules": {"type": "array", "items": {"type": "string"}},
+        "atmosphere": {"type": "string"},
+        "tonal_shifts": {"type": "array", "items": {"type": "string"}},
+        "humor_style": {"type": ["string", "null"]},
+        "emotional_arc": {"type": ["string", "null"]},
+        "translation_implications": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+      }
+    },
     "overall_tone": {"type": "array", "items": {"type": "string"}, "minItems": 3, "maxItems": 5},
     "register_baseline": {"type": "string"},
     "vocabulary_level": {"type": "string"},
@@ -60,7 +74,7 @@
         "properties": {
           "field": {"type": "string"},
           "confidence": {"enum": ["high", "medium", "low"]},
-          "evidence_ids": {"type": "array", "items": {"type": "string", "pattern": "^sub:[0-9]+(-[0-9]+)?$"}}
+          "evidence_ids": {"type": "array", "items": {"type": "string", "pattern": "^([A-Za-z0-9_-]+/)?sub:[0-9]+(-[0-9]+)?$"}}
         }
       }
     }

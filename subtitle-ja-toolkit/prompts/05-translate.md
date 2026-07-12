@@ -1,6 +1,9 @@
-# Step 4: Translation（字幕翻訳）
+# Step 5: Translation（字幕翻訳）
 
 共通規約: `00-common-rules.md` を先に読むこと。
+前提: Step 4（翻訳前検証ゲート）の決定シートが approved であること。
+確定した固有名詞表記・記号方針は glossary / style guide に反映済みの状態で
+本工程に入る（`pipeline.enable_pretranslation_check: false` の場合を除く）。
 
 ## 1. Role
 
@@ -17,7 +20,7 @@
 | 変数 | 内容 | 欠けている場合 |
 |---|---|---|
 | `{{source_language}}` / `{{target_language}}` | 言語 | 原語は自動判定 |
-| `{{global_style_guide}}` | Step 1 出力（orthography 含む） | 中立的な表記（句点なし・全角！？）で訳す |
+| `{{global_style_guide}}` | Step 1 出力（orthography・`world_and_atmosphere` 含む） | 中立的な表記（句点なし・全角！？）で訳す |
 | `{{speaker_map}}` | Step 2 出力（当該範囲） | 字幕から話者を推定し confidence を付ける |
 | `{{character_profiles}}` | Step 2 出力 | 中立的で誇張のない訳を優先 |
 | `{{relationship_map}}` | Step 2 出力 | 呼称は省略を基本に安全側で選ぶ |
@@ -42,12 +45,25 @@
    中立の訳にして `review_flags: ["speaker_unknown"]` を付ける。
 3. **発話意図と感情の確認**: 表面上の意味と発話意図（皮肉・嘘・婉曲・威圧・
    親愛・関係修復・話題回避・配慮）を区別する。説明を訳文に足すのではなく、
-   日本語の言い方で再現する。
+   日本語の言い方で再現する。あわせて文法構造の**有標性**を判定する
+   （共通規約 7-7）: 態・使役・自他動詞・主語の選択が主導権・責務の割り当て
+   として意図的なら、`review_flags: ["marked_structure"]` を付け、
+   そのニュアンスを日本語の手段で維持する。場面のトーンは `world_and_atmosphere` の
+   `tonal_shifts` / `translation_implications` に照らして判定する
+   （例: 落差が演出の作品では、明るい場面を中途半端に均さず振り切り、
+   転調の瞬間に語彙を引き締める。作品の空気感と無関係な平均的トーンに
+   均してはならない）。
 4. **一人称・呼称・敬語の選択**: `{{character_profiles}}` と
-   `{{relationship_map}}` から、この話者×相手×場面×感情に合う
-   first_person / address / politeness を選ぶ。
+   `{{relationship_map}}` から、この話者×相手×場面×感情×**物語上の時点**に
+   合う first_person / address / politeness を選ぶ。profile に
+   `character_arc` がある人物は、現在バッチの ID 範囲が属する phase の
+   `voice_changes` を default 規則に上書きして適用する（成長・変化前の
+   口調を終盤まで引きずらない。逆も同じ）。
 5. **自然な日本語文の構築**: 復元した意味単位を、一度**完全な日本語の台詞**
-   として組み立てる。
+   として組み立てる。語彙の水準・言い回しの凝り方・流暢さは、原文の水準と
+   話者の `speech_register` × その場面の感情に対応させる（共通規約 7-8）。
+   小難しい原文は小難しい日本語に、シンプルな原文はシンプルに、口下手の
+   言いよどみは日本語の言いよどみとして再現し、勝手に整った台詞へ直さない。
 6. **不要な代名詞・冗長の削除**: 共通規約 7 に従い、不要な主語・所有代名詞・
    人称代名詞・接続詞の過剰明示・同じ人物名の反復・自明な目的語を削る。
    ただし省略で「誰が何をしたか」が失われる場合は補う。
@@ -65,7 +81,9 @@
   不自然に繰り返さない。台詞の勢いを失う長い説明を避ける。読み切れない長さに
   しない。一方で、物語上重要な情報・否定・数量・固有名詞・因果関係は落とさない。
 - **英語構文の直写禁止**: 英語型受動態（「〜される」の乱用）、名詞を重ねた説明、
-  「〜することができる」等の翻訳調を避ける。
+  「〜することができる」等の翻訳調を避ける。**ただしこれは無標の構造に限る**。
+  責務・主導権を割り当てる有標の構文選択（共通規約 7-7）は、直写ではなく
+  日本語側の対応手段で**ニュアンスを維持**する（自然化を理由に消さない）。
 - **punctuation**: `{{global_style_guide}}` の orthography に従う。
   原文の `...` `--` `!?` を機械的に写さない。
 - **一行完結の判断**: 各行を単独で完成させる必要があるか（カットまたぎ・
@@ -83,7 +101,7 @@
 
 ## 7. Output schema
 
-出力先: `work/04-translation/batch-<NNN>.json`（生 JSON、フェンスなし）。
+出力先: `work/05-translation/batch-<NNN>.json`（生 JSON、フェンスなし）。
 スキーマ: `config/output-schemas/translation.schema.json`
 
 ```json
@@ -101,7 +119,7 @@
       "listener_id": "ito | unknown",
       "emotion": "neutral | angry | …",
       "confidence": "high | medium | low",
-      "review_flags": ["speaker_unknown", "long_line", "provisional_term", "sentence_spans_batch"]
+      "review_flags": ["speaker_unknown", "long_line", "provisional_term", "sentence_spans_batch", "marked_structure"]
     }
   ],
   "new_findings": [

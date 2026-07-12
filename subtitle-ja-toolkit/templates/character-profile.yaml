@@ -18,6 +18,21 @@ emotional_expressiveness: {value: null, basis: inference, confidence: null, evid
 gender: unknown              # male | female | nonbinary | unknown | object
 gender_confidence: low       # gender だけから口調を決めてはならない
 
+# --- 知的水準・言語運用（人物の声の一部。作品平均に均さない）---
+# 小難しく喋る人物は日本語でも小難しく（漢語・抽象語・凝った言い回し）、
+# 平易な人物は平易に（和語・短文）、口下手は口下手に（言いよどみ・途切れ・
+# 単純な構文）、慈愛に満ちた話し方はそのままに。
+speech_register:
+  intellect_vocabulary: null  # 例: "衒学的。抽象語・故事成語を好む" / "平易。具体語中心で比喩を使わない"
+  articulateness: null        # 例: "弁が立つ（長い従属節を操る）" / "口下手（言いさし・単純構文・沈黙で語る）"
+  domain_expertise: []        # 得意分野と言語上の現れ方
+  # - domain: 機関工学
+  #   behavior: 専門用語を正確に・言い換えずに使う。素人への説明でも簡略化しない
+  #   evidence_ids: ["sub:33"]
+  emotional_speech: null      # 感情が高ぶった時の言語運用の変化（例: "口下手が加速し言葉が途切れる" / "怒りも理屈で組み立てる"）
+  speech_quirks: []           # 言い直し癖・比喩癖・引用癖・迂遠な言い回し 等
+  evidence_ids: []
+
 # --- 一人称（場面別。null=未定義、"省略"=原則出さない）---
 first_person_rules:
   default: 省略
@@ -95,13 +110,40 @@ emotion_rules:
   deceptive: not_observed
   exhausted: not_observed
 
+# --- 人物の変化・成長（全編を読んでから判定。変化がなければ null のまま）---
+# 主人公・メインキャラクターでは人物像の変化（気弱→気丈 等）が物語として
+# 典型的。冒頭の印象に固執しない。上の各規則（default）には「どの phase でも
+# 変わらない芯」だけを書き、phase ごとの差分はここに書く。
+# 感情による一時的な揺れは emotion_rules、基準線そのものの移動はここ。
+character_arc: null
+# character_arc:
+#   overview: 気弱で及び腰 → 危機を経て、終盤は自分の意志で言い切る
+#   phases:
+#     - phase_id: early
+#       valid_range: "sub:1-210"
+#       label: 気弱・受け身
+#       voice_changes:
+#         - ためらい表現（「あの…」「たぶん」）が高頻度
+#         - 文末を濁す（「〜かも」「〜だと思う」）
+#       evidence_ids: ["sub:12", "sub:45-48"]
+#       confidence: high
+#     - phase_id: final
+#       valid_range: "sub:211-320"
+#       label: 気丈・能動
+#       voice_changes:
+#         - ためらい表現がほぼ消える
+#         - 言い切り文末（「〜する」「〜だ」）。命令・提案を自分から出す
+#       evidence_ids: ["sub:265", "sub:301-305"]
+#       confidence: medium
+#   boundary_notes: 境界は sub:210 前後の対決場面。厳密な転換点は low confidence
+
 evidence_ids: []              # profile 全体の主根拠
 unresolved_questions: []
 
 # --- 変更履歴（CLAUDE.md の profile 更新手順で追記する）---
 revision_history: []
 # - date: 2026-07-12
-#   changed_by: step6_voice_review
+#   changed_by: step7_voice_review
 #   field: first_person_rules.casual
 #   from: 僕
 #   to: 俺

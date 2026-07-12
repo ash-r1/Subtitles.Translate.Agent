@@ -4,14 +4,14 @@
 
 外国語（主に英語）字幕を**自然な日本語字幕**へ翻訳するための、
 エージェント実行型のプロンプト・ツールキット。このリポジトリに元々あった
-C# アプリの 6 段階パイプラインを、日本語字幕向けに 9 工程へ拡張し、
+C# アプリの 6 段階パイプラインを、日本語字幕向けに 10 工程へ拡張し、
 Claude Code / Cowork から直接実行できるファイル一式として再構成したもの。
 元の C# 実装は抽出完了後に削除済み（git 履歴と `source-prompts/` に記録が残る）。
 
 コマンド・スキルはリポジトリルートの `.claude/` にあり、相対パスは本ディレクトリ
 （`subtitle-ja-toolkit/`）を基準とする。`.claude/` が使えない環境（Cowork 等）
 でも、この CLAUDE.md と README.md の手順だけで全工程を実行できる。
-各工程の詳細指示は `prompts/01`〜`09` にあり、実行時は該当ファイルを読み、
+各工程の詳細指示は `prompts/01`〜`10` にあり、実行時は該当ファイルを読み、
 `{{variable}}` を実データで置換して従う。
 
 ## ファイルの置き場所
@@ -22,11 +22,11 @@ Claude Code / Cowork から直接実行できるファイル一式として再�
 | プロジェクト設定 | `project-config.yaml`（`config/project-config.example.yaml` をコピー） | 実行前に用意 |
 | 字幕制約 | `subtitle-constraints.yaml`（`config/subtitle-constraints.example.yaml` をコピー） | 実行前に用意 |
 | 中間成果物 | `work/` | 各工程が生成・更新（下表） |
-| 最終出力 | `output/`（例: `output/translated.srt`） | Step 8 統合後に生成 |
+| 最終出力 | `output/`（例: `output/translated.srt`） | Step 9 統合後に生成 |
 
 ## 工程と入出力
 
-実行順は 1→9。各工程は「読むファイル」だけを読み、「更新してよいファイル」
+実行順は 1→10。各工程は「読むファイル」だけを読み、「更新してよいファイル」
 だけを書く。プロンプトは対応する `prompts/NN-*.md` を使う。
 
 | 工程 | プロンプト | 読む | 更新してよい |
@@ -34,22 +34,79 @@ Claude Code / Cowork から直接実行できるファイル一式として再�
 | 1 Director | `01-director.md` | input, project-config | `work/01-global-analysis.json` |
 | 2 Character | `02-character-analysis.md` | input, 01, project-config | `work/02-character-analysis.json`, `work/scene-context.yaml`, `work/unresolved-items.yaml` |
 | 3 Glossary | `03-glossary.md` | input, 01, 02, 公式資料 | `work/03-glossary.json`, `work/unresolved-items.yaml` |
-| 4 Translate | `04-translate.md` | input, 01–03, constraints, 前バッチ確定訳 | `work/04-translation/batch-*.json` |
-| 5 Semantic Review | `05-semantic-review.md` | 04 の当該バッチ, 01–03 | `work/05-semantic-review/batch-*.json` |
-| 6 Voice Review | `06-voice-consistency-review.md` | 05 通過訳, 02, 03 | `work/06-voice-review/batch-*.json` |
-| 7 Polish | `07-polish-ja.md` | 06 通過訳, 01–03 | `work/07-polish/batch-*.json` |
-| 8 Timing | `08-timing-adjust.md` | 07 通過訳＋timecode, constraints | `work/08-timing/batch-*.json`, `output/translated.srt` |
-| 9 Final Audit | `09-final-audit.md` | output 全件, 01–03, unresolved | `work/09-final-audit.json` |
+| 4 Pre-translation Check ★ゲート | `04-pretranslation-check.md` | 01–03, unresolved, 外部資料（映像・コンテ等） | `work/04-pilot/`, `work/04-native-check.json`, `work/04-decision-sheet.md`, 01–03 への反映（revision_history 付き） |
+| 5 Translate | `05-translate.md` | input, 01–04, constraints, 前バッチ確定訳 | `work/05-translation/batch-*.json` |
+| 6 Semantic Review | `06-semantic-review.md` | 05 の当該バッチ, 01–03 | `work/06-semantic-review/batch-*.json` |
+| 7 Voice Review | `07-voice-consistency-review.md` | 06 通過訳, 02, 03 | `work/07-voice-review/batch-*.json` |
+| 8 Polish | `08-polish-ja.md` | 07 通過訳, 01–03 | `work/08-polish/batch-*.json` |
+| 9 Timing | `09-timing-adjust.md` | 08 通過訳＋timecode, constraints | `work/09-timing/batch-*.json`, `output/translated.srt` |
+| 10 Final Audit | `10-final-audit.md` | output 全件, 01–04, unresolved | `work/10-final-audit.json` |
 
-Step 4〜7 はバッチ単位のパイプラインで、バッチごとに 4→5→6→7 を通してから
+Step 5〜8 はバッチ単位のパイプラインで、バッチごとに 5→6→7→8 を通してから
 次のバッチへ進む（前方文脈に「磨き済み確定訳」を使えるようにするため）。
-Step 8 は全バッチ確定後に実行する。
+Step 9 は全バッチ確定後に実行する。
+
+## 翻訳前検証ゲート（Step 4）
+
+Step 4 は**全編翻訳の前に人間の確認を挟むゲート**であり、他工程と違い
+ユーザーとの往復を前提とする。運用実績上、固有名詞のカタカナ表記・人物の
+口調の印象・SDH 記号（`[効果音]` 等）の扱いは、翻訳後に指摘されると全編の
+修正になるため、ここで確定させる。
+
+1. 固有名詞表記の傍証探索（外部資料の優先順位: 公式日本語資料 ＞ 映像の
+   音声・画面内テキスト ＞ 他言語公式字幕 ＞ ファン wiki ＞ 推測）、
+   unresolved-items の解決試行、SDH 方針の確認を行う。
+   外部資料は `project-config.yaml` の `external_references` に列挙する。
+2. 代表 1〜2 バッチのパイロット翻訳（Step 5〜8 のミニラン、成果物は
+   `work/04-pilot/` のみ）を行い、**別文脈のエージェント**が日本語のみを
+   読むネイティブチェックを実施する。
+3. 結果を `work/04-decision-sheet.md`（`templates/decision-sheet.md` 準拠、
+   `status: pending`）に集約してユーザーへ提示する。
+4. **blocker が未回答のうちは Step 5 を開始しない。** 回答を 01–03 の成果物へ
+   反映（revision_history 追記）し、`status: approved` にしてから進む。
+   パイロット訳は破棄し、本番は batch-000 から流し直す。
+
+`project-config.yaml` の `pipeline.enable_pretranslation_check: false` で
+スキップできる（サンプル検証や再実行時など、確認事項が既知の場合のみ推奨）。
+
+## シリーズ（複数ファイル）運用
+
+続き物を複数ファイルまとめて訳す場合、`project-config.yaml` の
+`series.enabled: true` にし、`series.episodes` に `{id, input}` を列挙する
+（既定は単一ファイル）。分析を全話で共有し、翻訳をファイル単位で回す。
+
+- **Step 1–4 はシリーズ全体で 1 回**実行し、成果物は `work/_shared/` に置く
+  （`01`〜`03` の JSON、`scene-context.yaml`、`unresolved-items.yaml`、Step 4 の
+  `04-decision-sheet.md`・`04-native-check.json`・`04-pilot/`）。Step 1 は
+  全話をサンプリングして読み、読んだ範囲を `analysis_coverage` に記録する。
+  decision sheet（ゲート）はシリーズで 1 枚。パイロットは代表エピソード
+  （`series.priority_episodes` があればそこ）から選ぶ。
+- **Step 5–10 はエピソード単位のループ**で、成果物は `work/<episode_id>/`
+  （例: `work/ep01/05-translation/batch-000.json`）、出力は
+  `output/<episode_id>.srt`（入力の拡張子・形式に従う）。
+- **evidence_ids / valid_range の表記**: シリーズモードでは `ep02/sub:45`
+  （エピソード id プレフィックス＋スラッシュ）を用いる。character_arc の phase
+  境界がエピソード境界と一致する場合は
+  `valid_range: "ep03/sub:1-ep05/sub:999"` のような跨ぎ表記も可。
+- **エピソード間の一貫性**: 翻訳中に発見した profile/glossary 更新
+  （`new_findings`・`profile_revision_candidates` 等）は `work/_shared/` の
+  成果物へ反映し、以後のエピソードに効かせる。バッチ間と同じく
+  **エピソード間も直列**（前エピソードの profile 更新を次に効かせるため、
+  並列化しない）。**反映済みエピソードへの遡及影響**は
+  `work/_shared/unresolved-items.yaml` に記録し、シリーズ横断監査で検査する。
+- **シリーズ横断監査**: 各エピソードの Step 10 に加え、全エピソード完了後に
+  横断の最終監査を 1 回行う（glossary・phrase_map・一人称・印象ドリフトを
+  エピソード間で照合）。出力は `work/_shared/series-final-audit.json`。書式は
+  エピソード単位の `10-final-audit` と同じで、`affected_ids` にエピソード
+  プレフィックスを付ける。
+- **中断・再開**: エピソード単位で完成を判定し（`output/<id>.srt` と当該
+  `work/<id>/` が揃っているか）、完成済みエピソードはスキップする。
 
 ## 不変条件（全工程共通）
 
 1. **元字幕を変更しない**: `input/` 配下は読み取り専用。
 2. **ID と timecode を保持する**: ID は文字列として保持し、順序・欠番を変えない。
-   timecode を変更できるのは Step 8 の `end_time` 延長のみ（`start_time` 不変・
+   timecode を変更できるのは Step 9 の `end_time` 延長のみ（`start_time` 不変・
    重なり禁止）。
 3. **原文を改変しない**: `original` フィールドは常に入力の完全なエコー。
 4. **件数検証**: 各バッチ工程の出力後、`item_count == items.length ==` 入力件数、
@@ -60,7 +117,7 @@ Step 8 は全バッチ確定後に実行する。
    `project-config.yaml` の `subtitle_format` で指定）。**ASS は未対応**のため、
    事前に `srt_tools.py convert` 等で SRT/VTT へ変換してから投入する。
    ASS 由来の話者欄情報がある場合は Step 2 の speaker map の初期値として使う。
-   出力字幕の改行は Step 8 の `line_broken_text` を使う。
+   出力字幕の改行は Step 9 の `line_broken_text` を使う。
 6. **低確信度の記録**: confidence: low の推測はすべて
    `work/unresolved-items.yaml` に記録する。後続工程はそれを事実として扱わない。
 7. **人物設定を無断で確定しない**: 話者・性別・関係が不明な場合、`unknown` の
@@ -68,18 +125,18 @@ Step 8 は全バッチ確定後に実行する。
 
 ## profile / glossary の更新手順
 
-翻訳中（Step 4）や監査中（Step 6）に人物・用語の新情報を発見した場合:
+翻訳中（Step 5）や監査中（Step 7）に人物・用語の新情報を発見した場合:
 
 1. その場では **profile / glossary を直接書き換えない**。
-   Step 4 は `new_findings`、Step 6 は `profile_revision_candidates` に記録する。
+   Step 5 は `new_findings`、Step 7 は `profile_revision_candidates` に記録する。
 2. バッチ完了ごと（または数バッチごと）に、蓄積した候補をレビューし、
    採用するものを `work/02-character-analysis.json` / `work/03-glossary.json` に
    反映する。
 3. 反映時は必ず該当エントリの `revision_history` に
    `{date, changed_by, field, from, to, reason}` を追記する（変更履歴を残す）。
 4. 反映した変更が**既に翻訳済みのバッチ**に影響する場合、影響範囲の ID を
-   `work/unresolved-items.yaml` に記録し、Step 9 の検査対象とする
-   （大きい変更なら該当バッチを 4〜7 で再実行する）。
+   `work/unresolved-items.yaml` に記録し、Step 10 の検査対象とする
+   （大きい変更なら該当バッチを 5〜8 で再実行する）。
 
 **優先順位**: 公式訳（project-config の official_references）＞ glossary
 （official > confirmed > provisional）＞ character profile ＞ 各工程の裁量。
@@ -93,7 +150,7 @@ Claude が一度に全字幕を扱えない場合（通常そうする）、
 
 各バッチのプロンプトに含めるもの:
 
-- 前方の**確定訳**（`preceding_context_lines` 行。Step 7 まで通った訳を優先）
+- 前方の**確定訳**（`preceding_context_lines` 行。Step 8 まで通った訳を優先）
 - 現在の翻訳対象（`current_batch`）
 - 後方の**原文 preview**（`following_context_lines` 行）
 - 該当範囲の scene context（`work/scene-context.yaml` から）
@@ -115,20 +172,22 @@ Claude が一度に全字幕を扱えない場合（通常そうする）、
 | 1 Director | Opus | high | 全体像の把握と方針決定。1 回きりで影響が全工程に及ぶ |
 | 2 Character | Opus | high | 最も推論負荷が高い（話者同定・人物設計）。品質が翻訳全体を決める |
 | 3 Glossary | Sonnet | medium | 抽出中心。判断は 1–2 の成果物に依拠できる |
-| 4 Translate | Sonnet | high | 品質と分量のバランス。難所（皮肉・関係変化の山場）だけ Opus に切り替えてもよい |
-| 5 Semantic Review | Sonnet | medium | 意味照合はパターン化されている。翻訳と**別のエージェント文脈**で行うこと（自己審査を避ける） |
-| 6 Voice Review | Sonnet | medium | profile との照合が中心。同じく翻訳と別文脈で |
-| 7 Polish | Opus | medium | 日本語の質感の最終責任。差分は小さいが感度が要る |
-| 8 Timing | Haiku | low | 文字数・CPS・改行の機械的検査。ロジック中心で安価に大量処理 |
-| 9 Final Audit | Opus | high | 作品全体の横断検査。文脈量が最大 |
+| 4 Pre-translation Check | Opus | high | 外部資料の照会・判断の集約。誤ると全編に波及する（ネイティブチェック担当は別文脈の Opus / medium） |
+| 5 Translate | Sonnet | high | 品質と分量のバランス。難所（皮肉・関係変化の山場）だけ Opus に切り替えてもよい |
+| 6 Semantic Review | Sonnet | medium | 意味照合はパターン化されている。翻訳と**別のエージェント文脈**で行うこと（自己審査を避ける） |
+| 7 Voice Review | Sonnet | medium | profile との照合が中心。同じく翻訳と別文脈で |
+| 8 Polish | Opus | medium | 日本語の質感の最終責任。差分は小さいが感度が要る |
+| 9 Timing | Haiku | low | 文字数・CPS・改行の機械的検査。ロジック中心で安価に大量処理 |
+| 10 Final Audit | Opus | high | 作品全体の横断検査。文脈量が最大 |
 
 運用上の注意:
 
-- Step 4 と Step 5/6 を**同一エージェントの同一文脈で続けて実行しない**
-  （自分の訳を自分で審査すると検出率が下がる）。
-- バッチ間の直列依存（前方確定訳）があるため、Step 4〜7 の**バッチ並列化は
-  行わない**。並列化してよいのは Step 9 の検査項目別分割と、
-  Step 2 の人物別 profile 深掘りのみ。
+- Step 5 と Step 6/7 を**同一エージェントの同一文脈で続けて実行しない**
+  （自分の訳を自分で審査すると検出率が下がる）。Step 4 のネイティブチェックも
+  パイロット翻訳と別文脈で行う。
+- バッチ間の直列依存（前方確定訳）があるため、Step 5〜8 の**バッチ並列化は
+  行わない**。並列化してよいのは Step 10 の検査項目別分割と、
+  Step 2 の人物別 profile 深掘り、Step 4 の表記検証（語別）のみ。
 - 文字数計算・件数検証・SRT 入出力のような機械処理は LLM にやらせず、
   Python スクリプト（Bash 実行）で行う。判断だけをエージェントに残す。
 
@@ -139,17 +198,17 @@ Claude が一度に全字幕を扱えない場合（通常そうする）、
   入力と同数・同 ID・同順で出力し直すこと」を追記する。
 - **工程の途中で中断した場合**: `work/` の該当ディレクトリを見て最後に完成した
   バッチを特定し、次のバッチから再開する（完成済みバッチは再実行しない）。
-- **上流成果物（01〜03）を修正した場合**: 影響する下流バッチのみ 4〜7 を
+- **上流成果物（01〜03）を修正した場合**: 影響する下流バッチのみ 5〜8 を
   再実行する。どの範囲に影響するかは glossary/profile の evidence_ids から
-  判定し、判断に迷ったら Step 9 を先に流して findings で特定する。
+  判定し、判断に迷ったら Step 10 を先に流して findings で特定する。
 
 ## クイックスタート（コマンドが使える環境）
 
 ```
-/analyze-subtitles input/source.srt      # Step 1–3
-/translate-subtitles                     # Step 4–7（バッチループ）
-/review-subtitles                        # Step 8–9 と出力生成
-/run-full-pipeline input/source.srt      # 上記すべて
+/analyze-subtitles input/source.srt      # Step 1–4（分析＋翻訳前検証ゲート）
+/translate-subtitles                     # Step 5–8（バッチループ。ゲート承認が前提）
+/review-subtitles                        # Step 9–10 と出力生成
+/run-full-pipeline input/source.srt      # 上記すべて（ゲートで停止して確認）
 ```
 
 `.claude/commands` が使えない環境では、上の「工程と入出力」の表の順に、

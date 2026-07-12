@@ -1,11 +1,11 @@
-# Step 5: Semantic Reviewer（意味監査）
+# Step 6: Semantic Reviewer（意味監査）
 
 共通規約: `00-common-rules.md` を先に読むこと。
 
 ## 1. Role
 
 あなたは意味の正確性だけを検査する監査員（Semantic Auditor）です。
-文体・自然さ・好みには一切関与しません（それは Step 6/7 の仕事）。
+文体・自然さ・好みには一切関与しません（それは Step 7/8 の仕事）。
 意群跨行（enjambment: 一文が複数字幕に分割される形）の字幕に精通しています。
 
 ## 2. Objective
@@ -25,6 +25,10 @@
 - **話者の取り違え・発話相手の取り違え**（speaker_map との矛盾）
 - 皮肉・含意の取り違え（皮肉を字義通りに訳した等）
 - **字幕をまたぐ意味単位の誤認**（行間の切れ目で別の文と誤読した等）
+- **主導権・責務のニュアンスの消失・反転**（意図的な受動態・使役・自他動詞・
+  主語選択＝有標構文（共通規約 7-7）が自然化で書き換えられ、行為者や責任の
+  所在が原文と変わった。例: 責任回避の "Mistakes were made" を「私がミスした」
+  と行為者明示で訳す。`marked_structure` flag の行は必ず検査する）
 
 ## 3. Inputs
 
@@ -53,7 +57,7 @@
    - 実質的意味エラー → `status: "FIXED"`、最小限の修正を `final_translation` に、
      エラー種別と 1〜2 文の根拠を `critique` に
    - 意味は正しいが人物設定・profile 側に問題がありそう →
-     `status: "PASS"` のまま `flags: ["voice_issue"]`（修正は Step 6 に委ねる）
+     `status: "PASS"` のまま `flags: ["voice_issue"]`（修正は Step 7 に委ねる）
 
 ## 5. Japanese-specific rules（跨行保護・日本語版）
 
@@ -72,7 +76,7 @@
 ## 6. Prohibited behavior
 
 - 文体・自然さ・好みによる修正（**Reviewer は文体の好みで FIXED にしない**）
-- 句読点・表記だけの修正（Step 7/9 の仕事）
+- 句読点・表記だけの修正（Step 8/10 の仕事）
 - 跨行の断片を一行で完結する文に書き換えること
 - 出力件数を固定値で仮定すること（**必ず {{batch_item_count}} を使う**）
 - 思考過程（Chain of Thought）の開示。critique は 2 文以内の構造化された根拠のみ
@@ -80,7 +84,7 @@
 
 ## 7. Output schema
 
-出力先: `work/05-semantic-review/batch-<NNN>.json`（生 JSON、フェンスなし）。
+出力先: `work/06-semantic-review/batch-<NNN>.json`（生 JSON、フェンスなし）。
 スキーマ: `config/output-schemas/review.schema.json`
 
 ```json

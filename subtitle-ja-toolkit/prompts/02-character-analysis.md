@@ -11,6 +11,12 @@ Director（Step 1）と Glossary（Step 3）の間に置きます。
 各人物の日本語発話スタイル（一人称・呼称・敬語・文末・語彙・感情変化）を
 **字幕中の証拠に基づいて**設計します。
 
+人物は単独で存在しない。Step 1 の `world_and_atmosphere`（作品の前提・
+空気感・緊張構造・笑いの質）を先に読み、各人物を**その構造の中の役割**として
+設計すること（例: 緊張を作る側か緩める側か、作品の落差演出のどちら側を
+担うか）。人物の口調はその役割を日本語で実現する手段であり、
+`world_and_atmosphere` と矛盾する profile を作らない。
+
 ## 2. Objective
 
 次の 6 つの成果物を生成すること。
@@ -27,7 +33,7 @@ Director（Step 1）と Glossary（Step 3）の間に置きます。
 | 変数 | 内容 | 欠けている場合 |
 |---|---|---|
 | `{{subtitle_content}}` | 全字幕（ID 付き） | 必須 |
-| `{{global_style_guide}}` | Step 1 の出力 | 中立的な基準で分析し、その旨を記録 |
+| `{{global_style_guide}}` | Step 1 の出力（`world_and_atmosphere` 含む） | 中立的な基準で分析し、その旨を記録 |
 | `{{project_config}}` | 公式設定資料・キャスト情報 | 字幕のみから推定 |
 | `{{speaker_map}}` | 既存の話者情報（ASS の話者欄等） | 字幕から推定し confidence を付ける |
 
@@ -58,6 +64,18 @@ Director（Step 1）と Glossary（Step 3）の間に置きます。
 
 **基本属性**: 物語上の役割 / 年齢層 / 社会的立場 / 相手との上下関係 / 性格 /
 公的な態度 / 私的な態度 / 感情表出の程度 / gender（`gender_confidence` 付き）
+
+**知的水準・言語運用（speech_register）**: 語彙の高さ・構文の複雑さ・話術・
+得意分野は人物の声の一部であり、**全員を作品平均の知的水準・流暢さに均さない**。
+- `intellect_vocabulary`: 語彙の水準と質（衒学的／専門的／平易／幼い 等）
+- `articulateness`: 話術（弁が立つ ↔ 口下手。口下手なら言いよどみ・言いさし・
+  単純な構文・沈黙をどう使うかまで書く）
+- `domain_expertise`: 得意分野と、その言語上の現れ方（専門用語を正確に使う、
+  その話題になると急に饒舌になる 等）
+- `emotional_speech`: 感情が高ぶった場面での言語運用の変化（口下手が加速して
+  途切れる／インテリは怒りも理屈で組み立てる／慈愛の人は叱る時も柔らかい語彙、
+  等。emotion_rules と整合させる）
+すべて evidence_ids 必須。証拠がなければ null のまま。
 
 **一人称（first_person_rules）**: 一つに固定せず、場面別に定義する。
 `default` / `formal` / `casual` / `intimate` / `angry` / `frightened` /
@@ -96,6 +114,23 @@ frightened / grieving / sarcastic / authoritative / deceptive / exhausted`
 文末・呼称の変化・句読点/感嘆符の扱いを記述する。
 **字幕に証拠がない感情状態は無理に作らず `"not_observed"` とする。**
 
+**人物の変化・成長（character_arc）**: profile の各規則は「冒頭数場面の印象」
+ではなく**全編を読み終えたうえでの設計**とする。主人公・メインキャラクターでは
+人物像の変化（例: 気弱で及び腰 → 終盤は気丈に言い切る、傲慢 → 謙虚）が
+**物語として典型的**なので、変化の有無を必ず検査する。
+
+- 変化がある場合、`phases` に分割し、各 phase の `valid_range`（字幕 ID 範囲）・
+  `voice_changes`（default 規則から何がどう変わるか。例: ためらい表現
+  「あの…/たぶん」の頻度低下、言い切り文末の増加、一人称の切替）・
+  `evidence_ids` を記す。default の規則には**どの phase でも変わらない芯**
+  だけを書き、phase による上書きと区別する。
+- 変化がなければ `character_arc: null`（無理に作らない）。
+- phase 境界が曖昧なら `boundary_notes` に low confidence で記録し、
+  unresolved list へ転記する。
+- 感情による一時的な揺れ（emotion_rules）と、基準線そのものの移動
+  （character_arc）を混同しない。同じ「強い言い切り」でも、怒りの場面での
+  一時的なものか、成長後の新しい平常運転かで扱いが異なる。
+
 ### 4.3 relationship map
 
 話者×相手の組ごとに: `relationship` / `power_balance` / `public_register` /
@@ -121,6 +156,7 @@ confidence が `low` の推測、候補が複数残る話者同定、性別・�
 
 ## 6. Prohibited behavior
 
+- 冒頭数場面の印象で全編の口調を固定すること（変化・成長の検査を省くこと）
 - 話者不明の字幕に話者を断定して割り当てること
 - 原文にない性別・関係・設定を fact として書くこと
 - 思考過程の長文開示（根拠は evidence_ids と短い note で示す）

@@ -1,4 +1,4 @@
-# Step 8: Timing and Line-Break Adjuster（表示時間・改行調整）
+# Step 9: Timing and Line-Break Adjuster（表示時間・改行調整）
 
 共通規約: `00-common-rules.md` を先に読むこと。
 
@@ -45,7 +45,7 @@
    a. `next_line_start_time - min_gap_ms` まで `end_time` を延長できるか確認
       （**start_time は不変。重なり禁止**）。
    b. 延長しても超過する場合、`flags: ["needs_shortening"]` を付けて報告する
-      （**勝手に訳文を縮めない**。縮約は Step 7 への差し戻し事項）。
+      （**勝手に訳文を縮めない**。縮約は Step 8 への差し戻し事項）。
    c. 最終行（next_line なし）は `max_extension_ms` まで延長可。
 3. `min_duration_ms` 未満の行も同じ手順で延長を検討する。
 4. 改行検査: `max_chars_per_line` 超過、または上記の禁止分断がある行は、
@@ -74,7 +74,7 @@
 
 ## 7. Output schema
 
-出力先: `work/08-timing/batch-<NNN>.json`（生 JSON、フェンスなし）。
+出力先: `work/09-timing/batch-<NNN>.json`（生 JSON、フェンスなし）。
 
 ```json
 {

@@ -1,15 +1,15 @@
-# Step 6: Japanese Voice and Consistency Reviewer（口調・一貫性監査）
+# Step 7: Japanese Voice and Consistency Reviewer（口調・一貫性監査）
 
 共通規約: `00-common-rules.md` を先に読むこと。
 この工程は元 C# 実装には存在しない、日本語字幕向けの新設工程です。
-Step 5 が「意味」を守るのに対し、Step 6 は「人物の声」を守ります。
+Step 6 が「意味」を守るのに対し、Step 7 は「人物の声」を守ります。
 
 ## 1. Role
 
 あなたは日本語台詞の口調監査員です。訳文が character profile と
 relationship map に定義された「その人物の話し方」に一致しているか、
-人物内・人物間で一貫しているかだけを検査します。意味の検査（Step 5）と
-表現の磨き（Step 7）には踏み込みません。
+人物内・人物間で一貫しているかだけを検査します。意味の検査（Step 6）と
+表現の磨き（Step 8）には踏み込みません。
 
 ## 2. Objective
 
@@ -19,6 +19,11 @@ relationship map に定義された「その人物の話し方」に一致して
 - 二人称・呼称の不一致（relationship map の address と異なる）
 - 敬語関係の逆転（部下が上司にタメ口になっている等、設定にない逆転）
 - 人物らしくない語彙（prohibited_vocabulary の使用、preferred の無視）
+- 知的水準・話術の不一致（`speech_register` 違反: 平易に喋る人物に漢語・
+  抽象語、衒学的な人物の台詞の平易化、口下手な人物が流暢に長い構文を操る、
+  得意分野で専門用語が素人向けに言い換えられている）
+- 感情表現が人物の言語運用と乖離（`emotional_speech` 違反: 口下手が感情の
+  高ぶりで急に雄弁になる、慈愛の人物が叱る場面で硬く冷たい語彙になる 等）
 - 人物らしくない文末（sentence_ending_rules 違反、禁止語尾の使用）
 - 感情と口調の不一致（emotion_rules と矛盾。例: 激怒場面で平然とした丁寧語 ※profile が「怒っても敬語」型なら逆に維持が正しい）
 - 決め台詞の揺れ（phrase_map の default/allowed_variants から逸脱）
@@ -26,14 +31,19 @@ relationship map に定義された「その人物の話し方」に一致して
 - 原文にない役割語（profile に根拠のない「だわ/かしら/じゃ」等）
 - 不自然な「あなた」・不要な主語・不要な人称代名詞
 - 性別だけを根拠にした語尾
-- 同じ人物内の口調の揺れ（バッチ内・前方確定訳との比較）
+- 同じ人物内の口調の揺れ（バッチ内・前方確定訳との比較。ただし
+  `character_arc` の phase 境界をまたぐ比較では、arc に整合する変化を
+  揺れとして扱わない）
 - 人物関係の変化を反映していない呼称（relationship map の valid_range 違反）
+- 人物の変化・成長を反映していない口調（`character_arc` の現 phase と異なる
+  phase の規則で訳されている。例: 気丈になったはずの終盤で序盤のためらい
+  口調のまま）
 
 ## 3. Inputs
 
 | 変数 | 内容 | 欠けている場合 |
 |---|---|---|
-| `{{current_batch}}` | Step 5 通過後の `{id, original, text, speaker_id, listener_id, emotion}` | 必須 |
+| `{{current_batch}}` | Step 6 通過後の `{id, original, text, speaker_id, listener_id, emotion}` | 必須 |
 | `{{character_profiles}}` / `{{relationship_map}}` / `{{phrase_map}}` | 判定基準 | **profile がない人物は検査対象外**とし `skipped_no_profile` を付ける（勝手に口調を発明しない） |
 | `{{speaker_map}}` | 話者確認 | speaker_id 未付与の行は「不要主語・役割語・あなた」の一般検査のみ行う |
 | `{{preceding_context}}` | 前方確定訳（口調の連続性比較用） | バッチ内のみで比較 |
@@ -44,6 +54,8 @@ relationship map に定義された「その人物の話し方」に一致して
 
 1. 各行の speaker_id / listener_id / emotion を確認し、該当する profile・
    relationship エントリ（valid_range が現在の字幕 ID を含むもの）を引く。
+   profile に `character_arc` がある人物は、現在の字幕 ID が属する phase の
+   `voice_changes` を default 規則に上書きしたものを照合基準にする。
 2. 上記 15 観点をチェックする。判定は必ず profile / relationship map /
    phrase_map の**具体的な規則**を根拠にする（自分の好みを根拠にしない）。
 3. 違反があれば、意味を変えない最小修正を `revised_text` に書く。
@@ -65,7 +77,9 @@ relationship map に定義された「その人物の話し方」に一致して
 
 ## 6. Prohibited behavior
 
-- 意味を変える修正（意味の疑義は Step 5 へ差し戻す flag を付ける）
+- `character_arc` で説明できる変化（成長・心境の転換）を「揺れ」として
+  序盤の口調へ引き戻すこと（arc の phase 判定を先に確認する）
+- 意味を変える修正（意味の疑義は Step 6 へ差し戻す flag を付ける）
 - profile に根拠のない修正（「もっとらしくなる」は根拠ではない）
 - profile がない人物への口調付与
 - profile の書き換え（revision candidate の報告のみ可）
@@ -73,7 +87,7 @@ relationship map に定義された「その人物の話し方」に一致して
 
 ## 7. Output schema
 
-出力先: `work/06-voice-review/batch-<NNN>.json`（生 JSON、フェンスなし）。
+出力先: `work/07-voice-review/batch-<NNN>.json`（生 JSON、フェンスなし）。
 スキーマ: `config/output-schemas/review.schema.json`（review type: voice）
 
 ```json

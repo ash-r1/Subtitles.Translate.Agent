@@ -2,53 +2,156 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Step 2: Speaker and Character Analysis Output",
   "type": "object",
-  "required": ["speaker_map", "character_profiles", "relationship_map", "unresolved_inferences"],
+  "required": [
+    "speaker_map",
+    "character_profiles",
+    "relationship_map",
+    "unresolved_inferences"
+  ],
   "additionalProperties": false,
   "$defs": {
-    "confidence": {"enum": ["high", "medium", "low"]},
-    "evidenceIds": {"type": "array", "items": {"type": "string", "pattern": "^sub:[0-9]+(-[0-9]+)?$"}},
+    "confidence": {
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "evidenceIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^sub:[0-9]+(-[0-9]+)?$"
+      }
+    },
     "attributedValue": {
       "type": "object",
-      "required": ["value", "basis"],
+      "required": [
+        "value",
+        "basis"
+      ],
       "properties": {
-        "value": {"type": ["string", "null"]},
-        "basis": {"enum": ["fact", "inference"]},
-        "confidence": {"$ref": "#/$defs/confidence"},
-        "evidence_ids": {"$ref": "#/$defs/evidenceIds"}
+        "value": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "basis": {
+          "enum": [
+            "fact",
+            "inference"
+          ]
+        },
+        "confidence": {
+          "$ref": "#/$defs/confidence"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/evidenceIds"
+        }
       }
     },
     "registerVariants": {
       "type": "object",
       "description": "場面キー → 表現。値が null なら未定義、'省略' は正当な値",
       "properties": {
-        "default": {"type": ["string", "null"]},
-        "formal": {"type": ["string", "null"]},
-        "casual": {"type": ["string", "null"]},
-        "intimate": {"type": ["string", "null"]},
-        "angry": {"type": ["string", "null"]},
-        "frightened": {"type": ["string", "null"]},
-        "comic": {"type": ["string", "null"]},
-        "self_directed": {"type": ["string", "null"]},
-        "public_speech": {"type": ["string", "null"]}
+        "default": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "formal": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "casual": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "intimate": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "angry": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "frightened": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "comic": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "self_directed": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "public_speech": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       },
-      "required": ["default"]
+      "required": [
+        "default"
+      ]
     },
     "emotionStyle": {
       "oneOf": [
-        {"const": "not_observed"},
+        {
+          "const": "not_observed"
+        },
         {
           "type": "object",
           "properties": {
-            "sentence_length": {"type": "string"},
-            "vocabulary": {"type": "string"},
-            "politeness": {"type": "string"},
-            "assertiveness": {"type": "string"},
-            "ellipsis_tendency": {"type": "string"},
-            "hesitation": {"type": "string"},
-            "sentence_ending": {"type": "string"},
-            "address_shift": {"type": "string"},
-            "punctuation": {"type": "string"},
-            "evidence_ids": {"$ref": "#/$defs/evidenceIds"}
+            "sentence_length": {
+              "type": "string"
+            },
+            "vocabulary": {
+              "type": "string"
+            },
+            "politeness": {
+              "type": "string"
+            },
+            "assertiveness": {
+              "type": "string"
+            },
+            "ellipsis_tendency": {
+              "type": "string"
+            },
+            "hesitation": {
+              "type": "string"
+            },
+            "sentence_ending": {
+              "type": "string"
+            },
+            "address_shift": {
+              "type": "string"
+            },
+            "punctuation": {
+              "type": "string"
+            },
+            "evidence_ids": {
+              "$ref": "#/$defs/evidenceIds"
+            }
           }
         }
       ]
@@ -59,16 +162,55 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "speaker", "utterance_type", "confidence"],
+        "required": [
+          "id",
+          "speaker",
+          "utterance_type",
+          "confidence"
+        ],
         "properties": {
-          "id": {"type": "string"},
-          "speaker": {"type": "string", "description": "character_id または unknown"},
-          "candidates": {"type": "array", "items": {"type": "string"}},
-          "listener": {"type": ["string", "null"]},
-          "present_characters": {"type": "array", "items": {"type": "string"}},
-          "utterance_type": {"enum": ["dialogue", "monologue", "narration", "quote", "off_screen", "song", "caption"]},
-          "confidence": {"$ref": "#/$defs/confidence"},
-          "evidence_ids": {"$ref": "#/$defs/evidenceIds"}
+          "id": {
+            "type": "string"
+          },
+          "speaker": {
+            "type": "string",
+            "description": "character_id または unknown"
+          },
+          "candidates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "listener": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "present_characters": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "utterance_type": {
+            "enum": [
+              "dialogue",
+              "monologue",
+              "narration",
+              "quote",
+              "off_screen",
+              "song",
+              "caption"
+            ]
+          },
+          "confidence": {
+            "$ref": "#/$defs/confidence"
+          },
+          "evidence_ids": {
+            "$ref": "#/$defs/evidenceIds"
+          }
         }
       }
     },
@@ -76,31 +218,147 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["character_id", "role", "first_person_rules", "politeness_rules",
-                     "sentence_ending_rules", "emotion_rules", "evidence_ids"],
+        "required": [
+          "character_id",
+          "role",
+          "first_person_rules",
+          "politeness_rules",
+          "sentence_ending_rules",
+          "emotion_rules",
+          "evidence_ids"
+        ],
         "properties": {
-          "character_id": {"type": "string"},
-          "display_names": {"type": "array", "items": {"type": "string"}},
-          "role": {"$ref": "#/$defs/attributedValue"},
-          "age_range": {"$ref": "#/$defs/attributedValue"},
-          "social_position": {"$ref": "#/$defs/attributedValue"},
-          "personality": {"$ref": "#/$defs/attributedValue"},
-          "public_demeanor": {"$ref": "#/$defs/attributedValue"},
-          "private_demeanor": {"$ref": "#/$defs/attributedValue"},
-          "emotional_expressiveness": {"$ref": "#/$defs/attributedValue"},
-          "gender": {"enum": ["male", "female", "nonbinary", "unknown", "object"]},
-          "gender_confidence": {"$ref": "#/$defs/confidence"},
-          "first_person_rules": {"$ref": "#/$defs/registerVariants"},
+          "character_id": {
+            "type": "string"
+          },
+          "display_names": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "role": {
+            "$ref": "#/$defs/attributedValue"
+          },
+          "age_range": {
+            "$ref": "#/$defs/attributedValue"
+          },
+          "social_position": {
+            "$ref": "#/$defs/attributedValue"
+          },
+          "personality": {
+            "$ref": "#/$defs/attributedValue"
+          },
+          "public_demeanor": {
+            "$ref": "#/$defs/attributedValue"
+          },
+          "private_demeanor": {
+            "$ref": "#/$defs/attributedValue"
+          },
+          "emotional_expressiveness": {
+            "$ref": "#/$defs/attributedValue"
+          },
+          "gender": {
+            "enum": [
+              "male",
+              "female",
+              "nonbinary",
+              "unknown",
+              "object"
+            ]
+          },
+          "gender_confidence": {
+            "$ref": "#/$defs/confidence"
+          },
+          "speech_register": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "description": "知的水準・言語運用。人物の声の一部であり作品平均に均さない。証拠がなければ各フィールド null",
+            "properties": {
+              "intellect_vocabulary": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "articulateness": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "domain_expertise": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "domain",
+                    "behavior"
+                  ],
+                  "properties": {
+                    "domain": {
+                      "type": "string"
+                    },
+                    "behavior": {
+                      "type": "string"
+                    },
+                    "evidence_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^sub:[0-9]+(-[0-9]+)?$"
+                      }
+                    }
+                  }
+                }
+              },
+              "emotional_speech": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "speech_quirks": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^sub:[0-9]+(-[0-9]+)?$"
+                }
+              }
+            }
+          },
+          "first_person_rules": {
+            "$ref": "#/$defs/registerVariants"
+          },
           "address_rules": {
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["listener_id", "default"],
+              "required": [
+                "listener_id",
+                "default"
+              ],
               "properties": {
-                "listener_id": {"type": "string"},
-                "default": {"type": "string"},
-                "variants": {"type": "object"},
-                "evidence_ids": {"$ref": "#/$defs/evidenceIds"}
+                "listener_id": {
+                  "type": "string"
+                },
+                "default": {
+                  "type": "string"
+                },
+                "variants": {
+                  "type": "object"
+                },
+                "evidence_ids": {
+                  "$ref": "#/$defs/evidenceIds"
+                }
               }
             }
           },
@@ -108,62 +366,244 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["listener_id", "rules"],
+              "required": [
+                "listener_id",
+                "rules"
+              ],
               "properties": {
-                "listener_id": {"type": "string"},
-                "rules": {"type": "string", "description": "観察可能な言語規則として記述"},
-                "evidence_ids": {"$ref": "#/$defs/evidenceIds"}
+                "listener_id": {
+                  "type": "string"
+                },
+                "rules": {
+                  "type": "string",
+                  "description": "観察可能な言語規則として記述"
+                },
+                "evidence_ids": {
+                  "$ref": "#/$defs/evidenceIds"
+                }
               }
             }
           },
           "sentence_ending_rules": {
             "type": "object",
             "properties": {
-              "neutral": {"type": ["string", "null"]},
-              "question": {"type": ["string", "null"]},
-              "command": {"type": ["string", "null"]},
-              "emotional_shifts": {"type": ["string", "null"]},
-              "assertion_style": {"type": ["string", "null"]},
-              "final_particles": {"type": ["string", "null"]},
-              "forbidden_endings": {"type": "array", "items": {"type": "string"}}
+              "neutral": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "question": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "command": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "emotional_shifts": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "assertion_style": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "final_particles": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "forbidden_endings": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
             }
           },
-          "preferred_vocabulary": {"type": "array", "items": {"type": "object"}},
-          "prohibited_vocabulary": {"type": "array", "items": {"type": "string"}},
+          "preferred_vocabulary": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "prohibited_vocabulary": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "catchphrases": {
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["source_phrase", "default_translation", "evidence_ids"],
+              "required": [
+                "source_phrase",
+                "default_translation",
+                "evidence_ids"
+              ],
               "properties": {
-                "source_phrase": {"type": "string"},
-                "default_translation": {"type": "string"},
-                "variants": {"type": "array", "items": {"type": "string"}},
-                "fixed_part": {"type": ["string", "null"]},
-                "flexible_part": {"type": ["string", "null"]},
-                "evidence_ids": {"$ref": "#/$defs/evidenceIds"}
+                "source_phrase": {
+                  "type": "string"
+                },
+                "default_translation": {
+                  "type": "string"
+                },
+                "variants": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "fixed_part": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "flexible_part": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence_ids": {
+                  "$ref": "#/$defs/evidenceIds"
+                }
               }
             }
           },
           "emotion_rules": {
             "type": "object",
             "properties": {
-              "neutral": {"$ref": "#/$defs/emotionStyle"},
-              "pleased": {"$ref": "#/$defs/emotionStyle"},
-              "affectionate": {"$ref": "#/$defs/emotionStyle"},
-              "embarrassed": {"$ref": "#/$defs/emotionStyle"},
-              "irritated": {"$ref": "#/$defs/emotionStyle"},
-              "angry": {"$ref": "#/$defs/emotionStyle"},
-              "frightened": {"$ref": "#/$defs/emotionStyle"},
-              "grieving": {"$ref": "#/$defs/emotionStyle"},
-              "sarcastic": {"$ref": "#/$defs/emotionStyle"},
-              "authoritative": {"$ref": "#/$defs/emotionStyle"},
-              "deceptive": {"$ref": "#/$defs/emotionStyle"},
-              "exhausted": {"$ref": "#/$defs/emotionStyle"}
+              "neutral": {
+                "$ref": "#/$defs/emotionStyle"
+              },
+              "pleased": {
+                "$ref": "#/$defs/emotionStyle"
+              },
+              "affectionate": {
+                "$ref": "#/$defs/emotionStyle"
+              },
+              "embarrassed": {
+                "$ref": "#/$defs/emotionStyle"
+              },
+              "irritated": {
+                "$ref": "#/$defs/emotionStyle"
+              },
+              "angry": {
+                "$ref": "#/$defs/emotionStyle"
+              },
+              "frightened": {
+                "$ref": "#/$defs/emotionStyle"
+              },
+              "grieving": {
+                "$ref": "#/$defs/emotionStyle"
+              },
+              "sarcastic": {
+                "$ref": "#/$defs/emotionStyle"
+              },
+              "authoritative": {
+                "$ref": "#/$defs/emotionStyle"
+              },
+              "deceptive": {
+                "$ref": "#/$defs/emotionStyle"
+              },
+              "exhausted": {
+                "$ref": "#/$defs/emotionStyle"
+              }
             }
           },
-          "evidence_ids": {"$ref": "#/$defs/evidenceIds"},
-          "unresolved_questions": {"type": "array", "items": {"type": "string"}}
+          "character_arc": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "description": "人物の変化・成長の設計。全編を読んだうえで判定し、変化が観察されない場合は null（無理に作らない）",
+            "required": [
+              "overview",
+              "phases"
+            ],
+            "properties": {
+              "overview": {
+                "type": "string",
+                "description": "変化の要約（例: 気弱で及び腰 → 終盤は自分の意志で言い切る）"
+              },
+              "phases": {
+                "type": "array",
+                "minItems": 2,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "phase_id",
+                    "valid_range",
+                    "label",
+                    "voice_changes",
+                    "evidence_ids"
+                  ],
+                  "properties": {
+                    "phase_id": {
+                      "type": "string"
+                    },
+                    "valid_range": {
+                      "type": "string",
+                      "description": "sub:1-120 形式"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "voice_changes": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "この phase で default 規則から何がどう変わるか（言語規則として）"
+                    },
+                    "evidence_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^sub:[0-9]+(-[0-9]+)?$"
+                      }
+                    },
+                    "confidence": {
+                      "enum": [
+                        "high",
+                        "medium",
+                        "low"
+                      ]
+                    }
+                  }
+                }
+              },
+              "boundary_notes": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "phase 境界の判定根拠・曖昧さ（曖昧なら low confidence + unresolved 転記）"
+              }
+            }
+          },
+          "evidence_ids": {
+            "$ref": "#/$defs/evidenceIds"
+          },
+          "unresolved_questions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
         }
       }
     },
@@ -171,37 +611,114 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["speaker_id", "listener_id", "relationship", "default_address", "evidence_ids"],
+        "required": [
+          "speaker_id",
+          "listener_id",
+          "relationship",
+          "default_address",
+          "evidence_ids"
+        ],
         "properties": {
-          "speaker_id": {"type": "string"},
-          "listener_id": {"type": "string"},
-          "relationship": {"type": "string"},
-          "power_balance": {"type": "string"},
-          "public_register": {"type": ["string", "null"]},
-          "private_register": {"type": ["string", "null"]},
-          "default_address": {"type": "string"},
-          "address_variants": {"type": "object"},
-          "first_person_variant": {"type": ["string", "null"]},
-          "changes_over_time": {"type": ["string", "null"]},
-          "valid_range": {"type": ["string", "null"], "description": "sub:1-120 形式。null は全編有効"},
-          "evidence_ids": {"$ref": "#/$defs/evidenceIds"}
+          "speaker_id": {
+            "type": "string"
+          },
+          "listener_id": {
+            "type": "string"
+          },
+          "relationship": {
+            "type": "string"
+          },
+          "power_balance": {
+            "type": "string"
+          },
+          "public_register": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "private_register": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "default_address": {
+            "type": "string"
+          },
+          "address_variants": {
+            "type": "object"
+          },
+          "first_person_variant": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "changes_over_time": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "valid_range": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "sub:1-120 形式。null は全編有効"
+          },
+          "evidence_ids": {
+            "$ref": "#/$defs/evidenceIds"
+          }
         }
       }
     },
-    "address_map": {"type": "array", "items": {"type": "object"}},
-    "phrase_map_draft": {"type": "array", "items": {"type": "object"}},
+    "address_map": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "phrase_map_draft": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
     "unresolved_inferences": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["topic", "confidence"],
+        "required": [
+          "topic",
+          "confidence"
+        ],
         "properties": {
-          "topic": {"type": "string"},
-          "current_guess": {"type": ["string", "null"]},
-          "confidence": {"$ref": "#/$defs/confidence"},
-          "candidates": {"type": "array", "items": {"type": "string"}},
-          "evidence_ids": {"$ref": "#/$defs/evidenceIds"},
-          "impact": {"type": "string"}
+          "topic": {
+            "type": "string"
+          },
+          "current_guess": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "confidence": {
+            "$ref": "#/$defs/confidence"
+          },
+          "candidates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "evidence_ids": {
+            "$ref": "#/$defs/evidenceIds"
+          },
+          "impact": {
+            "type": "string"
+          }
         }
       }
     }
