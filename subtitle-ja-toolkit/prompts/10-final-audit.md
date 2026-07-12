@@ -14,7 +14,8 @@
 作品全体を通して次を検査すること。
 
 - 人名表記・固有名詞の揺れ（glossary との全件照合）
-- 一人称・呼称・敬語の人物内一貫性（valid_range 考慮）
+- 一人称・呼称・敬語の人物内一貫性（relationship の valid_range と
+  `character_arc` の phase を考慮）
 - 決め台詞・反復表現の統一（phrase_map との照合）
 - 人物別語彙の一貫性（prohibited_vocabulary の混入）
 - 時系列による関係変化が呼称に反映されているか
@@ -30,7 +31,8 @@
   印象が profile の意図と、作品全体の空気感が `world_and_atmosphere` の意図と
   一致するか。例: 気弱設計の人物が断言調に読める、皮肉屋の台詞が弱腰に
   読める、落差が演出の作品が平坦なトーンに均されている。作品の途中で
-  印象が変質していないか）
+  印象が**意図せず**変質していないか。`character_arc` で設計された変化は
+  逆に「伝わっているか」を見る）
 
 ## 3. Inputs
 
@@ -72,8 +74,12 @@
 ## 5. Japanese-specific rules
 
 - 「揺れ」と「意図された変化」を区別する。呼称・口調の変化が relationship map
-  の changes_over_time や emotion_rules で説明できるなら、それは揺れではない。
-  findings にする前に必ず該当規則を確認する。
+  の changes_over_time、profile の emotion_rules、または `character_arc` の
+  phase 移行で説明できるなら、それは揺れではない（人物の成長・変化は
+  主人公・メインキャラクターでは物語として典型的であり、矯正対象ではない）。
+  findings にする前に必ず該当規則を確認する。逆に、arc が設計されているのに
+  phase 移行が訳文に現れていない（全編同じ口調に均されている）ことも
+  findings とする。
 - 同語異表記は作品内で多数派に統一する提案を基本とし、人物の書き分け
   （教養差の演出等）が profile にある場合は例外とする。
 

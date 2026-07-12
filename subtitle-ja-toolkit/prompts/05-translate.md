@@ -51,8 +51,11 @@
    転調の瞬間に語彙を引き締める。作品の空気感と無関係な平均的トーンに
    均してはならない）。
 4. **一人称・呼称・敬語の選択**: `{{character_profiles}}` と
-   `{{relationship_map}}` から、この話者×相手×場面×感情に合う
-   first_person / address / politeness を選ぶ。
+   `{{relationship_map}}` から、この話者×相手×場面×感情×**物語上の時点**に
+   合う first_person / address / politeness を選ぶ。profile に
+   `character_arc` がある人物は、現在バッチの ID 範囲が属する phase の
+   `voice_changes` を default 規則に上書きして適用する（成長・変化前の
+   口調を終盤まで引きずらない。逆も同じ）。
 5. **自然な日本語文の構築**: 復元した意味単位を、一度**完全な日本語の台詞**
    として組み立てる。
 6. **不要な代名詞・冗長の削除**: 共通規約 7 に従い、不要な主語・所有代名詞・

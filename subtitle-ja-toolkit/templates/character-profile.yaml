@@ -95,6 +95,33 @@ emotion_rules:
   deceptive: not_observed
   exhausted: not_observed
 
+# --- 人物の変化・成長（全編を読んでから判定。変化がなければ null のまま）---
+# 主人公・メインキャラクターでは人物像の変化（気弱→気丈 等）が物語として
+# 典型的。冒頭の印象に固執しない。上の各規則（default）には「どの phase でも
+# 変わらない芯」だけを書き、phase ごとの差分はここに書く。
+# 感情による一時的な揺れは emotion_rules、基準線そのものの移動はここ。
+character_arc: null
+# character_arc:
+#   overview: 気弱で及び腰 → 危機を経て、終盤は自分の意志で言い切る
+#   phases:
+#     - phase_id: early
+#       valid_range: "sub:1-210"
+#       label: 気弱・受け身
+#       voice_changes:
+#         - ためらい表現（「あの…」「たぶん」）が高頻度
+#         - 文末を濁す（「〜かも」「〜だと思う」）
+#       evidence_ids: ["sub:12", "sub:45-48"]
+#       confidence: high
+#     - phase_id: final
+#       valid_range: "sub:211-320"
+#       label: 気丈・能動
+#       voice_changes:
+#         - ためらい表現がほぼ消える
+#         - 言い切り文末（「〜する」「〜だ」）。命令・提案を自分から出す
+#       evidence_ids: ["sub:265", "sub:301-305"]
+#       confidence: medium
+#   boundary_notes: 境界は sub:210 前後の対決場面。厳密な転換点は low confidence
+
 evidence_ids: []              # profile 全体の主根拠
 unresolved_questions: []
 

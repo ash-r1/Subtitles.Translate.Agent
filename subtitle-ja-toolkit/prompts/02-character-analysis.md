@@ -102,6 +102,23 @@ frightened / grieving / sarcastic / authoritative / deceptive / exhausted`
 文末・呼称の変化・句読点/感嘆符の扱いを記述する。
 **字幕に証拠がない感情状態は無理に作らず `"not_observed"` とする。**
 
+**人物の変化・成長（character_arc）**: profile の各規則は「冒頭数場面の印象」
+ではなく**全編を読み終えたうえでの設計**とする。主人公・メインキャラクターでは
+人物像の変化（例: 気弱で及び腰 → 終盤は気丈に言い切る、傲慢 → 謙虚）が
+**物語として典型的**なので、変化の有無を必ず検査する。
+
+- 変化がある場合、`phases` に分割し、各 phase の `valid_range`（字幕 ID 範囲）・
+  `voice_changes`（default 規則から何がどう変わるか。例: ためらい表現
+  「あの…/たぶん」の頻度低下、言い切り文末の増加、一人称の切替）・
+  `evidence_ids` を記す。default の規則には**どの phase でも変わらない芯**
+  だけを書き、phase による上書きと区別する。
+- 変化がなければ `character_arc: null`（無理に作らない）。
+- phase 境界が曖昧なら `boundary_notes` に low confidence で記録し、
+  unresolved list へ転記する。
+- 感情による一時的な揺れ（emotion_rules）と、基準線そのものの移動
+  （character_arc）を混同しない。同じ「強い言い切り」でも、怒りの場面での
+  一時的なものか、成長後の新しい平常運転かで扱いが異なる。
+
 ### 4.3 relationship map
 
 話者×相手の組ごとに: `relationship` / `power_balance` / `public_register` /
@@ -127,6 +144,7 @@ confidence が `low` の推測、候補が複数残る話者同定、性別・�
 
 ## 6. Prohibited behavior
 
+- 冒頭数場面の印象で全編の口調を固定すること（変化・成長の検査を省くこと）
 - 話者不明の字幕に話者を断定して割り当てること
 - 原文にない性別・関係・設定を fact として書くこと
 - 思考過程の長文開示（根拠は evidence_ids と短い note で示す）

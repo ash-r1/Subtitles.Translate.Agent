@@ -26,8 +26,13 @@ relationship map に定義された「その人物の話し方」に一致して
 - 原文にない役割語（profile に根拠のない「だわ/かしら/じゃ」等）
 - 不自然な「あなた」・不要な主語・不要な人称代名詞
 - 性別だけを根拠にした語尾
-- 同じ人物内の口調の揺れ（バッチ内・前方確定訳との比較）
+- 同じ人物内の口調の揺れ（バッチ内・前方確定訳との比較。ただし
+  `character_arc` の phase 境界をまたぐ比較では、arc に整合する変化を
+  揺れとして扱わない）
 - 人物関係の変化を反映していない呼称（relationship map の valid_range 違反）
+- 人物の変化・成長を反映していない口調（`character_arc` の現 phase と異なる
+  phase の規則で訳されている。例: 気丈になったはずの終盤で序盤のためらい
+  口調のまま）
 
 ## 3. Inputs
 
@@ -44,6 +49,8 @@ relationship map に定義された「その人物の話し方」に一致して
 
 1. 各行の speaker_id / listener_id / emotion を確認し、該当する profile・
    relationship エントリ（valid_range が現在の字幕 ID を含むもの）を引く。
+   profile に `character_arc` がある人物は、現在の字幕 ID が属する phase の
+   `voice_changes` を default 規則に上書きしたものを照合基準にする。
 2. 上記 15 観点をチェックする。判定は必ず profile / relationship map /
    phrase_map の**具体的な規則**を根拠にする（自分の好みを根拠にしない）。
 3. 違反があれば、意味を変えない最小修正を `revised_text` に書く。
@@ -65,6 +72,8 @@ relationship map に定義された「その人物の話し方」に一致して
 
 ## 6. Prohibited behavior
 
+- `character_arc` で説明できる変化（成長・心境の転換）を「揺れ」として
+  序盤の口調へ引き戻すこと（arc の phase 判定を先に確認する）
 - 意味を変える修正（意味の疑義は Step 6 へ差し戻す flag を付ける）
 - profile に根拠のない修正（「もっとらしくなる」は根拠ではない）
 - profile がない人物への口調付与
