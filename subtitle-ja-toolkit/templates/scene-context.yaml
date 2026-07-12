@@ -1,0 +1,14 @@
+# 場面コンテキストテンプレート
+# Step 2 実行時（または手動で）字幕を場面に区切り、Step 4〜7 のバッチ処理時に
+# 該当範囲の scene を {{scene_context}} として注入する。
+
+scenes:
+  - scene_id: S-001
+    range: "sub:1-24"            # 字幕 ID 範囲
+    setting: null                # 場所・状況（例: 艦橋・戦闘中）
+    formality: null              # public | private | mixed
+    present_characters: []
+    mood: null                   # 緊迫 / 日常 / 追悼 …
+    notes: null                  # 訳出上の注意（例: 無線越しの会話）
+    confidence: medium
+    evidence_ids: []

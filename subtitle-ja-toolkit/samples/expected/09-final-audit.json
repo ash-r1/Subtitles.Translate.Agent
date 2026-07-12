@@ -1,0 +1,26 @@
+{
+  "checked_items": ["glossary", "phrase_map", "first_person", "address", "politeness",
+                    "orthography", "numbers", "spelling_variants", "relationship_changes",
+                    "unresolved", "low_confidence"],
+  "skipped_items": [],
+  "findings": [
+    {
+      "finding_id": "F-001",
+      "category": "low_confidence_dependency",
+      "severity": "minor",
+      "description": "sub:14-16 の話者を chief_okafor（confidence: medium）と推定して敬語で訳している。capt_reyes だった場合は常体になるため、映像確認で話者を確定することが望ましい",
+      "affected_ids": ["sub:14", "sub:15", "sub:16"],
+      "current_texts": {"14": "前線に追いつかれる前に\n到着できなければ", "15": "あの船の全員が\nええ　一人残らずです", "16": "夜明けには海に投げ出されます"},
+      "proposed_fix": "映像で話者確定後、capt_reyes なら常体（〜されれば／〜投げ出される）へ 3 行まとめて修正",
+      "consistency_risk": "3 行は一つの意味単位なので必ず同時に修正すること",
+      "evidence_ids": ["sub:14-16", "sub:21"],
+      "rule_ref": "profile:chief_okafor.politeness_rules"
+    }
+  ],
+  "remaining_unresolved": [
+    {"id": "U-001", "source_step": "step2", "topic": "sub:5 の話者（遭難者）", "current_guess": "遭難船の乗員", "confidence": "low", "candidates": ["漁船乗員", "プレジャーボート乗員"], "evidence_ids": ["sub:3", "sub:5"], "impact": "中立の断片訳で対応済み", "status": "accepted_as_guess", "resolution": "口調を演出しない中立訳を採用"},
+    {"id": "U-002", "source_step": "step2", "topic": "op_morgan の性別", "current_guess": null, "confidence": "low", "candidates": [], "evidence_ids": [], "impact": "性別非依存の語尾で対応済み", "status": "accepted_as_guess", "resolution": "性別非依存の設計を維持"},
+    {"id": "U-003", "source_step": "step2", "topic": "sub:14-16 の話者", "current_guess": "chief_okafor", "confidence": "medium", "candidates": ["chief_okafor", "capt_reyes"], "evidence_ids": ["sub:14-16"], "impact": "敬語/常体の選択に影響（F-001 参照）", "status": "open", "resolution": null}
+  ],
+  "summary": {"total_findings": 1, "blocker": 0, "major": 0, "minor": 1}
+}

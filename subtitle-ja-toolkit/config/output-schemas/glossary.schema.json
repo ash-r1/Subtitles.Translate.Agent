@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Step 3: Glossary Output",
+  "type": "object",
+  "required": ["character_map", "location_map", "terminology_map", "phrase_map"],
+  "additionalProperties": false,
+  "$defs": {
+    "confidence": {"enum": ["high", "medium", "low"]},
+    "evidenceIds": {"type": "array", "items": {"type": "string", "pattern": "^sub:[0-9]+(-[0-9]+)?$"}},
+    "translationStatus": {"enum": ["official", "confirmed", "provisional"]},
+    "refOrObject": {
+      "oneOf": [
+        {"type": "object", "required": ["ref"], "properties": {"ref": {"type": "string"}}},
+        {"type": "object"},
+        {"type": "array"},
+        {"type": "null"}
+      ]
+    }
+  },
+  "properties": {
+    "naming_conventions": {"type": "object"},
+    "character_map": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["character_id", "source_name", "target_name", "gender",
+                     "gender_confidence", "translation_status", "evidence_ids"],
+        "properties": {
+          "character_id": {"type": "string"},
+          "speaker_labels": {"type": "array", "items": {"type": "string"}},
+          "aliases": {"type": "array", "items": {"type": "string"}},
+          "source_name": {"type": "string"},
+          "target_name": {"type": "string"},
+          "name_reading": {"type": ["string", "null"]},
+          "gender": {"enum": ["male", "female", "nonbinary", "unknown", "object"]},
+          "gender_confidence": {"$ref": "#/$defs/confidence"},
+          "translation_status": {"$ref": "#/$defs/translationStatus"},
+          "identity_note": {"type": ["string", "null"]},
+          "relationship_notes": {"type": ["string", "null"]},
+          "first_person_rules": {"$ref": "#/$defs/refOrObject"},
+          "address_rules": {"$ref": "#/$defs/refOrObject"},
+          "politeness_rules": {"$ref": "#/$defs/refOrObject"},
+          "sentence_ending_rules": {"$ref": "#/$defs/refOrObject"},
+          "preferred_vocabulary": {"$ref": "#/$defs/refOrObject"},
+          "prohibited_vocabulary": {"$ref": "#/$defs/refOrObject"},
+          "catchphrases": {"$ref": "#/$defs/refOrObject"},
+          "emotion_rules": {"$ref": "#/$defs/refOrObject"},
+          "evidence_ids": {"$ref": "#/$defs/evidenceIds"},
+          "unresolved_questions": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "location_map": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_term", "target_term", "type", "translation_status"],
+        "properties": {
+          "source_term": {"type": "string"},
+          "target_term": {"type": "string"},
+          "type": {"enum": ["real", "fictional", "micro"]},
+          "translation_status": {"$ref": "#/$defs/translationStatus"},
+          "evidence_ids": {"$ref": "#/$defs/evidenceIds"}
+        }
+      }
+    },
+    "terminology_map": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_term", "target_term", "domain", "translation_status"],
+        "properties": {
+          "source_term": {"type": "string"},
+          "target_term": {"type": "string"},
+          "domain": {"type": "string"},
+          "definition": {"type": ["string", "null"]},
+          "translation_status": {"$ref": "#/$defs/translationStatus"},
+          "evidence_ids": {"$ref": "#/$defs/evidenceIds"}
+        }
+      }
+    },
+    "phrase_map": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_phrase", "speaker_id", "function", "default_translation", "evidence_ids"],
+        "properties": {
+          "source_phrase": {"type": "string"},
+          "speaker_id": {"type": "string"},
+          "function": {"type": "string"},
+          "default_translation": {"type": "string"},
+          "allowed_variants": {"type": "array", "items": {"type": "string"}},
+          "forbidden_variants": {"type": "array", "items": {"type": "string"}},
+          "scene_conditions": {"type": ["string", "null"]},
+          "emotion_conditions": {"type": ["string", "null"]},
+          "evidence_ids": {"$ref": "#/$defs/evidenceIds"}
+        }
+      }
+    },
+    "conflicts": {"type": "array", "items": {"type": "object"}},
+    "unresolved_questions": {"type": "array"}
+  }
+}

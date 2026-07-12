@@ -1,0 +1,27 @@
+{
+  "batch_id": "000",
+  "item_count": 20,
+  "review_type": "polish",
+  "items": [
+    {"id": "1", "original": "Captain on the bridge!", "translation": "艦長がブリッジに！", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "2", "original": "Report, Chief.", "translation": "報告を　機関長", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "3", "original": "We picked up a distress call, Captain. Twelve miles out.", "translation": "遭難信号を受信しました　12マイル沖です", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "4", "original": "Can you play it back?", "translation": "再生できるか", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "5", "original": "...anyone... engine's flooded... we can't hold...", "translation": "…誰か…　機関室が浸水…　もう持たない…", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "6", "original": "That's all we got, Captain.", "translation": "拾えたのはここまで", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "7", "original": "Set course. Full ahead.", "translation": "針路を取れ　全速前進", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "8", "original": "Steady as she goes, ma'am.", "translation": "ようそろ", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "9", "original": "Ensign Cole, I need you on the forward deck.", "translation": "コール少尉　前甲板へ", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "10", "original": "Aye, Captain.", "translation": "了解しました", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "11", "original": "Morgan, keep hailing them on channel sixteen.", "translation": "モーガン　16チャンネルで呼びかけを続けろ", "polished_text": "モーガン　16チャンネルで呼びかけ続けろ", "polish_tag": "speech_rhythm", "note": "命令口調の勢いを保つため「を」を落とした（capt_reyes の簡潔な号令の範囲内）"},
+    {"id": "12", "original": "Already on it.", "translation": "もうやってる", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "13", "original": "Oh, great. A storm front. Just what we needed.", "translation": "最高だね　前線か　ついてるよ", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "14", "original": "If we cannot reach them before that front closes in,", "translation": "前線に追いつかれる前に到着できなければ", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "15", "original": "every soul on that boat, and I mean every soul,", "translation": "あの船の全員が　ええ　一人残らずです", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "16", "original": "will be in the water by dawn.", "translation": "夜明けには海に投げ出されます", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "17", "original": "Then we reach them first.", "translation": "なら先に着くまでだ", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "18", "original": "Danny, you okay? You look pale.", "translation": "ダニー　大丈夫？　顔色悪いよ", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "19", "original": "I told you I'd be fine. Worry about yourself.", "translation": "大丈夫だと言っただろ　お前こそ心配しろ", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "20", "original": "Chief, you were right about the engine room.", "translation": "機関長　機関室の件は君が正しかった", "polished_text": null, "polish_tag": null, "note": null}
+  ]
+}

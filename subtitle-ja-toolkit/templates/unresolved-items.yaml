@@ -1,0 +1,16 @@
+# 未解決事項一覧テンプレート
+# 全工程が confidence: low の推測・未確定の判断をここへ集約する。
+# 後続工程はここにある項目を「事実」として使ってはならない。
+# Step 9 が残存項目を検査する。
+
+unresolved:
+  - id: U-001
+    source_step: step2            # 記録した工程
+    topic: null                   # 例: "sub:45 の話者"
+    current_guess: null
+    confidence: low
+    candidates: []
+    evidence_ids: []
+    impact: null                  # 確定しないと影響する範囲
+    status: open                  # open | resolved | accepted_as_guess
+    resolution: null              # 解決した場合の結論と根拠

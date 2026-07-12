@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Steps 5-7: Review / Polish Batch Output (共用スキーマ)",
+  "description": "review_type で 3 工程を区別する。semantic=Step5, voice=Step6, polish=Step7",
+  "type": "object",
+  "required": ["batch_id", "item_count", "review_type", "items"],
+  "additionalProperties": false,
+  "$defs": {
+    "confidence": {"enum": ["high", "medium", "low"]},
+    "evidenceIds": {"type": "array", "items": {"type": "string", "pattern": "^sub:[0-9]+(-[0-9]+)?$"}}
+  },
+  "properties": {
+    "batch_id": {"type": "string"},
+    "item_count": {"type": "integer", "minimum": 1, "description": "items.length と一致"},
+    "review_type": {"enum": ["semantic", "voice", "polish"]},
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "original"],
+        "properties": {
+          "id": {"type": "string"},
+          "original": {"type": "string"},
+          "draft": {"type": "string", "description": "semantic/voice: 入力訳のエコー"},
+          "translation": {"type": "string", "description": "polish: 入力訳のエコー"},
+          "status": {"enum": ["PASS", "FIXED"]},
+          "error_category": {
+            "enum": ["negation_flip", "quantity", "omission", "addition", "mistranslation",
+                     "named_entity", "reference", "speaker", "irony", "cross_line", null],
+            "description": "semantic のみ"
+          },
+          "violation_category": {
+            "enum": ["first_person", "address", "politeness", "vocabulary", "sentence_ending",
+                     "emotion_mismatch", "catchphrase", "register_scene", "role_language",
+                     "unnecessary_pronoun", "gender_based_ending", "intra_character_drift",
+                     "relationship_change", null],
+            "description": "voice のみ"
+          },
+          "rule_ref": {"type": ["string", "null"], "description": "voice: 違反した規則のパス"},
+          "critique": {"type": ["string", "null"], "description": "FIXED 時のみ・2 文以内。CoT 開示禁止"},
+          "final_translation": {"type": "string",
+            "description": "semantic/voice: PASS 時は draft と完全一致"},
+          "polished_text": {"type": ["string", "null"], "description": "polish: 変更不要なら null"},
+          "polish_tag": {"enum": ["conciseness", "speech_rhythm", "flow", "orthography", null]},
+          "note": {"type": ["string", "null"]},
+          "confidence": {"$ref": "#/$defs/confidence"},
+          "evidence_ids": {"$ref": "#/$defs/evidenceIds"},
+          "flags": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "profile_revision_candidates": {
+      "type": "array",
+      "description": "voice のみ。人物設定側の修正候補（字幕は直さない）",
+      "items": {
+        "type": "object",
+        "required": ["character_id", "field", "reason", "evidence_ids"],
+        "properties": {
+          "character_id": {"type": "string"},
+          "field": {"type": "string"},
+          "current_value": {"type": ["string", "null"]},
+          "proposed_value": {"type": ["string", "null"]},
+          "reason": {"type": "string"},
+          "evidence_ids": {"$ref": "#/$defs/evidenceIds"}
+        }
+      }
+    }
+  }
+}

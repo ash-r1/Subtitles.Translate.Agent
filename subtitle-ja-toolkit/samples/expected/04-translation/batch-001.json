@@ -1,0 +1,21 @@
+{
+  "batch_id": "001",
+  "item_count": 10,
+  "first_item_id": "21",
+  "last_item_id": "30",
+  "items": [
+    {"id": "21", "original": "With respect, Captain, I am always right about engines.", "initial_translation": "恐れながら艦長　機関で私は間違えません", "speaker_id": "chief_okafor", "listener_id": "capt_reyes", "emotion": "neutral", "confidence": "high", "review_flags": []},
+    {"id": "22", "original": "Cole! Get down from there! Are you out of your mind?", "initial_translation": "コール！　降りなさい！　正気ですか", "speaker_id": "chief_okafor", "listener_id": "ens_cole", "emotion": "angry", "confidence": "high", "review_flags": []},
+    {"id": "23", "original": "The line was fouled, Chief!", "initial_translation": "索が絡んだんです！", "speaker_id": "ens_cole", "listener_id": "chief_okafor", "emotion": "frightened", "confidence": "high", "review_flags": []},
+    {"id": "24", "original": "I do not care if it was on fire. You will follow procedure.", "initial_translation": "燃えていても同じです　手順には従ってもらいます", "speaker_id": "chief_okafor", "listener_id": "ens_cole", "emotion": "angry", "confidence": "high", "review_flags": ["long_line"]},
+    {"id": "25", "original": "Understood, Chief.", "initial_translation": "はい　機関長", "speaker_id": "ens_cole", "listener_id": "chief_okafor", "emotion": "neutral", "confidence": "high", "review_flags": []},
+    {"id": "26", "original": "There! Off the port bow!", "initial_translation": "いました！　左舷前方です！", "speaker_id": "ens_cole", "listener_id": "crew", "emotion": "pleased", "confidence": "medium", "review_flags": []},
+    {"id": "27", "original": "I see them. Bring us about.", "initial_translation": "確認した　回頭しろ", "speaker_id": "capt_reyes", "listener_id": "chief_okafor", "emotion": "authoritative", "confidence": "high", "review_flags": []},
+    {"id": "28", "original": "Steady as she goes, ma'am.", "initial_translation": "ようそろ", "speaker_id": "chief_okafor", "listener_id": "capt_reyes", "emotion": "neutral", "confidence": "high", "review_flags": []},
+    {"id": "29", "original": "Nice work today, Danny. Get some rest.", "initial_translation": "今日はよくやった　ダニー　休め", "speaker_id": "capt_reyes", "listener_id": "ens_cole", "emotion": "pleased", "confidence": "high", "review_flags": []},
+    {"id": "30", "original": "You too, Captain.", "initial_translation": "艦長も", "speaker_id": "ens_cole", "listener_id": "capt_reyes", "emotion": "pleased", "confidence": "high", "review_flags": []}
+  ],
+  "new_findings": [
+    {"type": "relationship", "description": "sub:29 で capt_reyes の ens_cole への呼称が『コール少尉』から『ダニー』へ変化。relationship_map の valid_range 通りで追加更新は不要と確認", "evidence_ids": ["sub:29"]}
+  ]
+}
