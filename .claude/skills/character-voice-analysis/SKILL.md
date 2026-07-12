@@ -5,6 +5,9 @@ description: 話者同定と人物の日本語発話設計（Step 2）＋用語�
 
 # Character Voice Analysis（Step 2–3）
 
+> **基準ディレクトリ**: 本スキル内の相対パスはすべて `subtitle-ja-toolkit/` を基準とする。最初に `cd subtitle-ja-toolkit` してから作業すること。
+
+
 「誰が・誰に・どういう話し方をするか」を字幕の証拠に基づいて設計するスキル。
 日本語字幕の品質はこの成果物で決まる。
 

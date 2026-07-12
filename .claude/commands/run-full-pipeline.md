@@ -5,6 +5,9 @@ argument-hint: <字幕ファイルパス>
 
 # /run-full-pipeline — 全工程実行
 
+> **基準ディレクトリ**: 本コマンド内の相対パス（`prompts/` `scripts/` `config/` `templates/` `work/` `input/` `output/` `project-config.yaml` 等）はすべて `subtitle-ja-toolkit/` を基準とする。最初に `cd subtitle-ja-toolkit` してから作業すること。
+
+
 対象字幕: $ARGUMENTS
 
 3 つのフェーズを順に実行する。各フェーズの詳細手順は該当コマンドの

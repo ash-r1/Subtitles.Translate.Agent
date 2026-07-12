@@ -5,6 +5,9 @@ description: 字幕作品の全体分析（Step 1 Director）。作品種別・�
 
 # Subtitle Project Analysis（Step 1）
 
+> **基準ディレクトリ**: 本スキル内の相対パスはすべて `subtitle-ja-toolkit/` を基準とする。最初に `cd subtitle-ja-toolkit` してから作業すること。
+
+
 字幕作品全体を読み、後続の全工程が従うスタイルガイドを作るスキル。
 
 ## 実行手順

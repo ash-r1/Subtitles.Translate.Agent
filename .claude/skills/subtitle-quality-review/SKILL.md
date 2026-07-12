@@ -5,6 +5,9 @@ description: 字幕品質検査（Step 5–9）。意味監査・口調一貫性
 
 # Subtitle Quality Review（Step 5–9）
 
+> **基準ディレクトリ**: 本スキル内の相対パスはすべて `subtitle-ja-toolkit/` を基準とする。最初に `cd subtitle-ja-toolkit` してから作業すること。
+
+
 翻訳結果を 3 種の独立した観点で検査・仕上げるスキル。
 **観点を混ぜないこと**が元設計から引き継いだ中核方針。
 

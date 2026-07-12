@@ -3,11 +3,12 @@
 外国語字幕を**自然な日本語字幕**へ翻訳するための、Claude Code / Claude Cowork
 向けプロンプト・ツールキット。
 
-このリポジトリの C# アプリ（`src/`）が持つ 6 段階の翻訳パイプラインを解析し、
+このリポジトリに元々あった C# アプリの 6 段階翻訳パイプラインを解析し、
 その処理意図を保ったまま、日本語字幕に必要な工程（話者・人物分析、口調監査、
 日本語改行規則、最終整合性監査）を加えて **9 工程**へ再構成したもの。
 実行主体はプログラムではなく **エージェント（Claude）** で、機械的な処理だけを
-`scripts/` の小さなツールが担う。C# アプリ本体は変更していない。
+`scripts/` の小さなツールが担う。C# 実装は抽出完了後に削除済み
+（git 履歴と `source-prompts/` の記録に残る）。
 
 ## 何ができるか
 
@@ -49,7 +50,8 @@ cp config/subtitle-constraints.example.yaml subtitle-constraints.yaml
 
 ## 実行例（Claude Code）
 
-`subtitle-ja-toolkit/` を作業ディレクトリとして Claude Code を起動し:
+リポジトリルートで Claude Code を起動し（コマンドはルートの `.claude/commands/`
+に定義され、作業は `subtitle-ja-toolkit/` を基準に行われる）:
 
 ```
 /analyze-subtitles input/source.srt   # Step 1–3: 分析（style guide・人物・用語集）
@@ -117,10 +119,12 @@ subtitle-ja-toolkit/
 ├── source-prompts/                # 元 C# プロンプトの抽出結果と分析レポート
 │   ├── extraction-report.md
 │   └── original/extracted-prompts.md
-├── samples/                       # 検証用字幕・ケースブック・期待成果物
-└── .claude/
-    ├── commands/                  # /analyze-subtitles ほか 4 コマンド
-    └── skills/                    # 4 スキル
+└── samples/                       # 検証用字幕・ケースブック・期待成果物
+
+# リポジトリルート:
+.claude/
+├── commands/                      # /analyze-subtitles ほか 4 コマンド
+└── skills/                        # 4 スキル
 ```
 
 ## 元実装との関係

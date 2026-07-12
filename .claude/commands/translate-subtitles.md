@@ -5,6 +5,9 @@ argument-hint: "[開始バッチ番号（再開用）]"
 
 # /translate-subtitles — 翻訳フェーズ（Step 4–7）
 
+> **基準ディレクトリ**: 本コマンド内の相対パス（`prompts/` `scripts/` `config/` `templates/` `work/` `input/` `output/` `project-config.yaml` 等）はすべて `subtitle-ja-toolkit/` を基準とする。最初に `cd subtitle-ja-toolkit` してから作業すること。
+
+
 前提: `/analyze-subtitles` 完了（`work/01`〜`03` が存在すること）。
 なければ先にそちらを実行するようユーザーに伝える。
 

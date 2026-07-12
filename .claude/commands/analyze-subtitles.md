@@ -5,6 +5,9 @@ argument-hint: <字幕ファイルパス> [project-config.yaml のパス]
 
 # /analyze-subtitles — 分析フェーズ（Step 1–3）
 
+> **基準ディレクトリ**: 本コマンド内の相対パス（`prompts/` `scripts/` `config/` `templates/` `work/` `input/` `output/` `project-config.yaml` 等）はすべて `subtitle-ja-toolkit/` を基準とする。最初に `cd subtitle-ja-toolkit` してから作業すること。
+
+
 対象字幕: $ARGUMENTS（未指定なら `project-config.yaml` の `paths.input_subtitle`）
 
 必ず `subtitle-ja-toolkit/CLAUDE.md` と `subtitle-ja-toolkit/prompts/00-common-rules.md`

@@ -5,6 +5,9 @@ argument-hint: "[--skip-timing | --audit-only]"
 
 # /review-subtitles — 出力・最終検査フェーズ（Step 8–9）
 
+> **基準ディレクトリ**: 本コマンド内の相対パス（`prompts/` `scripts/` `config/` `templates/` `work/` `input/` `output/` `project-config.yaml` 等）はすべて `subtitle-ja-toolkit/` を基準とする。最初に `cd subtitle-ja-toolkit` してから作業すること。
+
+
 前提: `/translate-subtitles` 完了（`work/07-polish/` が全バッチ分あること）。
 
 必ず `subtitle-ja-toolkit/CLAUDE.md` と `prompts/00-common-rules.md` を先に読むこと。

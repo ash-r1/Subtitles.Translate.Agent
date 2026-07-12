@@ -5,6 +5,9 @@ description: 日本語字幕翻訳の実行（Step 4）。人物設定・関係�
 
 # Subtitle Translation JA（Step 4）
 
+> **基準ディレクトリ**: 本スキル内の相対パスはすべて `subtitle-ja-toolkit/` を基準とする。最初に `cd subtitle-ja-toolkit` してから作業すること。
+
+
 バッチ単位で字幕を日本語へ翻訳するスキル。
 
 ## 実行手順
