@@ -19,6 +19,20 @@ official_references:
   - type: prior_episode_glossary           # 続き物の場合、前話の glossary
     path: null                             # 例: ../S01E00/work/03-glossary.json
 
+# 外部参照資料（Step 4 翻訳前検証が不明点の解決・表記の傍証に使う。なければ null のまま）
+# 優先順位: 公式日本語資料 > 映像の音声・画面内テキスト > 他言語公式字幕 > ファン wiki > 推測
+external_references:
+  video: null              # 例: refs/episode01.mp4（不明箇所は ffmpeg でフレーム抽出して確認）
+  storyboard: null         # 例: refs/storyboard/（コンテ・脚本・設定資料）
+  official_site: null      # 例: 公式サイト・公式 SNS の URL
+  community_wiki: null     # 例: ファン wiki の URL（傍証のみ。公式訳としては扱わない）
+  other: []                # その他（インタビュー・既存の他言語字幕など）
+
+# Step 4 翻訳前検証ゲートの設定
+pretranslation_check:
+  pilot_scope: auto        # auto = 代表場面を Step 4 が選ぶ / [4, 5] のようにバッチ番号指定も可
+  pilot_batch_count: 1     # パイロットで翻訳するバッチ数（1〜2 推奨）
+
 # バッチ処理設定
 batching:
   batch_size: 20               # 1 バッチの字幕数
@@ -29,23 +43,26 @@ batching:
 
 # 工程の有効/無効
 pipeline:
-  enable_semantic_review: true    # Step 5
-  enable_voice_review: true       # Step 6
-  enable_polish: true             # Step 7
-  enable_timing_adjust: true      # Step 8
-  enable_final_audit: true        # Step 9
+  enable_pretranslation_check: true  # Step 4（ゲート。確認事項が既知の再実行時のみ false 推奨）
+  enable_semantic_review: true       # Step 6
+  enable_voice_review: true          # Step 7
+  enable_polish: true                # Step 8
+  enable_timing_adjust: true         # Step 9
+  enable_final_audit: true           # Step 10
 
 # サブエージェント割り当て（CLAUDE.md「サブエージェント運用」参照）
 agents:
-  step1_director:        {model: opus,   effort: high}
-  step2_character:       {model: opus,   effort: high}
-  step3_glossary:        {model: sonnet, effort: medium}
-  step4_translate:       {model: sonnet, effort: high}
-  step5_semantic_review: {model: sonnet, effort: medium}
-  step6_voice_review:    {model: sonnet, effort: medium}
-  step7_polish:          {model: opus,   effort: medium}
-  step8_timing:          {model: haiku,  effort: low}
-  step9_final_audit:     {model: opus,   effort: high}
+  step1_director:             {model: opus,   effort: high}
+  step2_character:            {model: opus,   effort: high}
+  step3_glossary:             {model: sonnet, effort: medium}
+  step4_pretranslation_check: {model: opus,   effort: high}
+  step4_native_check:         {model: opus,   effort: medium}  # 別文脈で日本語のみを読む担当
+  step5_translate:            {model: sonnet, effort: high}
+  step6_semantic_review:      {model: sonnet, effort: medium}
+  step7_voice_review:         {model: sonnet, effort: medium}
+  step8_polish:               {model: opus,   effort: medium}
+  step9_timing:               {model: haiku,  effort: low}
+  step10_final_audit:         {model: opus,   effort: high}
 
 # 視聴者・スタイルの事前指定（あれば Step 1 が最優先で採用）
 style_overrides:

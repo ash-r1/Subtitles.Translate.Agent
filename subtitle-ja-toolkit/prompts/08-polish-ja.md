@@ -1,11 +1,11 @@
-# Step 7: Japanese Subtitle Polisher（日本語仕上げ）
+# Step 8: Japanese Subtitle Polisher（日本語仕上げ）
 
 共通規約: `00-common-rules.md` を先に読むこと。
 
 ## 1. Role
 
-あなたは日本語字幕の仕上げ編集者です。意味（Step 5 が保証）と人物の声
-（Step 6 が保証）を**変えずに**、日本語としての自然さ・簡潔さ・台詞らしさ・
+あなたは日本語字幕の仕上げ編集者です。意味（Step 6 が保証）と人物の声
+（Step 7 が保証）を**変えずに**、日本語としての自然さ・簡潔さ・台詞らしさ・
 リズム・呼吸・読みやすさ・映像との同期を高めます。
 
 ## 2. Objective
@@ -25,7 +25,7 @@
 
 | 変数 | 内容 | 欠けている場合 |
 |---|---|---|
-| `{{current_batch}}` | Step 6 通過後の `{id, original, text, speaker_id, emotion}` | 必須 |
+| `{{current_batch}}` | Step 7 通過後の `{id, original, text, speaker_id, emotion}` | 必須 |
 | `{{preceding_context}}` | 直前の磨き済み確定訳 | バッチ内のみで流れを判断 |
 | `{{character_profiles}}` / `{{phrase_map}}` / `{{glossary}}` | 変更してはならない要素の参照 | **固有名詞・決め台詞・人物固有表現を一切変更しない**（保守的に動く） |
 | `{{global_style_guide}}` | orthography・文体基準 | 表記変更を行わない |
@@ -65,7 +65,7 @@
 
 ## 7. Output schema
 
-出力先: `work/07-polish/batch-<NNN>.json`（生 JSON、フェンスなし）。
+出力先: `work/08-polish/batch-<NNN>.json`（生 JSON、フェンスなし）。
 スキーマ: `config/output-schemas/review.schema.json`（review type: polish）
 
 ```json

@@ -30,8 +30,8 @@
 | 30 | **You** too, Captain. | あなたもです、艦長 | 艦長も | 役職呼称で代替 |
 
 - 適用した人物設定: relationship_map の各組の `default_address`
-- 関連 prompt: `04-translate.md`（判断順序 4・6）、`00-common-rules.md` 7-2
-- 自動検査: Step 6 `unnecessary_pronoun` / 「あなた」の残存を検出
+- 関連 prompt: `05-translate.md`（判断順序 4・6）、`00-common-rules.md` 7-2
+- 自動検査: Step 7 `unnecessary_pronoun` / 「あなた」の残存を検出
 
 ## 事例 2: 同じ人物が公的/私的で一人称・敬語を変える（Cole）
 
@@ -42,8 +42,8 @@
   [19]「大丈夫だって言っただろ」（私的・常体）
 - 適用した人物設定: `first_person_rules: {formal: 自分/省略, casual: 俺}`、
   `politeness_rules`: 対上官=です・ます、対 Morgan=常体
-- 関連 prompt: `02-character-analysis.md`（registerVariants）、`04-translate.md`
-- 自動検査: Step 6 `register_scene`（場面と丁寧さの不一致）
+- 関連 prompt: `02-character-analysis.md`（registerVariants）、`05-translate.md`
+- 自動検査: Step 7 `register_scene`（場面と丁寧さの不一致）
 
 ## 事例 3: 怒っても敬語を崩さない人物（Okafor）
 
@@ -53,8 +53,8 @@
 - 適用した人物設定: `emotion_rules.angry.politeness: 敬語を崩さない`、
   `sentence_ending: 「〜してもらいます」で圧をかける`（evidence: sub:21,24）
 - 判断理由: 原文も短縮形なしの "I do not care" / "You will" で統制された怒り
-- 関連 prompt: `02-character-analysis.md`（emotion_rules）、`06-voice-consistency-review.md`
-- 自動検査: Step 6 `emotion_mismatch`（乱暴化した訳を profile 違反として検出）
+- 関連 prompt: `02-character-analysis.md`（emotion_rules）、`07-voice-consistency-review.md`
+- 自動検査: Step 7 `emotion_mismatch`（乱暴化した訳を profile 違反として検出）
 
 ## 事例 4: 親しくなるにつれて呼称が変わる
 
@@ -64,8 +64,8 @@
 - 改善訳: [9]「コール少尉」→ [29]「よくやった ダニー」
 - 適用した人物設定: relationship_map `changes_over_time`、
   `valid_range: sub:1-28 は姓＋役職 / sub:29- は名`
-- 関連 prompt: `02-character-analysis.md` 4.3、`09-final-audit.md`（relationship_change）
-- 自動検査: Step 9 が valid_range 境界前後の呼称切替を検査。
+- 関連 prompt: `02-character-analysis.md` 4.3、`10-final-audit.md`（relationship_change）
+- 自動検査: Step 10 が valid_range 境界前後の呼称切替を検査。
   「揺れ」ではなく「意図された変化」として findings にしないこと
 
 ## 事例 5: 決め台詞が複数回出る
@@ -76,8 +76,8 @@
 - 改善訳: 両方「ようそろ」（操舵号令の定訳）＋敬意は文脈で
 - 適用した人物設定: phrase_map `{source_phrase: "Steady as she goes",
   default_translation: "ようそろ", forbidden_variants: [直訳], evidence: sub:8,28}`
-- 関連 prompt: `03-glossary.md`（phrase_map）、`09-final-audit.md`（catchphrase）
-- 自動検査: Step 9 が phrase_map 全出現を文字列照合し揺れを検出
+- 関連 prompt: `03-glossary.md`（phrase_map）、`10-final-audit.md`（catchphrase）
+- 自動検査: Step 10 が phrase_map 全出現を文字列照合し揺れを検出
 
 ## 事例 6: 皮肉を逐語訳すると誤る
 
@@ -86,8 +86,8 @@
   （賞賛に読める）
 - 改善訳: 「最高だね　前線か　ついてるよ」（Morgan の軽口として反語を保持)
 - 判断理由: 発話意図=不満。日本語の反語表現で再現し、説明は足さない
-- 関連 prompt: `04-translate.md` 手順 3、`05-semantic-review.md`（irony）
-- 自動検査: Step 5 `error_category: irony`（字義訳を意味エラーとして検出）
+- 関連 prompt: `05-translate.md` 手順 3、`06-semantic-review.md`（irony）
+- 自動検査: Step 6 `error_category: irony`（字義訳を意味エラーとして検出）
 
 ## 事例 7: 一文が三つの字幕へ分割される
 
@@ -100,8 +100,8 @@
   [15]「あの船の全員が　ええ　一人残らずです」/ [16]「夜明けには海に投げ出されます」
 - 判断理由: 文全体を復元してから、意味のまとまり・息継ぎで再分割。
   後続の内容語（海・夜明け）を先取りしない。話者（Okafor・敬語）を 3 行で統一
-- 関連 prompt: `04-translate.md` 手順 1・7、`05-semantic-review.md`（跨行保護）
-- 自動検査: Step 5 が補完・先取りを `cross_line` として検出
+- 関連 prompt: `05-translate.md` 手順 1・7、`06-semantic-review.md`（跨行保護）
+- 自動検査: Step 6 が補完・先取りを `cross_line` として検出
 
 ## 事例 8: 話者不明で断定を避けるべき例
 
@@ -109,9 +109,9 @@
 - 不適切な処理: speaker_map で「男性の漁師」等と断定し、口調を演出する
 - 改善処理: `speaker: unknown, utterance_type: off_screen, confidence: low`。
   訳は中立に「…誰か…　機関室が浸水…　もう持たない…」
-- 関連 prompt: `02-character-analysis.md` 4.1、`04-translate.md` 手順 2
+- 関連 prompt: `02-character-analysis.md` 4.1、`05-translate.md` 手順 2
 - 自動検査: validate 時に unknown 行へ人物固有口調が適用されていないこと
-  （Step 6 は profile なし話者をスキップし `skipped_no_profile`）
+  （Step 7 は profile なし話者をスキップし `skipped_no_profile`）
 
 ## 事例 9: 性別が不明でも自然な日本語にできる例（Morgan）
 
@@ -121,9 +121,9 @@
 - 改善訳: 「もうやってる」（性別に依存しない常体。人物差は軽口の速さで表現）
 - 適用した人物設定: `gender: unknown, gender_confidence: low`、
   語尾規則は性別非依存に定義
-- 関連 prompt: `02-character-analysis.md` 5、`06-voice-consistency-review.md`
+- 関連 prompt: `02-character-analysis.md` 5、`07-voice-consistency-review.md`
   （gender_based_ending）
-- 自動検査: Step 6 が「性別だけを根拠にした語尾」を検出
+- 自動検査: Step 7 が「性別だけを根拠にした語尾」を検出
 
 ## 事例 10: `I` と `you` を訳文で省略した方が自然な例
 
@@ -133,8 +133,8 @@
   （前半の I×2・you×1 はすべて省略しても発話者・相手が文脈で一意。
   後半のみ関係に合う「お前」で対比を出す — 事例 1 の「お前」例を兼ねる）
 - 判断理由: 省略しても「誰が何を」は失われない（判断順①で省略可）
-- 関連 prompt: `00-common-rules.md` 7-1、`04-translate.md` 手順 6
-- 自動検査: Step 6 `unnecessary_pronoun`（残存した「私は/あなた」を検出）
+- 関連 prompt: `00-common-rules.md` 7-1、`05-translate.md` 手順 6
+- 自動検査: Step 7 `unnecessary_pronoun`（残存した「私は/あなた」を検出）
 
 ---
 
@@ -142,12 +142,12 @@
 
 | 事例 | 主担当工程 | 検出カテゴリ |
 |---|---|---|
-| 1, 10 | Step 4 予防 / Step 6 検出 | unnecessary_pronoun |
-| 2 | Step 2 設計 / Step 6 検出 | register_scene |
-| 3 | Step 2 設計 / Step 6 検出 | emotion_mismatch |
-| 4 | Step 2 設計 / Step 9 検出 | relationship_change |
-| 5 | Step 3 設計 / Step 9 検出 | catchphrase |
-| 6 | Step 4 予防 / Step 5 検出 | irony |
-| 7 | Step 4 予防 / Step 5 検出 | cross_line |
-| 8 | Step 2 予防 / Step 6 保護 | speaker unknown |
-| 9 | Step 2 予防 / Step 6 検出 | gender_based_ending |
+| 1, 10 | Step 5 予防 / Step 7 検出 | unnecessary_pronoun |
+| 2 | Step 2 設計 / Step 7 検出 | register_scene |
+| 3 | Step 2 設計 / Step 7 検出 | emotion_mismatch |
+| 4 | Step 2 設計 / Step 10 検出 | relationship_change |
+| 5 | Step 3 設計 / Step 10 検出 | catchphrase |
+| 6 | Step 5 予防 / Step 6 検出 | irony |
+| 7 | Step 5 予防 / Step 6 検出 | cross_line |
+| 8 | Step 2 予防 / Step 7 保護 | speaker unknown |
+| 9 | Step 2 予防 / Step 7 検出 | gender_based_ending |

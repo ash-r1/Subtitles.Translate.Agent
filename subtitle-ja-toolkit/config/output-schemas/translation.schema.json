@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Step 4: Translation Batch Output",
+  "title": "Step 5: Translation Batch Output",
   "type": "object",
   "required": ["batch_id", "item_count", "first_item_id", "last_item_id", "items"],
   "additionalProperties": false,

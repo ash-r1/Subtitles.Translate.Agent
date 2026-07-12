@@ -1,6 +1,9 @@
-# Step 4: Translation（字幕翻訳）
+# Step 5: Translation（字幕翻訳）
 
 共通規約: `00-common-rules.md` を先に読むこと。
+前提: Step 4（翻訳前検証ゲート）の決定シートが approved であること。
+確定した固有名詞表記・記号方針は glossary / style guide に反映済みの状態で
+本工程に入る（`pipeline.enable_pretranslation_check: false` の場合を除く）。
 
 ## 1. Role
 
@@ -83,7 +86,7 @@
 
 ## 7. Output schema
 
-出力先: `work/04-translation/batch-<NNN>.json`（生 JSON、フェンスなし）。
+出力先: `work/05-translation/batch-<NNN>.json`（生 JSON、フェンスなし）。
 スキーマ: `config/output-schemas/translation.schema.json`
 
 ```json

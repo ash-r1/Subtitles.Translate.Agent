@@ -101,7 +101,7 @@ unresolved_questions: []
 # --- 変更履歴（CLAUDE.md の profile 更新手順で追記する）---
 revision_history: []
 # - date: 2026-07-12
-#   changed_by: step6_voice_review
+#   changed_by: step7_voice_review
 #   field: first_person_rules.casual
 #   from: 僕
 #   to: 俺

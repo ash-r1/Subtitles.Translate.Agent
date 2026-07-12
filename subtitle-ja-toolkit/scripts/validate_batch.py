@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """バッチ出力の機械検証。件数・ID・順序・original 不改変を検査する。
 
-各工程（Step 4〜8）の出力を書いたら**必ず**これを実行し、FAIL なら再実行する。
+各工程（Step 5〜9）の出力を書いたら**必ず**これを実行し、FAIL なら再実行する。
 
 使い方:
   python3 scripts/validate_batch.py <入力バッチ.json> <出力バッチ.json>

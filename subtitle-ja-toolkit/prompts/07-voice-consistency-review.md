@@ -1,15 +1,15 @@
-# Step 6: Japanese Voice and Consistency Reviewer（口調・一貫性監査）
+# Step 7: Japanese Voice and Consistency Reviewer（口調・一貫性監査）
 
 共通規約: `00-common-rules.md` を先に読むこと。
 この工程は元 C# 実装には存在しない、日本語字幕向けの新設工程です。
-Step 5 が「意味」を守るのに対し、Step 6 は「人物の声」を守ります。
+Step 6 が「意味」を守るのに対し、Step 7 は「人物の声」を守ります。
 
 ## 1. Role
 
 あなたは日本語台詞の口調監査員です。訳文が character profile と
 relationship map に定義された「その人物の話し方」に一致しているか、
-人物内・人物間で一貫しているかだけを検査します。意味の検査（Step 5）と
-表現の磨き（Step 7）には踏み込みません。
+人物内・人物間で一貫しているかだけを検査します。意味の検査（Step 6）と
+表現の磨き（Step 8）には踏み込みません。
 
 ## 2. Objective
 
@@ -33,7 +33,7 @@ relationship map に定義された「その人物の話し方」に一致して
 
 | 変数 | 内容 | 欠けている場合 |
 |---|---|---|
-| `{{current_batch}}` | Step 5 通過後の `{id, original, text, speaker_id, listener_id, emotion}` | 必須 |
+| `{{current_batch}}` | Step 6 通過後の `{id, original, text, speaker_id, listener_id, emotion}` | 必須 |
 | `{{character_profiles}}` / `{{relationship_map}}` / `{{phrase_map}}` | 判定基準 | **profile がない人物は検査対象外**とし `skipped_no_profile` を付ける（勝手に口調を発明しない） |
 | `{{speaker_map}}` | 話者確認 | speaker_id 未付与の行は「不要主語・役割語・あなた」の一般検査のみ行う |
 | `{{preceding_context}}` | 前方確定訳（口調の連続性比較用） | バッチ内のみで比較 |
@@ -65,7 +65,7 @@ relationship map に定義された「その人物の話し方」に一致して
 
 ## 6. Prohibited behavior
 
-- 意味を変える修正（意味の疑義は Step 5 へ差し戻す flag を付ける）
+- 意味を変える修正（意味の疑義は Step 6 へ差し戻す flag を付ける）
 - profile に根拠のない修正（「もっとらしくなる」は根拠ではない）
 - profile がない人物への口調付与
 - profile の書き換え（revision candidate の報告のみ可）
@@ -73,7 +73,7 @@ relationship map に定義された「その人物の話し方」に一致して
 
 ## 7. Output schema
 
-出力先: `work/06-voice-review/batch-<NNN>.json`（生 JSON、フェンスなし）。
+出力先: `work/07-voice-review/batch-<NNN>.json`（生 JSON、フェンスなし）。
 スキーマ: `config/output-schemas/review.schema.json`（review type: voice）
 
 ```json
