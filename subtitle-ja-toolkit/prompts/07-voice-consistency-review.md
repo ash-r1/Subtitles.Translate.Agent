@@ -19,6 +19,11 @@ relationship map に定義された「その人物の話し方」に一致して
 - 二人称・呼称の不一致（relationship map の address と異なる）
 - 敬語関係の逆転（部下が上司にタメ口になっている等、設定にない逆転）
 - 人物らしくない語彙（prohibited_vocabulary の使用、preferred の無視）
+- 知的水準・話術の不一致（`speech_register` 違反: 平易に喋る人物に漢語・
+  抽象語、衒学的な人物の台詞の平易化、口下手な人物が流暢に長い構文を操る、
+  得意分野で専門用語が素人向けに言い換えられている）
+- 感情表現が人物の言語運用と乖離（`emotional_speech` 違反: 口下手が感情の
+  高ぶりで急に雄弁になる、慈愛の人物が叱る場面で硬く冷たい語彙になる 等）
 - 人物らしくない文末（sentence_ending_rules 違反、禁止語尾の使用）
 - 感情と口調の不一致（emotion_rules と矛盾。例: 激怒場面で平然とした丁寧語 ※profile が「怒っても敬語」型なら逆に維持が正しい）
 - 決め台詞の揺れ（phrase_map の default/allowed_variants から逸脱）

@@ -65,6 +65,18 @@ Director（Step 1）と Glossary（Step 3）の間に置きます。
 **基本属性**: 物語上の役割 / 年齢層 / 社会的立場 / 相手との上下関係 / 性格 /
 公的な態度 / 私的な態度 / 感情表出の程度 / gender（`gender_confidence` 付き）
 
+**知的水準・言語運用（speech_register）**: 語彙の高さ・構文の複雑さ・話術・
+得意分野は人物の声の一部であり、**全員を作品平均の知的水準・流暢さに均さない**。
+- `intellect_vocabulary`: 語彙の水準と質（衒学的／専門的／平易／幼い 等）
+- `articulateness`: 話術（弁が立つ ↔ 口下手。口下手なら言いよどみ・言いさし・
+  単純な構文・沈黙をどう使うかまで書く）
+- `domain_expertise`: 得意分野と、その言語上の現れ方（専門用語を正確に使う、
+  その話題になると急に饒舌になる 等）
+- `emotional_speech`: 感情が高ぶった場面での言語運用の変化（口下手が加速して
+  途切れる／インテリは怒りも理屈で組み立てる／慈愛の人は叱る時も柔らかい語彙、
+  等。emotion_rules と整合させる）
+すべて evidence_ids 必須。証拠がなければ null のまま。
+
 **一人称（first_person_rules）**: 一つに固定せず、場面別に定義する。
 `default` / `formal` / `casual` / `intimate` / `angry` / `frightened` /
 `comic` / `self_directed` / `public_speech` の各キーに、

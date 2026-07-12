@@ -270,6 +270,71 @@
           "gender_confidence": {
             "$ref": "#/$defs/confidence"
           },
+          "speech_register": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "description": "知的水準・言語運用。人物の声の一部であり作品平均に均さない。証拠がなければ各フィールド null",
+            "properties": {
+              "intellect_vocabulary": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "articulateness": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "domain_expertise": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "domain",
+                    "behavior"
+                  ],
+                  "properties": {
+                    "domain": {
+                      "type": "string"
+                    },
+                    "behavior": {
+                      "type": "string"
+                    },
+                    "evidence_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^sub:[0-9]+(-[0-9]+)?$"
+                      }
+                    }
+                  }
+                }
+              },
+              "emotional_speech": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "speech_quirks": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^sub:[0-9]+(-[0-9]+)?$"
+                }
+              }
+            }
+          },
           "first_person_rules": {
             "$ref": "#/$defs/registerVariants"
           },
