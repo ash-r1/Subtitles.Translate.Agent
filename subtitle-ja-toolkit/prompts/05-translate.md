@@ -20,7 +20,7 @@
 | 変数 | 内容 | 欠けている場合 |
 |---|---|---|
 | `{{source_language}}` / `{{target_language}}` | 言語 | 原語は自動判定 |
-| `{{global_style_guide}}` | Step 1 出力（orthography 含む） | 中立的な表記（句点なし・全角！？）で訳す |
+| `{{global_style_guide}}` | Step 1 出力（orthography・`world_and_atmosphere` 含む） | 中立的な表記（句点なし・全角！？）で訳す |
 | `{{speaker_map}}` | Step 2 出力（当該範囲） | 字幕から話者を推定し confidence を付ける |
 | `{{character_profiles}}` | Step 2 出力 | 中立的で誇張のない訳を優先 |
 | `{{relationship_map}}` | Step 2 出力 | 呼称は省略を基本に安全側で選ぶ |
@@ -45,7 +45,11 @@
    中立の訳にして `review_flags: ["speaker_unknown"]` を付ける。
 3. **発話意図と感情の確認**: 表面上の意味と発話意図（皮肉・嘘・婉曲・威圧・
    親愛・関係修復・話題回避・配慮）を区別する。説明を訳文に足すのではなく、
-   日本語の言い方で再現する。
+   日本語の言い方で再現する。場面のトーンは `world_and_atmosphere` の
+   `tonal_shifts` / `translation_implications` に照らして判定する
+   （例: 落差が演出の作品では、明るい場面を中途半端に均さず振り切り、
+   転調の瞬間に語彙を引き締める。作品の空気感と無関係な平均的トーンに
+   均してはならない）。
 4. **一人称・呼称・敬語の選択**: `{{character_profiles}}` と
    `{{relationship_map}}` から、この話者×相手×場面×感情に合う
    first_person / address / politeness を選ぶ。

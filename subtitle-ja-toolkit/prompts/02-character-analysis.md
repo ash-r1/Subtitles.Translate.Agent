@@ -11,6 +11,12 @@ Director（Step 1）と Glossary（Step 3）の間に置きます。
 各人物の日本語発話スタイル（一人称・呼称・敬語・文末・語彙・感情変化）を
 **字幕中の証拠に基づいて**設計します。
 
+人物は単独で存在しない。Step 1 の `world_and_atmosphere`（作品の前提・
+空気感・緊張構造・笑いの質）を先に読み、各人物を**その構造の中の役割**として
+設計すること（例: 緊張を作る側か緩める側か、作品の落差演出のどちら側を
+担うか）。人物の口調はその役割を日本語で実現する手段であり、
+`world_and_atmosphere` と矛盾する profile を作らない。
+
 ## 2. Objective
 
 次の 6 つの成果物を生成すること。
@@ -27,7 +33,7 @@ Director（Step 1）と Glossary（Step 3）の間に置きます。
 | 変数 | 内容 | 欠けている場合 |
 |---|---|---|
 | `{{subtitle_content}}` | 全字幕（ID 付き） | 必須 |
-| `{{global_style_guide}}` | Step 1 の出力 | 中立的な基準で分析し、その旨を記録 |
+| `{{global_style_guide}}` | Step 1 の出力（`world_and_atmosphere` 含む） | 中立的な基準で分析し、その旨を記録 |
 | `{{project_config}}` | 公式設定資料・キャスト情報 | 字幕のみから推定 |
 | `{{speaker_map}}` | 既存の話者情報（ASS の話者欄等） | 字幕から推定し confidence を付ける |
 

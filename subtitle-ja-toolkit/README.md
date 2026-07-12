@@ -13,6 +13,8 @@
 
 ## 何ができるか
 
+- 作品に通底する**世界観・雰囲気の読み解き**（前提・緊張構造・笑いの質→
+  翻訳への含意）を最初に確定し、以後の全判断の根拠にする
 - 逐語訳ではなく、**人物ごとの一人称・呼称・敬語・文末・決め台詞**を設計した
   うえでの日本語字幕翻訳（`I`→「私」・`you`→「あなた」の機械変換を禁止）
 - 意味監査（誤訳・否定反転・数量・皮肉）と口調監査（人物らしさ・一貫性）の分離
@@ -26,7 +28,7 @@
 
 | # | 工程 | プロンプト | 主な成果物 |
 |---|---|---|---|
-| 1 | 作品全体分析（Director） | `prompts/01-director.md` | global style guide（表記方針・敬語基準） |
+| 1 | 作品全体分析（Director） | `prompts/01-director.md` | global style guide（世界観・雰囲気の読み・表記方針・敬語基準） |
 | 2 | 話者・人物分析 ★新設 | `prompts/02-character-analysis.md` | speaker map / character profiles / relationship map |
 | 3 | 用語集・反復表現 | `prompts/03-glossary.md` | glossary / phrase map |
 | 4 | 翻訳前検証・ネイティブチェック ★ゲート | `prompts/04-pretranslation-check.md` | 決定シート（表記・記号方針・口調サンプルの人間承認） |
@@ -141,7 +143,7 @@ subtitle-ja-toolkit/
 # リポジトリルート:
 .claude/
 ├── commands/                      # /analyze-subtitles ほか 4 コマンド
-└── skills/                        # 4 スキル
+└── skills/                        # 5 スキル
 ```
 
 ## 元実装との関係

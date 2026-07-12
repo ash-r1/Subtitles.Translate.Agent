@@ -58,7 +58,7 @@ argument-hint: <字幕ファイルパス> [project-config.yaml のパス]
 
 7. **報告とゲート**
    - 生成物の要約（人物数・関係数・用語数・未解決数・解決済み数）と
-     **決定シートの内容**（blocker 質問・口調サンプル・推奨案）をユーザーに
+     **決定シートの内容**（作品の読み・blocker 質問・口調サンプル・推奨案）をユーザーに
      提示し、回答を待って終了する。
    - 回答を受けたら glossary / style guide / profile に反映
      （revision_history 追記）し、決定シートを `status: approved` に更新する。
