@@ -1,0 +1,98 @@
+{
+  "batch_id": "all",
+  "item_count": 30,
+  "constraints_missing": false,
+  "adjusted_items": [
+    {
+      "id": "3",
+      "text": "遭難信号を受信しました\n12マイル沖です",
+      "line_broken_text": "遭難信号を受信しました\n12マイル沖です",
+      "original_end": "00:00:08,400",
+      "adjusted_end": "00:00:08,400",
+      "action": "REBREAK",
+      "reason": "行長超過のため意味の切れ目で改行"
+    },
+    {
+      "id": "5",
+      "text": "…誰か…　機関室が浸水…\nもう持たない…",
+      "line_broken_text": "…誰か…　機関室が浸水…\nもう持たない…",
+      "original_end": "00:00:13,900",
+      "adjusted_end": "00:00:13,900",
+      "action": "REBREAK",
+      "reason": "行長超過のため意味の切れ目で改行"
+    },
+    {
+      "id": "11",
+      "text": "モーガン\n16チャンネルで呼びかけ続けろ",
+      "line_broken_text": "モーガン\n16チャンネルで呼びかけ続けろ",
+      "original_end": "00:00:26,800",
+      "adjusted_end": "00:00:26,800",
+      "action": "REBREAK",
+      "reason": "行長超過のため意味の切れ目で改行"
+    },
+    {
+      "id": "14",
+      "text": "前線に追いつかれる前に\n到着できなければ",
+      "line_broken_text": "前線に追いつかれる前に\n到着できなければ",
+      "original_end": "00:00:35,400",
+      "adjusted_end": "00:00:35,400",
+      "action": "REBREAK",
+      "reason": "行長超過のため意味の切れ目で改行"
+    },
+    {
+      "id": "15",
+      "text": "あの船の全員が\nええ　一人残らずです",
+      "line_broken_text": "あの船の全員が\nええ　一人残らずです",
+      "original_end": "00:00:38,700",
+      "adjusted_end": "00:00:38,700",
+      "action": "REBREAK",
+      "reason": "行長超過のため意味の切れ目で改行"
+    },
+    {
+      "id": "19",
+      "text": "大丈夫だと言っただろ\nお前こそ心配しろ",
+      "line_broken_text": "大丈夫だと言っただろ\nお前こそ心配しろ",
+      "original_end": "00:00:48,100",
+      "adjusted_end": "00:00:48,100",
+      "action": "REBREAK",
+      "reason": "行長超過のため意味の切れ目で改行"
+    },
+    {
+      "id": "20",
+      "text": "機関長\n機関室の件は君が正しかった",
+      "line_broken_text": "機関長\n機関室の件は君が正しかった",
+      "original_end": "00:00:51,000",
+      "adjusted_end": "00:00:51,000",
+      "action": "REBREAK",
+      "reason": "行長超過のため意味の切れ目で改行"
+    },
+    {
+      "id": "21",
+      "text": "恐れながら艦長\n機関で私は間違えません",
+      "line_broken_text": "恐れながら艦長\n機関で私は間違えません",
+      "original_end": "00:00:54,300",
+      "adjusted_end": "00:00:54,300",
+      "action": "REBREAK",
+      "reason": "行長超過のため意味の切れ目で改行"
+    },
+    {
+      "id": "22",
+      "text": "コール！　降りなさい！\n正気ですか",
+      "line_broken_text": "コール！　降りなさい！\n正気ですか",
+      "original_end": "00:00:57,200",
+      "adjusted_end": "00:00:57,200",
+      "action": "REBREAK",
+      "reason": "行長超過のため意味の切れ目で改行"
+    },
+    {
+      "id": "24",
+      "text": "燃えていても同じです\n手順には従ってもらいます",
+      "line_broken_text": "燃えていても同じです\n手順には従ってもらいます",
+      "original_end": "00:01:02,400",
+      "adjusted_end": "00:01:02,550",
+      "action": "EXTEND_REBREAK",
+      "reason": "行長超過のため意味の切れ目で改行。CPS 7.03 のため次行開始-50ms まで延長"
+    }
+  ],
+  "note": "違反のなかった 20 行は KEEP（機械検査で違反ゼロのため LLM 未経由）"
+}

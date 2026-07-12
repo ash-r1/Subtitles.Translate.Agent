@@ -1,0 +1,28 @@
+{
+  "batch_id": "000",
+  "item_count": 20,
+  "review_type": "voice",
+  "items": [
+    {"id": "1", "original": "Captain on the bridge!", "draft": "艦長がブリッジに！", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "艦長がブリッジに！", "confidence": "high", "flags": ["skipped_no_profile"]},
+    {"id": "2", "original": "Report, Chief.", "draft": "報告を　機関長", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "報告を　機関長", "confidence": "high", "flags": []},
+    {"id": "3", "original": "We picked up a distress call, Captain. Twelve miles out.", "draft": "遭難信号を受信しました　12マイル沖です", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "遭難信号を受信しました　12マイル沖です", "confidence": "high", "flags": []},
+    {"id": "4", "original": "Can you play it back?", "draft": "再生できるか", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "再生できるか", "confidence": "high", "flags": []},
+    {"id": "5", "original": "...anyone... engine's flooded... we can't hold...", "draft": "…誰か…　機関室が浸水…　もう持たない…", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "…誰か…　機関室が浸水…　もう持たない…", "confidence": "high", "flags": ["skipped_no_profile"]},
+    {"id": "6", "original": "That's all we got, Captain.", "draft": "拾えたのはここまで", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "拾えたのはここまで", "confidence": "high", "flags": []},
+    {"id": "7", "original": "Set course. Full ahead.", "draft": "針路を取れ　全速前進", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "針路を取れ　全速前進", "confidence": "high", "flags": []},
+    {"id": "8", "original": "Steady as she goes, ma'am.", "draft": "ようそろ", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "ようそろ", "confidence": "high", "flags": []},
+    {"id": "9", "original": "Ensign Cole, I need you on the forward deck.", "draft": "コール少尉　前甲板へ", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "コール少尉　前甲板へ", "confidence": "high", "flags": []},
+    {"id": "10", "original": "Aye, Captain.", "draft": "了解しました", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "了解しました", "confidence": "high", "flags": []},
+    {"id": "11", "original": "Morgan, keep hailing them on channel sixteen.", "draft": "モーガン　16チャンネルで呼びかけを続けろ", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "モーガン　16チャンネルで呼びかけを続けろ", "confidence": "high", "flags": []},
+    {"id": "12", "original": "Already on it.", "draft": "もうやってるわよ", "status": "FIXED", "violation_category": "gender_based_ending", "rule_ref": "profile:op_morgan.sentence_ending_rules.forbidden_endings", "critique": "op_morgan は gender: unknown であり、profile は性別を特定させる語尾を禁止している。「わよ」は根拠のない女性語", "final_translation": "もうやってる", "confidence": "high", "flags": []},
+    {"id": "13", "original": "Oh, great. A storm front. Just what we needed.", "draft": "最高だね　前線か　ついてるよ", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "最高だね　前線か　ついてるよ", "confidence": "high", "flags": []},
+    {"id": "14", "original": "If we cannot reach them before that front closes in,", "draft": "前線に追いつかれる前に到着できなければ", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "前線に追いつかれる前に到着できなければ", "confidence": "high", "flags": []},
+    {"id": "15", "original": "every soul on that boat, and I mean every soul,", "draft": "あの船の全員が　ええ　一人残らずです", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "あの船の全員が　ええ　一人残らずです", "confidence": "high", "flags": []},
+    {"id": "16", "original": "will be in the water by dawn.", "draft": "夜明けには海に投げ出されます", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "夜明けには海に投げ出されます", "confidence": "high", "flags": []},
+    {"id": "17", "original": "Then we reach them first.", "draft": "なら先に着くまでだ", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "なら先に着くまでだ", "confidence": "high", "flags": []},
+    {"id": "18", "original": "Danny, you okay? You look pale.", "draft": "ダニー　大丈夫？　顔色悪いよ", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "ダニー　大丈夫？　顔色悪いよ", "confidence": "high", "flags": []},
+    {"id": "19", "original": "I told you I'd be fine. Worry about yourself.", "draft": "大丈夫だと言っただろ　お前こそ心配しろ", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "大丈夫だと言っただろ　お前こそ心配しろ", "confidence": "high", "flags": []},
+    {"id": "20", "original": "Chief, you were right about the engine room.", "draft": "機関長　機関室の件は君が正しかった", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "機関長　機関室の件は君が正しかった", "confidence": "high", "flags": []}
+  ],
+  "profile_revision_candidates": []
+}

@@ -1,0 +1,29 @@
+# 日本語字幕の物理制約（作品・納品先ごとにコピーして subtitle-constraints.yaml として使う)
+# Step 4（分量の目安）と Step 8（検査・調整）が参照する。
+# 値はすべてここで与える。プロンプト内に数値を固定で書いてはならない。
+
+reading_speed:
+  max_cps: 7.0          # 上限 CPS（超過は needs_shortening）
+  comfortable_cps: 4.0  # 快適 CPS（日本語劇場字幕の慣行は 4 文字/秒 程度）
+
+line_length:
+  max_chars_per_line: 15   # 一行の最大文字数（全角換算。横字幕の一般的な目安は 13〜16）
+  max_lines: 2             # 最大行数
+  line_balance_ratio: 0.6  # 二行時、短い行/長い行 の下限目安（意味の切れ目優先）
+
+timing:
+  min_duration_ms: 1200    # 最小表示時間（単語一語の相づち等は除外可）
+  min_gap_ms: 50           # 次の字幕との最小ギャップ
+  max_extension_ms: 1500   # 最終行など gap 制約がない場合の最大延長
+
+char_counting:
+  fullwidth: 1.0     # 全角（かな・漢字・全角記号）
+  halfwidth: 0.5     # 半角英数
+  space: 0.5
+  count_punctuation: true   # 句読点・記号を文字数に含めるか
+
+orthography_defaults:      # Step 1 が orthography を決める際の既定値
+  kuten: none              # 句点は使わない
+  touten: space            # 読点の代わりに全角スペース
+  ellipsis: "…"            # 三点リーダーは 1 個
+  exclamation_question: fullwidth

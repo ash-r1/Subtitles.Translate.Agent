@@ -1,0 +1,18 @@
+{
+  "batch_id": "001",
+  "item_count": 10,
+  "review_type": "voice",
+  "items": [
+    {"id": "21", "original": "With respect, Captain, I am always right about engines.", "draft": "恐れながら艦長　機関で私は間違えません", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "恐れながら艦長　機関で私は間違えません", "confidence": "high", "flags": []},
+    {"id": "22", "original": "Cole! Get down from there! Are you out of your mind?", "draft": "コール！　降りなさい！　正気ですか", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "コール！　降りなさい！　正気ですか", "confidence": "high", "flags": []},
+    {"id": "23", "original": "The line was fouled, Chief!", "draft": "索が絡んだんです！", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "索が絡んだんです！", "confidence": "high", "flags": []},
+    {"id": "24", "original": "I do not care if it was on fire. You will follow procedure.", "draft": "燃えていても同じです　手順には従ってもらいます", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "燃えていても同じです　手順には従ってもらいます", "confidence": "high", "flags": []},
+    {"id": "25", "original": "Understood, Chief.", "draft": "はい　機関長", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "はい　機関長", "confidence": "high", "flags": []},
+    {"id": "26", "original": "There! Off the port bow!", "draft": "いました！　左舷前方です！", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "いました！　左舷前方です！", "confidence": "high", "flags": []},
+    {"id": "27", "original": "I see them. Bring us about.", "draft": "確認した　回頭しろ", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "確認した　回頭しろ", "confidence": "high", "flags": []},
+    {"id": "28", "original": "Steady as she goes, ma'am.", "draft": "ようそろ", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "ようそろ", "confidence": "high", "flags": []},
+    {"id": "29", "original": "Nice work today, Danny. Get some rest.", "draft": "今日はよくやった　ダニー　休め", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "今日はよくやった　ダニー　休め", "confidence": "high", "flags": []},
+    {"id": "30", "original": "You too, Captain.", "draft": "艦長も", "status": "PASS", "violation_category": null, "rule_ref": null, "critique": null, "final_translation": "艦長も", "confidence": "high", "flags": []}
+  ],
+  "profile_revision_candidates": []
+}

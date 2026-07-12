@@ -1,0 +1,89 @@
+{
+  "naming_conventions": {"long_vowel": "長音符ーを使う", "middle_dot": "姓名間は中黒", "v_sound": "ヴは使わない"},
+  "character_map": [
+    {
+      "character_id": "capt_reyes", "speaker_labels": ["Captain", "ma'am"], "aliases": ["Reyes"],
+      "source_name": "Captain Reyes", "target_name": "レイエス艦長", "name_reading": "レイエス",
+      "gender": "female", "gender_confidence": "high", "translation_status": "provisional",
+      "identity_note": "艦長。ma'am の呼びかけから女性（sub:8, sub:28）",
+      "relationship_notes": "全乗員の上官",
+      "first_person_rules": {"ref": "samples/expected/02-character-analysis.json#capt_reyes"},
+      "address_rules": {"ref": "samples/expected/02-character-analysis.json#capt_reyes"},
+      "politeness_rules": {"ref": "samples/expected/02-character-analysis.json#capt_reyes"},
+      "sentence_ending_rules": {"ref": "samples/expected/02-character-analysis.json#capt_reyes"},
+      "preferred_vocabulary": {"ref": "samples/expected/02-character-analysis.json#capt_reyes"},
+      "prohibited_vocabulary": {"ref": "samples/expected/02-character-analysis.json#capt_reyes"},
+      "catchphrases": {"ref": "samples/expected/02-character-analysis.json#capt_reyes"},
+      "emotion_rules": {"ref": "samples/expected/02-character-analysis.json#capt_reyes"},
+      "evidence_ids": ["sub:1", "sub:8"], "unresolved_questions": []
+    },
+    {
+      "character_id": "ens_cole", "speaker_labels": ["Cole"], "aliases": ["Ensign Cole", "Danny"],
+      "source_name": "Ensign Daniel Cole", "target_name": "コール少尉", "name_reading": "コール／ダニー",
+      "gender": "male", "gender_confidence": "high", "translation_status": "provisional",
+      "identity_note": "新任少尉。愛称 Danny（sub:18, sub:29）",
+      "relationship_notes": "Morgan と親しい。Reyes の呼称が sub:29 で変化",
+      "first_person_rules": {"ref": "samples/expected/02-character-analysis.json#ens_cole"},
+      "address_rules": {"ref": "samples/expected/02-character-analysis.json#ens_cole"},
+      "politeness_rules": {"ref": "samples/expected/02-character-analysis.json#ens_cole"},
+      "sentence_ending_rules": {"ref": "samples/expected/02-character-analysis.json#ens_cole"},
+      "preferred_vocabulary": {"ref": "samples/expected/02-character-analysis.json#ens_cole"},
+      "prohibited_vocabulary": {"ref": "samples/expected/02-character-analysis.json#ens_cole"},
+      "catchphrases": {"ref": "samples/expected/02-character-analysis.json#ens_cole"},
+      "emotion_rules": {"ref": "samples/expected/02-character-analysis.json#ens_cole"},
+      "evidence_ids": ["sub:9", "sub:18"], "unresolved_questions": []
+    },
+    {
+      "character_id": "chief_okafor", "speaker_labels": ["Chief"], "aliases": [],
+      "source_name": "Chief Okafor", "target_name": "オカフォー機関長", "name_reading": "オカフォー",
+      "gender": "male", "gender_confidence": "medium", "translation_status": "provisional",
+      "identity_note": "機関長。Chief の訳は sub:20-21（機関室の専門性）に基づく",
+      "relationship_notes": "Reyes と長年の信頼関係と推定",
+      "first_person_rules": {"ref": "samples/expected/02-character-analysis.json#chief_okafor"},
+      "address_rules": {"ref": "samples/expected/02-character-analysis.json#chief_okafor"},
+      "politeness_rules": {"ref": "samples/expected/02-character-analysis.json#chief_okafor"},
+      "sentence_ending_rules": {"ref": "samples/expected/02-character-analysis.json#chief_okafor"},
+      "preferred_vocabulary": {"ref": "samples/expected/02-character-analysis.json#chief_okafor"},
+      "prohibited_vocabulary": {"ref": "samples/expected/02-character-analysis.json#chief_okafor"},
+      "catchphrases": {"ref": "samples/expected/02-character-analysis.json#chief_okafor"},
+      "emotion_rules": {"ref": "samples/expected/02-character-analysis.json#chief_okafor"},
+      "evidence_ids": ["sub:2", "sub:21"], "unresolved_questions": ["Chief=機関長は推定（甲板長の可能性）"]
+    },
+    {
+      "character_id": "op_morgan", "speaker_labels": ["Morgan"], "aliases": [],
+      "source_name": "Morgan", "target_name": "モーガン", "name_reading": "モーガン",
+      "gender": "unknown", "gender_confidence": "low", "translation_status": "provisional",
+      "identity_note": "通信士。性別を示す証拠なし",
+      "relationship_notes": "Cole と親しい同僚",
+      "first_person_rules": {"ref": "samples/expected/02-character-analysis.json#op_morgan"},
+      "address_rules": {"ref": "samples/expected/02-character-analysis.json#op_morgan"},
+      "politeness_rules": {"ref": "samples/expected/02-character-analysis.json#op_morgan"},
+      "sentence_ending_rules": {"ref": "samples/expected/02-character-analysis.json#op_morgan"},
+      "preferred_vocabulary": {"ref": "samples/expected/02-character-analysis.json#op_morgan"},
+      "prohibited_vocabulary": {"ref": "samples/expected/02-character-analysis.json#op_morgan"},
+      "catchphrases": {"ref": "samples/expected/02-character-analysis.json#op_morgan"},
+      "emotion_rules": {"ref": "samples/expected/02-character-analysis.json#op_morgan"},
+      "evidence_ids": ["sub:11"], "unresolved_questions": ["性別不明のまま確定しない"]
+    }
+  ],
+  "location_map": [
+    {"source_term": "the bridge", "target_term": "ブリッジ", "type": "micro", "translation_status": "confirmed", "evidence_ids": ["sub:1"]},
+    {"source_term": "forward deck", "target_term": "前甲板", "type": "micro", "translation_status": "confirmed", "evidence_ids": ["sub:9"]},
+    {"source_term": "engine room", "target_term": "機関室", "type": "micro", "translation_status": "confirmed", "evidence_ids": ["sub:20"]},
+    {"source_term": "port bow", "target_term": "左舷前方", "type": "micro", "translation_status": "confirmed", "evidence_ids": ["sub:26"]}
+  ],
+  "terminology_map": [
+    {"source_term": "distress call", "target_term": "遭難信号", "domain": "海事・無線", "definition": "救助要請の無線通報", "translation_status": "confirmed", "evidence_ids": ["sub:3"]},
+    {"source_term": "channel sixteen", "target_term": "16チャンネル", "domain": "海事・無線", "definition": "国際遭難・呼出周波数（VHF ch16）", "translation_status": "confirmed", "evidence_ids": ["sub:11"]},
+    {"source_term": "Full ahead", "target_term": "全速前進", "domain": "操船号令", "definition": "機関最大出力での前進", "translation_status": "confirmed", "evidence_ids": ["sub:7"]},
+    {"source_term": "Bring us about", "target_term": "回頭", "domain": "操船号令", "definition": "船首の向きを変える", "translation_status": "confirmed", "evidence_ids": ["sub:27"]},
+    {"source_term": "storm front", "target_term": "前線", "domain": "気象", "definition": "嵐を伴う前線", "translation_status": "confirmed", "evidence_ids": ["sub:13", "sub:14"]},
+    {"source_term": "Twelve miles", "target_term": "12マイル", "domain": "海事", "definition": "海里ではなくマイル表記を維持", "translation_status": "provisional", "evidence_ids": ["sub:3"]}
+  ],
+  "phrase_map": [
+    {"source_phrase": "Steady as she goes", "speaker_id": "chief_okafor", "function": "操舵号令（決め台詞）", "default_translation": "ようそろ", "allowed_variants": [], "forbidden_variants": ["彼女が行くように安定して", "このまま安定", "安定航行です"], "scene_conditions": "操舵・針路維持の場面", "emotion_conditions": null, "evidence_ids": ["sub:8", "sub:28"]},
+    {"source_phrase": "Aye, Captain", "speaker_id": "ens_cole", "function": "復唱", "default_translation": "了解しました", "allowed_variants": ["はい　艦長"], "forbidden_variants": ["アイ・キャプテン"], "scene_conditions": "命令受領時", "emotion_conditions": null, "evidence_ids": ["sub:10"]}
+  ],
+  "conflicts": [],
+  "unresolved_questions": ["Twelve miles を海里（約22km）と注記するかは納品先の方針次第（provisional）"]
+}

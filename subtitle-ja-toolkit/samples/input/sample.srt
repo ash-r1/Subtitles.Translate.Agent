@@ -1,0 +1,132 @@
+1
+00:00:01,000 --> 00:00:03,200
+Captain on the bridge!
+
+2
+00:00:03,400 --> 00:00:05,000
+Report, Chief.
+
+3
+00:00:05,200 --> 00:00:08,400
+We picked up a distress call,
+Captain. Twelve miles out.
+
+4
+00:00:08,600 --> 00:00:10,200
+Can you play it back?
+
+5
+00:00:10,400 --> 00:00:13,900
+...anyone... engine's flooded...
+we can't hold...
+
+6
+00:00:14,100 --> 00:00:15,600
+That's all we got, Captain.
+
+7
+00:00:15,800 --> 00:00:17,300
+Set course. Full ahead.
+
+8
+00:00:17,500 --> 00:00:19,000
+Steady as she goes, ma'am.
+
+9
+00:00:19,200 --> 00:00:22,100
+Ensign Cole, I need you
+on the forward deck.
+
+10
+00:00:22,300 --> 00:00:23,500
+Aye, Captain.
+
+11
+00:00:23,700 --> 00:00:26,800
+Morgan, keep hailing them
+on channel sixteen.
+
+12
+00:00:27,000 --> 00:00:28,300
+Already on it.
+
+13
+00:00:28,500 --> 00:00:31,900
+Oh, great. A storm front.
+Just what we needed.
+
+14
+00:00:32,100 --> 00:00:35,400
+If we cannot reach them
+before that front closes in,
+
+15
+00:00:35,600 --> 00:00:38,700
+every soul on that boat,
+and I mean every soul,
+
+16
+00:00:38,900 --> 00:00:41,200
+will be in the water by dawn.
+
+17
+00:00:41,400 --> 00:00:43,100
+Then we reach them first.
+
+18
+00:00:43,300 --> 00:00:45,200
+Danny, you okay? You look pale.
+
+19
+00:00:45,400 --> 00:00:48,100
+I told you I'd be fine.
+Worry about yourself.
+
+20
+00:00:48,300 --> 00:00:51,000
+Chief, you were right
+about the engine room.
+
+21
+00:00:51,200 --> 00:00:54,300
+With respect, Captain,
+I am always right about engines.
+
+22
+00:00:54,500 --> 00:00:57,200
+Cole! Get down from there!
+Are you out of your mind?
+
+23
+00:00:57,400 --> 00:00:59,000
+The line was fouled, Chief!
+
+24
+00:00:59,200 --> 00:01:02,400
+I do not care if it was on fire.
+You will follow procedure.
+
+25
+00:01:02,600 --> 00:01:04,000
+Understood, Chief.
+
+26
+00:01:04,200 --> 00:01:06,500
+There! Off the port bow!
+
+27
+00:01:06,700 --> 00:01:08,200
+I see them. Bring us about.
+
+28
+00:01:08,400 --> 00:01:10,100
+Steady as she goes, ma'am.
+
+29
+00:01:10,300 --> 00:01:13,000
+Nice work today, Danny.
+Get some rest.
+
+30
+00:01:13,200 --> 00:01:14,800
+You too, Captain.

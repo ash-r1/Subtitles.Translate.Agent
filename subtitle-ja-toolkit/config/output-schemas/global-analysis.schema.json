@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Step 1: Global Analysis Output",
+  "type": "object",
+  "required": ["target_language", "category", "overall_tone", "register_baseline",
+               "style_instruction", "orthography", "summary"],
+  "additionalProperties": false,
+  "properties": {
+    "detected_source_language": {"type": ["string", "null"]},
+    "target_language": {"type": "string"},
+    "analysis_coverage": {"type": "string"},
+    "category": {"type": "string"},
+    "audience": {"type": ["string", "null"]},
+    "era_and_place": {"type": "string", "description": "不明なら unknown"},
+    "themes": {"type": "array", "items": {"type": "string"}},
+    "overall_tone": {"type": "array", "items": {"type": "string"}, "minItems": 3, "maxItems": 5},
+    "register_baseline": {"type": "string"},
+    "vocabulary_level": {"type": "string"},
+    "style_instruction": {"type": "string"},
+    "naturalness_criteria": {"type": "array", "items": {"type": "string"}},
+    "avoid_expressions": {"type": "array", "items": {"type": "string"}},
+    "orthography": {
+      "type": "object",
+      "required": ["kuten", "touten", "ellipsis", "quotes", "exclamation_question"],
+      "properties": {
+        "kuten": {"enum": ["none", "use"]},
+        "touten": {"enum": ["space", "touten"]},
+        "ellipsis": {"type": "string"},
+        "dash": {"type": "string"},
+        "quotes": {"type": "string"},
+        "inner_speech": {"type": "string"},
+        "off_screen": {"type": "string"},
+        "lyrics": {"type": "string"},
+        "multi_speaker": {"type": "string"},
+        "exclamation_question": {"enum": ["fullwidth", "halfwidth"]},
+        "numbers": {"type": "string"},
+        "ruby_and_brackets": {"type": "string"}
+      }
+    },
+    "summary": {"type": "string"},
+    "background_setting": {"type": ["string", "null"]},
+    "notes_for_step2": {"type": "array", "items": {"type": "string"}},
+    "unresolved_questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["question", "why_unresolved"],
+        "properties": {
+          "question": {"type": "string"},
+          "why_unresolved": {"type": "string"},
+          "candidates": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "confidence_notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["field", "confidence"],
+        "properties": {
+          "field": {"type": "string"},
+          "confidence": {"enum": ["high", "medium", "low"]},
+          "evidence_ids": {"type": "array", "items": {"type": "string", "pattern": "^sub:[0-9]+(-[0-9]+)?$"}}
+        }
+      }
+    }
+  }
+}
