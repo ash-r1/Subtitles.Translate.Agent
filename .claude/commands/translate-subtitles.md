@@ -19,6 +19,16 @@ argument-hint: "[開始バッチ番号（再開用）]"
 
 必ず `subtitle-ja-toolkit/CLAUDE.md` と `prompts/00-common-rules.md` を先に読むこと。
 
+**シリーズモード**（`series.enabled: true`）: 下の手順を `series.episodes` の
+**エピソード単位のループ**で回す。共有成果物は `work/_shared/` の 01–04 を読み、
+各エピソードの中間成果物は `work/<episode_id>/`（例:
+`work/ep03/05-translation/batch-NNN.json`）、出力は `output/<episode_id>.srt`。
+エピソード間も直列で、前エピソードで採用した profile/glossary 更新を
+`work/_shared/` に反映してから次へ進む（並列化しない）。完成済みエピソード
+（`output/<id>.srt` と `work/<id>/` が揃う）はスキップ。$ARGUMENTS で
+エピソード id を指定可（例: `/translate-subtitles ep03` で ep03 のみ、
+`ep03 12` で ep03 のバッチ 12 から再開）。
+
 ## 手順
 
 1. **バッチ分割**: `python3 scripts/srt_tools.py slice work/source.json

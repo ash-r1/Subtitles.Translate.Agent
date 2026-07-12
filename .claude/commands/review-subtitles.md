@@ -13,6 +13,14 @@ argument-hint: "[--skip-timing | --audit-only]"
 必ず `subtitle-ja-toolkit/CLAUDE.md` と `prompts/00-common-rules.md` を先に読むこと。
 $ARGUMENTS: `--skip-timing` で Step 9 を飛ばす、`--audit-only` で Step 10 のみ。
 
+**シリーズモード**（`series.enabled: true`）: 下の手順を `series.episodes` の
+**エピソード単位のループ**で回す。共有成果物は `work/_shared/`、各話の統合・
+出力は `work/<episode_id>/final.json` と `output/<episode_id>.srt`。全エピソード
+完了後に**シリーズ横断の最終監査を 1 回**追加する（glossary・phrase_map・
+一人称・印象ドリフトをエピソード間で照合。書式は Step 10 と同じで
+`affected_ids` にエピソードプレフィックス、出力 `work/_shared/series-final-audit.json`）。
+詳細は CLAUDE.md「シリーズ（複数ファイル）運用」。
+
 ## 手順
 
 1. **統合**: Step 8 までの確定訳（polished_text ?? 前工程の final_translation）

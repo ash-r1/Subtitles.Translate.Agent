@@ -8,9 +8,26 @@ project:
   subtitle_format: srt                     # srt | vtt（ass は未対応。事前に srt/vtt へ変換）
 
 paths:
+  # input_subtitle / output_subtitle は単一ファイル時のみ使用（series.enabled: false）。
+  # シリーズ時は series.episodes の input と output/<episode_id>.srt を使う。
   input_subtitle: input/source.srt         # 元字幕（読み取り専用。変更禁止）
   work_dir: work/                          # 中間成果物の置き場所
   output_subtitle: output/translated.srt   # 最終出力
+
+# シリーズ（複数ファイル）運用（詳細は CLAUDE.md「シリーズ（複数ファイル）運用」）。
+# Step 1–4 の分析をシリーズ全体で 1 回だけ行い（成果物は work/_shared/）、
+# Step 5–10 をエピソード単位のループで回す。
+series:
+  enabled: false           # false = 単一ファイル（既定）。true でシリーズモード
+  # 翻訳対象のエピソード一覧（enabled: true のとき使用）。id は work/<id>/・
+  # output/<id>.srt・evidence の id プレフィックスに用いる（例: ep02/sub:45）。
+  episodes: []
+  #   - {id: ep01, input: input/ep01.srt}
+  #   - {id: ep02, input: input/ep02.srt}
+  #   - {id: ep03, input: input/ep03.srt}
+  # 人間が重点確認するエピソード（決定シートで質問し、回答をこの欄に記録する）。
+  # パイロットの代表選定にも使う。不要なら null。
+  priority_episodes: null  # 例: [ep01, ep05]
 
 # 公式資料（あれば列挙。glossary はこれを最優先で採用する）
 official_references:

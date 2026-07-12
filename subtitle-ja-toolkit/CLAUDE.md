@@ -69,6 +69,39 @@ Step 4 は**全編翻訳の前に人間の確認を挟むゲート**であり、
 `project-config.yaml` の `pipeline.enable_pretranslation_check: false` で
 スキップできる（サンプル検証や再実行時など、確認事項が既知の場合のみ推奨）。
 
+## シリーズ（複数ファイル）運用
+
+続き物を複数ファイルまとめて訳す場合、`project-config.yaml` の
+`series.enabled: true` にし、`series.episodes` に `{id, input}` を列挙する
+（既定は単一ファイル）。分析を全話で共有し、翻訳をファイル単位で回す。
+
+- **Step 1–4 はシリーズ全体で 1 回**実行し、成果物は `work/_shared/` に置く
+  （`01`〜`03` の JSON、`scene-context.yaml`、`unresolved-items.yaml`、Step 4 の
+  `04-decision-sheet.md`・`04-native-check.json`・`04-pilot/`）。Step 1 は
+  全話をサンプリングして読み、読んだ範囲を `analysis_coverage` に記録する。
+  decision sheet（ゲート）はシリーズで 1 枚。パイロットは代表エピソード
+  （`series.priority_episodes` があればそこ）から選ぶ。
+- **Step 5–10 はエピソード単位のループ**で、成果物は `work/<episode_id>/`
+  （例: `work/ep01/05-translation/batch-000.json`）、出力は
+  `output/<episode_id>.srt`（入力の拡張子・形式に従う）。
+- **evidence_ids / valid_range の表記**: シリーズモードでは `ep02/sub:45`
+  （エピソード id プレフィックス＋スラッシュ）を用いる。character_arc の phase
+  境界がエピソード境界と一致する場合は
+  `valid_range: "ep03/sub:1-ep05/sub:999"` のような跨ぎ表記も可。
+- **エピソード間の一貫性**: 翻訳中に発見した profile/glossary 更新
+  （`new_findings`・`profile_revision_candidates` 等）は `work/_shared/` の
+  成果物へ反映し、以後のエピソードに効かせる。バッチ間と同じく
+  **エピソード間も直列**（前エピソードの profile 更新を次に効かせるため、
+  並列化しない）。**反映済みエピソードへの遡及影響**は
+  `work/_shared/unresolved-items.yaml` に記録し、シリーズ横断監査で検査する。
+- **シリーズ横断監査**: 各エピソードの Step 10 に加え、全エピソード完了後に
+  横断の最終監査を 1 回行う（glossary・phrase_map・一人称・印象ドリフトを
+  エピソード間で照合）。出力は `work/_shared/series-final-audit.json`。書式は
+  エピソード単位の `10-final-audit` と同じで、`affected_ids` にエピソード
+  プレフィックスを付ける。
+- **中断・再開**: エピソード単位で完成を判定し（`output/<id>.srt` と当該
+  `work/<id>/` が揃っているか）、完成済みエピソードはスキップする。
+
 ## 不変条件（全工程共通）
 
 1. **元字幕を変更しない**: `input/` 配下は読み取り専用。

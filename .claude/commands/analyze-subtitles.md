@@ -13,6 +13,15 @@ argument-hint: <字幕ファイルパス> [project-config.yaml のパス]
 必ず `subtitle-ja-toolkit/CLAUDE.md` と `subtitle-ja-toolkit/prompts/00-common-rules.md`
 を先に読むこと。
 
+**シリーズモード**（`project-config.yaml` の `series.enabled: true`）: 下の手順を
+`series.episodes` の全話を対象に **1 回だけ**実行する（Step 1–4 はシリーズ共有）。
+各話を parse して結合・サンプリングした字幕を Step 1–3 に渡し、成果物は
+`work/` ではなく `work/_shared/`（`01`〜`03`・`scene-context`・`unresolved-items`・
+`04-*`）に書く。Step 1 は全話をサンプリングして読み、読んだ範囲を
+`analysis_coverage` に記録する。evidence の id は `ep02/sub:45` 形式。決定シートは
+シリーズで 1 枚、パイロットは代表エピソード（`series.priority_episodes` 優先）から
+選ぶ。詳細は CLAUDE.md「シリーズ（複数ファイル）運用」。
+
 ## 手順
 
 1. **準備**

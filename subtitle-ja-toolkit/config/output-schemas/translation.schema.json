@@ -42,7 +42,7 @@
         "properties": {
           "type": {"enum": ["character", "relationship", "phrase", "term"]},
           "description": {"type": "string"},
-          "evidence_ids": {"type": "array", "items": {"type": "string", "pattern": "^sub:[0-9]+(-[0-9]+)?$"}}
+          "evidence_ids": {"type": "array", "items": {"type": "string", "pattern": "^([A-Za-z0-9_-]+/)?sub:[0-9]+(-[0-9]+)?$"}}
         }
       }
     }

@@ -32,3 +32,10 @@ argument-hint: <字幕ファイルパス>
   抜粋したことを明記する）。
 - 終了時に最終報告を出す: 字幕件数 / バッチ数 / FIXED 件数（Step 6・7 別）/
   polish 変更率 / タイミング調整数 / Step 10 findings / 残存 unresolved。
+- **シリーズモード**（`series.enabled: true`）: フェーズ 1（Step 1–4）は
+  `series.episodes` 全話でシリーズ 1 回（成果物 `work/_shared/`）、フェーズ 2–3
+  （Step 5–10）はエピソード単位のループで回す（`work/<id>/`・
+  `output/<id>.srt`）。エピソード間は直列（前話の profile 更新を次に反映）。
+  ゲート（決定シート）はシリーズで 1 回だけ停止する。全エピソード完了後に
+  シリーズ横断の最終監査を 1 回追加する。詳細は CLAUDE.md
+  「シリーズ（複数ファイル）運用」。

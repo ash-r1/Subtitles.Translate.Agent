@@ -6,7 +6,7 @@
   "additionalProperties": false,
   "$defs": {
     "confidence": {"enum": ["high", "medium", "low"]},
-    "evidenceIds": {"type": "array", "items": {"type": "string", "pattern": "^sub:[0-9]+(-[0-9]+)?$"}},
+    "evidenceIds": {"type": "array", "items": {"type": "string", "pattern": "^([A-Za-z0-9_-]+/)?sub:[0-9]+(-[0-9]+)?$"}},
     "translationStatus": {"enum": ["official", "confirmed", "provisional"]},
     "refOrObject": {
       "oneOf": [

@@ -45,6 +45,14 @@ Step 4 は全編翻訳の前に人間の確認を挟む**ゲート工程**（運
 照会とパイロット翻訳＋ネイティブチェックで先に洗い出し、`work/04-decision-sheet.md`
 への回答をもらってから本翻訳（Step 5〜）へ進む。
 
+続き物を複数ファイルまとめて訳す場合は**シリーズモード**を使う
+（`project-config.yaml` の `series.enabled: true` と `series.episodes` の列挙）。
+Step 1–4（分析＋ゲート）はシリーズ全体で 1 回だけ実行して成果物を
+`work/_shared/` に共有し、Step 5–10 はエピソード単位のループで回して
+`output/<episode_id>.srt` を出す。decision sheet（ゲート）はシリーズで 1 枚、
+最後に全話横断の最終監査を 1 回追加する。詳細は `CLAUDE.md`
+「シリーズ（複数ファイル）運用」を参照。
+
 全工程の共通規約は `prompts/00-common-rules.md`、運用ルール（ファイル配置・
 不変条件・バッチ処理・サブエージェント割り当て・失敗時の再実行）は
 `CLAUDE.md` を参照。
