@@ -28,7 +28,8 @@
           "review_flags": {
             "type": "array",
             "items": {"enum": ["speaker_unknown", "long_line", "provisional_term",
-                               "sentence_spans_batch", "no_glossary", "scene_uncertain"]}
+                               "sentence_spans_batch", "no_glossary", "scene_uncertain",
+                               "marked_structure"]}
           }
         }
       }

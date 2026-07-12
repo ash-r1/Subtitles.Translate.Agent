@@ -45,7 +45,10 @@
    中立の訳にして `review_flags: ["speaker_unknown"]` を付ける。
 3. **発話意図と感情の確認**: 表面上の意味と発話意図（皮肉・嘘・婉曲・威圧・
    親愛・関係修復・話題回避・配慮）を区別する。説明を訳文に足すのではなく、
-   日本語の言い方で再現する。場面のトーンは `world_and_atmosphere` の
+   日本語の言い方で再現する。あわせて文法構造の**有標性**を判定する
+   （共通規約 7-7）: 態・使役・自他動詞・主語の選択が主導権・責務の割り当て
+   として意図的なら、`review_flags: ["marked_structure"]` を付け、
+   そのニュアンスを日本語の手段で維持する。場面のトーンは `world_and_atmosphere` の
    `tonal_shifts` / `translation_implications` に照らして判定する
    （例: 落差が演出の作品では、明るい場面を中途半端に均さず振り切り、
    転調の瞬間に語彙を引き締める。作品の空気感と無関係な平均的トーンに
@@ -75,7 +78,9 @@
   不自然に繰り返さない。台詞の勢いを失う長い説明を避ける。読み切れない長さに
   しない。一方で、物語上重要な情報・否定・数量・固有名詞・因果関係は落とさない。
 - **英語構文の直写禁止**: 英語型受動態（「〜される」の乱用）、名詞を重ねた説明、
-  「〜することができる」等の翻訳調を避ける。
+  「〜することができる」等の翻訳調を避ける。**ただしこれは無標の構造に限る**。
+  責務・主導権を割り当てる有標の構文選択（共通規約 7-7）は、直写ではなく
+  日本語側の対応手段で**ニュアンスを維持**する（自然化を理由に消さない）。
 - **punctuation**: `{{global_style_guide}}` の orthography に従う。
   原文の `...` `--` `!?` を機械的に写さない。
 - **一行完結の判断**: 各行を単独で完成させる必要があるか（カットまたぎ・
@@ -111,7 +116,7 @@
       "listener_id": "ito | unknown",
       "emotion": "neutral | angry | …",
       "confidence": "high | medium | low",
-      "review_flags": ["speaker_unknown", "long_line", "provisional_term", "sentence_spans_batch"]
+      "review_flags": ["speaker_unknown", "long_line", "provisional_term", "sentence_spans_batch", "marked_structure"]
     }
   ],
   "new_findings": [
