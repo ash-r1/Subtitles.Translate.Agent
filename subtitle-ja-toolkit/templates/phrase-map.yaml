@@ -1,0 +1,12 @@
+# 決め台詞・反復表現マップテンプレート（Step 2 で下書き、Step 3 で確定）
+
+phrases:
+  - source_phrase: null        # 原文表現
+    speaker_id: null
+    function: null             # 挨拶 / 宣言 / 皮肉 / 口癖 / 決め台詞 …
+    default_translation: null  # 基本訳
+    allowed_variants: []       # 文脈別の変形候補（変えてよい部分）
+    forbidden_variants: []     # 使ってはならない訳
+    scene_conditions: null     # どの場面で使うか
+    emotion_conditions: null   # どの感情で使うか
+    evidence_ids: []           # 出現した字幕番号（全出現を列挙）

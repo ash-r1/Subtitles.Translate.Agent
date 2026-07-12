@@ -1,0 +1,49 @@
+{
+  "detected_source_language": "en",
+  "target_language": "ja",
+  "analysis_coverage": "full",
+  "category": "海難救助ドラマ（艦艇もの・一話完結型）",
+  "audience": "配信サービスの一般成人視聴者",
+  "era_and_place": "現代・沿岸警備艇のブリッジと甲板",
+  "themes": ["海難救助", "規律と信頼", "若手士官の成長"],
+  "overall_tone": ["緊迫", "簡潔", "職業的", "抑制された感情"],
+  "register_baseline": "艦内の公的場面は階級に応じた敬語（上官へは です・ます）。指揮官の命令は常体・命令形。同僚間の私的なやり取りは常体",
+  "vocabulary_level": "一般視聴者向け。操船・無線用語（ようそろ・左舷・回頭・チャンネル16）は正確な定訳を使う",
+  "style_instruction": "台詞は短く切り、命令は命令形で歯切れよく。感情は語彙と文長で表し、感嘆符に頼りすぎない。無線音声は断片のまま訳す",
+  "naturalness_criteria": [
+    "不要な『あなた』『私は』を出さない（ゼロ代名詞優先）",
+    "英語型受動態（〜される の乱用）を避ける",
+    "『〜することができる』等の翻訳調を避ける",
+    "呼びかけの重複（原文の名前連呼）をそのまま写さない"
+  ],
+  "avoid_expressions": ["過剰な役割語（だわ・かしら・ぜ 等）", "軍記調の古風な言い回し", "説明的な補足"],
+  "orthography": {
+    "kuten": "none",
+    "touten": "space",
+    "ellipsis": "…",
+    "dash": "―",
+    "quotes": "「」",
+    "inner_speech": "使用場面なし（発生したら（ ）で括る）",
+    "off_screen": "無線・スピーカー越しの音声は通常表記（記号を付けない）",
+    "lyrics": "使用場面なし（発生したら行頭に♪）",
+    "multi_speaker": "同一字幕内の話者交替は行頭に「-」",
+    "exclamation_question": "fullwidth",
+    "numbers": "半角（12マイル・16チャンネル）",
+    "ruby_and_brackets": "ルビ不使用"
+  },
+  "summary": "沿岸警備艇が嵐の接近下で漁船の遭難信号を受信し救助に向かう。レイエス艦長の指揮の下、若手のコール少尉が規律違反すれすれの行動でオカフォー機関長に叱責されつつも、救助は成功する。終盤、艦長がコールを名前で呼び、信頼の変化が示される",
+  "background_setting": "無線チャンネル16は国際遭難・呼出周波数。Steady as she goes は針路維持の操舵号令（定訳: ようそろ）",
+  "notes_for_step2": [
+    "sub:5 の遭難者は話者確定不可。断定しないこと",
+    "Morgan は性別の手掛かりが台詞にない",
+    "Reyes → Cole の呼称が sub:29 で変化する（Ensign Cole → Danny）",
+    "Okafor は叱責時（sub:22-24）も文法的に統制された話し方を保つ"
+  ],
+  "unresolved_questions": [
+    {"question": "艦種（沿岸警備隊か海軍か）", "why_unresolved": "字幕内に明示なし", "candidates": ["沿岸警備艇", "海軍艦艇"]}
+  ],
+  "confidence_notes": [
+    {"field": "era_and_place", "confidence": "medium", "evidence_ids": ["sub:11", "sub:26"]},
+    {"field": "category", "confidence": "high", "evidence_ids": ["sub:3", "sub:5", "sub:16"]}
+  ]
+}

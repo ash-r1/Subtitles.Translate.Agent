@@ -1,0 +1,29 @@
+{
+  "batch_id": "000",
+  "item_count": 20,
+  "first_item_id": "1",
+  "last_item_id": "20",
+  "items": [
+    {"id": "1", "original": "Captain on the bridge!", "initial_translation": "艦長がブリッジに！", "speaker_id": "unknown", "listener_id": "crew", "emotion": "neutral", "confidence": "medium", "review_flags": ["speaker_unknown"]},
+    {"id": "2", "original": "Report, Chief.", "initial_translation": "報告を　機関長", "speaker_id": "capt_reyes", "listener_id": "chief_okafor", "emotion": "neutral", "confidence": "high", "review_flags": []},
+    {"id": "3", "original": "We picked up a distress call, Captain. Twelve miles out.", "initial_translation": "遭難信号を受信しました　12マイル沖です", "speaker_id": "chief_okafor", "listener_id": "capt_reyes", "emotion": "neutral", "confidence": "high", "review_flags": []},
+    {"id": "4", "original": "Can you play it back?", "initial_translation": "再生できるか", "speaker_id": "capt_reyes", "listener_id": "op_morgan", "emotion": "neutral", "confidence": "medium", "review_flags": []},
+    {"id": "5", "original": "...anyone... engine's flooded... we can't hold...", "initial_translation": "…誰か…　機関室が浸水…　もう持たない…", "speaker_id": "unknown", "listener_id": null, "emotion": "frightened", "confidence": "low", "review_flags": ["speaker_unknown"]},
+    {"id": "6", "original": "That's all we got, Captain.", "initial_translation": "拾えたのはここまで", "speaker_id": "op_morgan", "listener_id": "capt_reyes", "emotion": "neutral", "confidence": "medium", "review_flags": []},
+    {"id": "7", "original": "Set course. Full ahead.", "initial_translation": "針路を取れ　全速前進", "speaker_id": "capt_reyes", "listener_id": "chief_okafor", "emotion": "authoritative", "confidence": "high", "review_flags": []},
+    {"id": "8", "original": "Steady as she goes, ma'am.", "initial_translation": "ようそろ", "speaker_id": "chief_okafor", "listener_id": "capt_reyes", "emotion": "neutral", "confidence": "high", "review_flags": []},
+    {"id": "9", "original": "Ensign Cole, I need you on the forward deck.", "initial_translation": "コール少尉　前甲板へ", "speaker_id": "capt_reyes", "listener_id": "ens_cole", "emotion": "authoritative", "confidence": "high", "review_flags": []},
+    {"id": "10", "original": "Aye, Captain.", "initial_translation": "了解しました", "speaker_id": "ens_cole", "listener_id": "capt_reyes", "emotion": "neutral", "confidence": "high", "review_flags": []},
+    {"id": "11", "original": "Morgan, keep hailing them on channel sixteen.", "initial_translation": "モーガン　16チャンネルで呼びかけを続けろ", "speaker_id": "capt_reyes", "listener_id": "op_morgan", "emotion": "authoritative", "confidence": "high", "review_flags": []},
+    {"id": "12", "original": "Already on it.", "initial_translation": "もうやってるわよ", "speaker_id": "op_morgan", "listener_id": "capt_reyes", "emotion": "neutral", "confidence": "high", "review_flags": []},
+    {"id": "13", "original": "Oh, great. A storm front. Just what we needed.", "initial_translation": "ああ　素晴らしい　前線だ　まさに必要なものだった", "speaker_id": "op_morgan", "listener_id": "crew", "emotion": "sarcastic", "confidence": "high", "review_flags": []},
+    {"id": "14", "original": "If we cannot reach them before that front closes in,", "initial_translation": "前線に追いつかれる前に到着できなければ", "speaker_id": "chief_okafor", "listener_id": "capt_reyes", "emotion": "authoritative", "confidence": "medium", "review_flags": ["sentence_spans_batch"]},
+    {"id": "15", "original": "every soul on that boat, and I mean every soul,", "initial_translation": "あの船の全員が　ええ　一人残らずです", "speaker_id": "chief_okafor", "listener_id": "capt_reyes", "emotion": "authoritative", "confidence": "medium", "review_flags": []},
+    {"id": "16", "original": "will be in the water by dawn.", "initial_translation": "夜明けには海に投げ出されます", "speaker_id": "chief_okafor", "listener_id": "capt_reyes", "emotion": "authoritative", "confidence": "medium", "review_flags": []},
+    {"id": "17", "original": "Then we reach them first.", "initial_translation": "なら先に着くまでだ", "speaker_id": "capt_reyes", "listener_id": "chief_okafor", "emotion": "neutral", "confidence": "high", "review_flags": []},
+    {"id": "18", "original": "Danny, you okay? You look pale.", "initial_translation": "ダニー　大丈夫？　顔色悪いよ", "speaker_id": "op_morgan", "listener_id": "ens_cole", "emotion": "neutral", "confidence": "medium", "review_flags": []},
+    {"id": "19", "original": "I told you I'd be fine. Worry about yourself.", "initial_translation": "大丈夫だと言っただろ　お前こそ心配しろ", "speaker_id": "ens_cole", "listener_id": "op_morgan", "emotion": "embarrassed", "confidence": "high", "review_flags": []},
+    {"id": "20", "original": "Chief, you were right about the engine room.", "initial_translation": "機関長　機関室の件は君が正しかった", "speaker_id": "capt_reyes", "listener_id": "chief_okafor", "emotion": "pleased", "confidence": "high", "review_flags": []}
+  ],
+  "new_findings": []
+}

@@ -1,0 +1,108 @@
+# 人物 profile テンプレート（Step 2 出力の 1 人物分）
+# ・fact / inference を必ず区別する。inference には confidence を付ける
+# ・「省略」は一人称・呼称の正当な値
+# ・字幕に証拠がない感情状態は not_observed のまま残す
+
+character_id: example_id
+display_names: []            # 字幕上の表記（"Reyes", "Captain" など）
+
+# --- 基本属性（value / basis / confidence / evidence_ids）---
+role:            {value: null, basis: fact,      confidence: null, evidence_ids: []}
+age_range:       {value: null, basis: inference, confidence: low,  evidence_ids: []}
+social_position: {value: null, basis: fact,      confidence: null, evidence_ids: []}
+personality:     {value: null, basis: inference, confidence: null, evidence_ids: []}
+public_demeanor:  {value: null, basis: inference, confidence: null, evidence_ids: []}
+private_demeanor: {value: null, basis: inference, confidence: null, evidence_ids: []}
+emotional_expressiveness: {value: null, basis: inference, confidence: null, evidence_ids: []}
+
+gender: unknown              # male | female | nonbinary | unknown | object
+gender_confidence: low       # gender だけから口調を決めてはならない
+
+# --- 一人称（場面別。null=未定義、"省略"=原則出さない）---
+first_person_rules:
+  default: 省略
+  formal: null               # 例: 私
+  casual: null               # 例: 俺
+  intimate: null
+  angry: null
+  frightened: null
+  comic: null
+  self_directed: null        # 独り言
+  public_speech: null        # 演説・報告
+
+# --- 二人称・呼称（相手別）---
+address_rules:
+  - listener_id: other_id
+    default: 省略             # 省略 | 名前 | 姓 | 姓＋敬称 | 名＋敬称 | 役職 | 親族呼称 | あなた | 君 | お前 | あんた | そちら
+    variants:                 # 場面・感情による変形
+      angry: null
+      formal: null
+    evidence_ids: []
+
+# --- 丁寧さ（相手別。抽象語でなく観察可能な規則で書く）---
+politeness_rules:
+  - listener_id: other_id
+    rules: null               # 例: "です・ます。依頼は『〜してもらえますか』。命令形不使用"
+    evidence_ids: []
+
+# --- 文末 ---
+sentence_ending_rules:
+  neutral: null               # 例: "だ・である体。体言止め多用"
+  question: null              # 例: "〜か？ / 〜のか"
+  command: null
+  emotional_shifts: null      # 怒り・恐れ・悲しみ・親愛時の変化
+  assertion_style: null       # 言い切るか、濁すか
+  final_particles: null       # ね/よ/さ/な の使用傾向
+  forbidden_endings: []       # 例: ["だわ", "かしら", "ぞ"]（根拠のない役割語）
+
+# --- 語彙 ---
+preferred_vocabulary: []      # {word, context: どの相手/場面/感情で, evidence_ids}
+prohibited_vocabulary: []
+
+# --- 決め台詞 ---
+catchphrases:
+  - source_phrase: null
+    default_translation: null
+    variants: []              # 文脈別の変形候補
+    fixed_part: null          # 固定すべき部分
+    flexible_part: null       # 変えてよい部分
+    evidence_ids: []
+
+# --- 感情別の変化（証拠がなければ not_observed のまま）---
+emotion_rules:
+  neutral: not_observed
+  pleased: not_observed
+  affectionate: not_observed
+  embarrassed: not_observed
+  irritated: not_observed
+  angry: not_observed
+  # 記述する場合は次の構造:
+  # angry:
+  #   sentence_length: 短くなる
+  #   vocabulary: 罵倒語なし。命令語彙が増える
+  #   politeness: 敬語を崩さない
+  #   assertiveness: 断定が強まる
+  #   ellipsis_tendency: 主語省略が増える
+  #   hesitation: なし
+  #   sentence_ending: "〜しろ → 〜してもらう では NG"
+  #   address_shift: 姓呼び捨てに変わる
+  #   punctuation: 感嘆符は使わない
+  #   evidence_ids: ["sub:88"]
+  frightened: not_observed
+  grieving: not_observed
+  sarcastic: not_observed
+  authoritative: not_observed
+  deceptive: not_observed
+  exhausted: not_observed
+
+evidence_ids: []              # profile 全体の主根拠
+unresolved_questions: []
+
+# --- 変更履歴（CLAUDE.md の profile 更新手順で追記する）---
+revision_history: []
+# - date: 2026-07-12
+#   changed_by: step6_voice_review
+#   field: first_person_rules.casual
+#   from: 僕
+#   to: 俺
+#   reason: sub:88,91,120 の一貫した証拠

@@ -441,3 +441,10 @@ nodeRender/subtitledogonline/soundTest/zh-CN/zh-CN-YunjianNeural.wav
 nodeRender/subtitledogonline/soundTest/zh-CN/zh-CN-YunyangNeural.wav
 nodeRender/subtitledogonline/soundTest/zh-CN/zh-CN-YunyeNeural.wav
 nodeRender/subtitledogonline/soundTest/zh-CN/zh-CN-YunzeNeural.wav
+
+# subtitle-ja-toolkit の作業ファイル（成果物はコミットしない）
+subtitle-ja-toolkit/work/
+subtitle-ja-toolkit/input/
+subtitle-ja-toolkit/output/
+subtitle-ja-toolkit/project-config.yaml
+subtitle-ja-toolkit/subtitle-constraints.yaml

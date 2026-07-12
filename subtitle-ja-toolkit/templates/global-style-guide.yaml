@@ -1,0 +1,36 @@
+# Step 1 の出力を人間が編集しやすい形で保持するテンプレート
+# （正本は work/01-global-analysis.json。手動調整はこちらを経由してもよい）
+
+target_language: ja
+detected_source_language: null   # 例: en
+
+category: null            # 例: 海軍SFドラマ
+audience: null            # 例: 配信サービスの一般視聴者
+era_and_place: unknown    # 不明なら unknown のまま
+themes: []
+overall_tone: []          # 形容 3〜5 個
+
+register_baseline: null   # 例: "軍内は階級に応じた敬語、私的場面は常体"
+vocabulary_level: null
+style_instruction: null
+naturalness_criteria: []  # 避ける翻訳調パターンを列挙
+avoid_expressions: []
+
+orthography:
+  kuten: none              # none | use
+  touten: space            # space | touten
+  ellipsis: "…"
+  dash: "―"
+  quotes: "「」"
+  inner_speech: null       # 例: （ ）で括る
+  off_screen: null         # 例: 行頭に何も付けない／斜体不可
+  lyrics: null             # 例: ♪〜♪
+  multi_speaker: null      # 例: 行頭に「-」
+  exclamation_question: fullwidth
+  numbers: null            # 例: 2桁まで全角、3桁以上は半角
+  ruby_and_brackets: null
+
+summary: null
+background_setting: null
+notes_for_step2: []
+unresolved_questions: []

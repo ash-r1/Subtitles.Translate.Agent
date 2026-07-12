@@ -1,0 +1,19 @@
+# 関係マップテンプレート（話者×相手の組ごとに 1 エントリ）
+# 関係が物語中で変化する場合は valid_range を分けて複数エントリにする
+
+relationships:
+  - speaker_id: example_a
+    listener_id: example_b
+    relationship: null        # 例: 上官と部下 / 幼なじみ / 初対面の客
+    power_balance: null       # 例: a が上位 / 対等 / 状況依存
+    public_register: null     # 公的場面の話し方（例: 丁寧語）
+    private_register: null    # 私的場面の話し方（例: 常体）
+    default_address: null     # 既定の呼称（"省略" も正当な値）
+    address_variants:         # 場面・感情別
+      angry: null
+      affectionate: null
+      formal: null
+    first_person_variant: null  # この相手の前でだけ変わる一人称
+    changes_over_time: null     # 変化の説明（例: 「中盤から姓→名へ」）
+    valid_range: null           # "sub:1-240" 形式。null は全編有効
+    evidence_ids: []
