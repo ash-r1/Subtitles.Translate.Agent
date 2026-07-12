@@ -23,12 +23,13 @@ def load_constraints(path):
         import yaml  # type: ignore
         return yaml.safe_load(text)
     except ImportError:
-        # 簡易フォールバック: "key: 数値" の行だけ拾ってフラットに返す
+        # 簡易フォールバック: "key: 数値|真偽値" の行を拾ってフラットに返す
         flat = {}
         for line in text.splitlines():
-            m = re.match(r"\s*([a-z_]+):\s*([0-9.]+)\s*(#.*)?$", line)
+            m = re.match(r"\s*([a-z_]+):\s*([0-9.]+|true|false)\s*(#.*)?$", line)
             if m:
-                flat[m.group(1)] = float(m.group(2))
+                v = m.group(2)
+                flat[m.group(1)] = (v == "true") if v in ("true", "false") else float(v)
         return {
             "reading_speed": {"max_cps": flat.get("max_cps", 7.0),
                               "comfortable_cps": flat.get("comfortable_cps", 4.0)},
@@ -38,7 +39,8 @@ def load_constraints(path):
                        "min_gap_ms": flat.get("min_gap_ms", 50)},
             "char_counting": {"fullwidth": flat.get("fullwidth", 1.0),
                               "halfwidth": flat.get("halfwidth", 0.5),
-                              "space": flat.get("space", 0.5)},
+                              "space": flat.get("space", 0.5),
+                              "count_punctuation": flat.get("count_punctuation", True)},
         }
 
 
@@ -53,6 +55,9 @@ def char_weight(ch, rules):
         return 0.0
     if ch == " " or ch == "　":
         return rules.get("space", 0.5)
+    if not rules.get("count_punctuation", True) and (
+            unicodedata.category(ch).startswith("P") or ch in "！？…―♪"):
+        return 0.0
     return (rules.get("fullwidth", 1.0)
             if unicodedata.east_asian_width(ch) in ("F", "W", "A")
             else rules.get("halfwidth", 0.5))

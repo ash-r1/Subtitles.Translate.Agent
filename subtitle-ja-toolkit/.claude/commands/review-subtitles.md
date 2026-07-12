@@ -27,8 +27,8 @@ $ARGUMENTS: `--skip-timing` で Step 8 を飛ばす、`--audit-only` で Step 9 
    - 調整結果を `work/final.json` に適用し（end_time と改行のみ）、
      再度 check_constraints.py を実行して収束を確認する。
 
-3. **SRT 生成**: `python3 scripts/srt_tools.py build work/final.json >
-   output/translated.srt`。
+3. **字幕生成**: `python3 scripts/srt_tools.py build work/final.json >
+   output/translated.srt`（VTT 出力は `--format vtt`）。
    件数・ID・start_time が入力と一致することを最終確認する。
 
 4. **Step 9 最終整合性監査**（Opus / high）:

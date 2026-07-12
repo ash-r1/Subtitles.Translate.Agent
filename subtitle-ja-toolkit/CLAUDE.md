@@ -51,12 +51,14 @@ Step 8 は全バッチ確定後に実行する。
    重なり禁止）。
 3. **原文を改変しない**: `original` フィールドは常に入力の完全なエコー。
 4. **件数検証**: 各バッチ工程の出力後、`item_count == items.length ==` 入力件数、
-   ID 範囲・順序の一致を**必ず機械的に検証**する（`scripts/validate.py` 参照。
-   なければ jq / python ワンライナーで確認）。不一致なら該当バッチを再実行。
+   ID 範囲・順序の一致を **必ず `scripts/validate_batch.py` で機械的に検証**する。
+   不一致なら該当バッチを再実行。
 5. **フォーマット**: 中間成果物は生 JSON（フェンスなし）。設定・テンプレートは
-   YAML。字幕 I/O は SRT / VTT / ASS のいずれか（`project-config.yaml` の
-   `subtitle_format`）。ASS の話者欄がある場合は Step 2 の speaker map の
-   初期値として使う。出力 SRT の改行は Step 8 の `line_broken_text` を使う。
+   YAML。字幕 I/O は **SRT / WebVTT**（`scripts/srt_tools.py` が両対応。
+   `project-config.yaml` の `subtitle_format` で指定）。**ASS は未対応**のため、
+   事前に `srt_tools.py convert` 等で SRT/VTT へ変換してから投入する。
+   ASS 由来の話者欄情報がある場合は Step 2 の speaker map の初期値として使う。
+   出力字幕の改行は Step 8 の `line_broken_text` を使う。
 6. **低確信度の記録**: confidence: low の推測はすべて
    `work/unresolved-items.yaml` に記録する。後続工程はそれを事実として扱わない。
 7. **人物設定を無断で確定しない**: 話者・性別・関係が不明な場合、`unknown` の

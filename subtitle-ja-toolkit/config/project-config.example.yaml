@@ -5,7 +5,7 @@ project:
   title: "Example: Harbor Watch S01E01"   # 作品名（任意の管理用）
   source_language: en                      # 原語。auto で自動判定
   target_language: ja
-  subtitle_format: srt                     # srt | vtt | ass
+  subtitle_format: srt                     # srt | vtt（ass は未対応。事前に srt/vtt へ変換）
 
 paths:
   input_subtitle: input/source.srt         # 元字幕（読み取り専用。変更禁止）

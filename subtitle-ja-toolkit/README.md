@@ -42,7 +42,9 @@ cd subtitle-ja-toolkit
 mkdir -p input work output
 cp config/project-config.example.yaml project-config.yaml
 cp config/subtitle-constraints.example.yaml subtitle-constraints.yaml
-# input/ に字幕（SRT/VTT/ASS）を置き、project-config.yaml のパスを合わせる
+# input/ に字幕（SRT または WebVTT）を置き、project-config.yaml のパスを合わせる
+# ASS は未対応。事前に SRT/VTT へ変換すること（他形式からの変換例:
+#   python3 scripts/srt_tools.py convert input/source.vtt --format srt > input/source.srt）
 ```
 
 ## 実行例（Claude Code）
@@ -111,7 +113,7 @@ subtitle-ja-toolkit/
 │   └── output-schemas/*.schema.json
 ├── prompts/00〜09                 # 工程別プロンプト（共通規約含む）
 ├── templates/*.yaml               # profile・関係・用語集などの構造テンプレート
-├── scripts/*.py                   # SRT 変換・件数検証・制約チェック（標準ライブラリのみ）
+├── scripts/*.py                   # SRT/VTT 変換・件数検証・制約チェック（標準ライブラリのみ）
 ├── source-prompts/                # 元 C# プロンプトの抽出結果と分析レポート
 │   ├── extraction-report.md
 │   └── original/extracted-prompts.md

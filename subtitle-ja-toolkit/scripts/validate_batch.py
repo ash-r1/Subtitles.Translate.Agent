@@ -25,6 +25,12 @@ def main():
 
     src = inp["current_batch"] if "current_batch" in inp else inp["items"]
     items = out["items"]
+
+    if not src or not items:
+        print("FAIL")
+        print(f"  - 空バッチ: 入力 {len(src)} 件 / 出力 {len(items)} 件（0 件のバッチは不正）")
+        sys.exit(1)
+
     errors = []
 
     if len(items) != len(src):
