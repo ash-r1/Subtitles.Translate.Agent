@@ -1,0 +1,54 @@
+# プロジェクト設定（作品ごとにコピーして project-config.yaml として使う）
+# 使い方: cp config/project-config.example.yaml <作業ディレクトリ>/project-config.yaml
+
+project:
+  title: "Example: Harbor Watch S01E01"   # 作品名（任意の管理用）
+  source_language: en                      # 原語。auto で自動判定
+  target_language: ja
+  subtitle_format: srt                     # srt | vtt | ass
+
+paths:
+  input_subtitle: input/source.srt         # 元字幕（読み取り専用。変更禁止）
+  work_dir: work/                          # 中間成果物の置き場所
+  output_subtitle: output/translated.srt   # 最終出力
+
+# 公式資料（あれば列挙。glossary はこれを最優先で採用する）
+official_references:
+  - type: character_names                  # 公式訳・公式読みの資料
+    path: null                             # 例: refs/official-names.md
+  - type: prior_episode_glossary           # 続き物の場合、前話の glossary
+    path: null                             # 例: ../S01E00/work/03-glossary.json
+
+# バッチ処理設定
+batching:
+  batch_size: 20               # 1 バッチの字幕数
+  preceding_context_lines: 8   # 前方の確定訳を何行見せるか（元実装の 2 は狭すぎるため拡大）
+  following_context_lines: 5   # 後方の原文プレビュー行数
+  # バッチ境界で文が切れる場合、その文の意味単位を含むまで文脈を自動拡張する
+  expand_to_sentence_boundary: true
+
+# 工程の有効/無効
+pipeline:
+  enable_semantic_review: true    # Step 5
+  enable_voice_review: true       # Step 6
+  enable_polish: true             # Step 7
+  enable_timing_adjust: true      # Step 8
+  enable_final_audit: true        # Step 9
+
+# サブエージェント割り当て（CLAUDE.md「サブエージェント運用」参照）
+agents:
+  step1_director:        {model: opus,   effort: high}
+  step2_character:       {model: opus,   effort: high}
+  step3_glossary:        {model: sonnet, effort: medium}
+  step4_translate:       {model: sonnet, effort: high}
+  step5_semantic_review: {model: sonnet, effort: medium}
+  step6_voice_review:    {model: sonnet, effort: medium}
+  step7_polish:          {model: opus,   effort: medium}
+  step8_timing:          {model: haiku,  effort: low}
+  step9_final_audit:     {model: opus,   effort: high}
+
+# 視聴者・スタイルの事前指定（あれば Step 1 が最優先で採用）
+style_overrides:
+  audience: null            # 例: "配信サービスの一般視聴者"
+  register_baseline: null   # 例: "常体基本、目上には丁寧語"
+  notes: null

@@ -1,0 +1,255 @@
+{
+  "speaker_map": [
+    {"id": "1", "speaker": "unknown", "candidates": ["crew"], "listener": "crew", "present_characters": ["capt_reyes"], "utterance_type": "dialogue", "confidence": "medium", "evidence_ids": ["sub:1"]},
+    {"id": "2", "speaker": "capt_reyes", "listener": "chief_okafor", "present_characters": ["capt_reyes", "chief_okafor", "op_morgan"], "utterance_type": "dialogue", "confidence": "high", "evidence_ids": ["sub:2", "sub:3"]},
+    {"id": "3", "speaker": "chief_okafor", "listener": "capt_reyes", "present_characters": ["capt_reyes", "chief_okafor", "op_morgan"], "utterance_type": "dialogue", "confidence": "high", "evidence_ids": ["sub:2"]},
+    {"id": "4", "speaker": "capt_reyes", "listener": "op_morgan", "present_characters": ["capt_reyes", "chief_okafor", "op_morgan"], "utterance_type": "dialogue", "confidence": "medium", "evidence_ids": ["sub:11", "sub:12"]},
+    {"id": "5", "speaker": "unknown", "candidates": ["distress_caller"], "listener": null, "present_characters": [], "utterance_type": "off_screen", "confidence": "low", "evidence_ids": ["sub:3", "sub:5"]},
+    {"id": "6", "speaker": "op_morgan", "listener": "capt_reyes", "present_characters": ["capt_reyes", "chief_okafor", "op_morgan"], "utterance_type": "dialogue", "confidence": "medium", "evidence_ids": ["sub:4", "sub:6"]},
+    {"id": "7", "speaker": "capt_reyes", "listener": "chief_okafor", "present_characters": ["capt_reyes", "chief_okafor", "op_morgan"], "utterance_type": "dialogue", "confidence": "high", "evidence_ids": ["sub:8"]},
+    {"id": "8", "speaker": "chief_okafor", "listener": "capt_reyes", "present_characters": ["capt_reyes", "chief_okafor", "op_morgan"], "utterance_type": "dialogue", "confidence": "high", "evidence_ids": ["sub:8"]},
+    {"id": "9", "speaker": "capt_reyes", "listener": "ens_cole", "present_characters": ["capt_reyes", "ens_cole"], "utterance_type": "dialogue", "confidence": "high", "evidence_ids": ["sub:9", "sub:10"]},
+    {"id": "10", "speaker": "ens_cole", "listener": "capt_reyes", "present_characters": ["capt_reyes", "ens_cole"], "utterance_type": "dialogue", "confidence": "high", "evidence_ids": ["sub:9"]},
+    {"id": "11", "speaker": "capt_reyes", "listener": "op_morgan", "present_characters": ["capt_reyes", "op_morgan"], "utterance_type": "dialogue", "confidence": "high", "evidence_ids": ["sub:11"]},
+    {"id": "12", "speaker": "op_morgan", "listener": "capt_reyes", "present_characters": ["capt_reyes", "op_morgan"], "utterance_type": "dialogue", "confidence": "high", "evidence_ids": ["sub:11", "sub:12"]},
+    {"id": "13", "speaker": "op_morgan", "listener": "crew", "present_characters": ["capt_reyes", "op_morgan"], "utterance_type": "dialogue", "confidence": "medium", "evidence_ids": ["sub:12", "sub:13"]},
+    {"id": "14", "speaker": "chief_okafor", "listener": "capt_reyes", "present_characters": ["capt_reyes", "chief_okafor"], "utterance_type": "dialogue", "confidence": "medium", "evidence_ids": ["sub:14", "sub:17", "sub:21"]},
+    {"id": "15", "speaker": "chief_okafor", "listener": "capt_reyes", "present_characters": ["capt_reyes", "chief_okafor"], "utterance_type": "dialogue", "confidence": "medium", "evidence_ids": ["sub:14"]},
+    {"id": "16", "speaker": "chief_okafor", "listener": "capt_reyes", "present_characters": ["capt_reyes", "chief_okafor"], "utterance_type": "dialogue", "confidence": "medium", "evidence_ids": ["sub:14"]},
+    {"id": "17", "speaker": "capt_reyes", "listener": "chief_okafor", "present_characters": ["capt_reyes", "chief_okafor"], "utterance_type": "dialogue", "confidence": "high", "evidence_ids": ["sub:14-16"]},
+    {"id": "18", "speaker": "op_morgan", "listener": "ens_cole", "present_characters": ["op_morgan", "ens_cole"], "utterance_type": "dialogue", "confidence": "medium", "evidence_ids": ["sub:18", "sub:19"]},
+    {"id": "19", "speaker": "ens_cole", "listener": "op_morgan", "present_characters": ["op_morgan", "ens_cole"], "utterance_type": "dialogue", "confidence": "high", "evidence_ids": ["sub:18"]},
+    {"id": "20", "speaker": "capt_reyes", "listener": "chief_okafor", "present_characters": ["capt_reyes", "chief_okafor"], "utterance_type": "dialogue", "confidence": "high", "evidence_ids": ["sub:20", "sub:21"]},
+    {"id": "21", "speaker": "chief_okafor", "listener": "capt_reyes", "present_characters": ["capt_reyes", "chief_okafor"], "utterance_type": "dialogue", "confidence": "high", "evidence_ids": ["sub:21"]},
+    {"id": "22", "speaker": "chief_okafor", "listener": "ens_cole", "present_characters": ["chief_okafor", "ens_cole"], "utterance_type": "dialogue", "confidence": "high", "evidence_ids": ["sub:23", "sub:25"]},
+    {"id": "23", "speaker": "ens_cole", "listener": "chief_okafor", "present_characters": ["chief_okafor", "ens_cole"], "utterance_type": "dialogue", "confidence": "high", "evidence_ids": ["sub:23"]},
+    {"id": "24", "speaker": "chief_okafor", "listener": "ens_cole", "present_characters": ["chief_okafor", "ens_cole"], "utterance_type": "dialogue", "confidence": "high", "evidence_ids": ["sub:24", "sub:25"]},
+    {"id": "25", "speaker": "ens_cole", "listener": "chief_okafor", "present_characters": ["chief_okafor", "ens_cole"], "utterance_type": "dialogue", "confidence": "high", "evidence_ids": ["sub:25"]},
+    {"id": "26", "speaker": "ens_cole", "listener": "crew", "present_characters": ["capt_reyes", "ens_cole", "chief_okafor"], "utterance_type": "dialogue", "confidence": "medium", "evidence_ids": ["sub:26", "sub:27"]},
+    {"id": "27", "speaker": "capt_reyes", "listener": "chief_okafor", "present_characters": ["capt_reyes", "ens_cole", "chief_okafor"], "utterance_type": "dialogue", "confidence": "high", "evidence_ids": ["sub:27", "sub:28"]},
+    {"id": "28", "speaker": "chief_okafor", "listener": "capt_reyes", "present_characters": ["capt_reyes", "chief_okafor"], "utterance_type": "dialogue", "confidence": "high", "evidence_ids": ["sub:8", "sub:28"]},
+    {"id": "29", "speaker": "capt_reyes", "listener": "ens_cole", "present_characters": ["capt_reyes", "ens_cole"], "utterance_type": "dialogue", "confidence": "high", "evidence_ids": ["sub:29", "sub:30"]},
+    {"id": "30", "speaker": "ens_cole", "listener": "capt_reyes", "present_characters": ["capt_reyes", "ens_cole"], "utterance_type": "dialogue", "confidence": "high", "evidence_ids": ["sub:30"]}
+  ],
+  "character_profiles": [
+    {
+      "character_id": "capt_reyes",
+      "display_names": ["Captain", "ma'am", "Reyes"],
+      "role": {"value": "艦長・指揮官", "basis": "fact", "confidence": "high", "evidence_ids": ["sub:1", "sub:7"]},
+      "age_range": {"value": "40代", "basis": "inference", "confidence": "low", "evidence_ids": []},
+      "social_position": {"value": "艦の最上位", "basis": "fact", "confidence": "high", "evidence_ids": ["sub:1"]},
+      "personality": {"value": "決断が速く簡潔。部下の功績は率直に認める", "basis": "inference", "confidence": "medium", "evidence_ids": ["sub:7", "sub:17", "sub:20", "sub:29"]},
+      "public_demeanor": {"value": "命令は短く断定的", "basis": "fact", "confidence": "high", "evidence_ids": ["sub:7", "sub:27"]},
+      "private_demeanor": {"value": "労いでは砕ける", "basis": "inference", "confidence": "medium", "evidence_ids": ["sub:29"]},
+      "emotional_expressiveness": {"value": "低い（危機でも平叙）", "basis": "inference", "confidence": "medium", "evidence_ids": ["sub:17"]},
+      "gender": "female",
+      "gender_confidence": "high",
+      "first_person_rules": {"default": "省略", "formal": "私", "casual": "省略", "intimate": null, "angry": "省略", "frightened": null, "comic": null, "self_directed": null, "public_speech": "私"},
+      "address_rules": [
+        {"listener_id": "chief_okafor", "default": "機関長", "variants": {"acknowledging": "君（功績を認める場面）"}, "evidence_ids": ["sub:2", "sub:20"]},
+        {"listener_id": "ens_cole", "default": "コール少尉（sub:1-28）→ ダニー（sub:29-）", "variants": {}, "evidence_ids": ["sub:9", "sub:29"]},
+        {"listener_id": "op_morgan", "default": "モーガン（姓呼び捨て）", "variants": {}, "evidence_ids": ["sub:11"]}
+      ],
+      "politeness_rules": [
+        {"listener_id": "chief_okafor", "rules": "常体。命令形（〜しろ／〜を取れ）。労いは『君が正しかった』と断定形", "evidence_ids": ["sub:7", "sub:20", "sub:27"]},
+        {"listener_id": "ens_cole", "rules": "常体・命令形。労いは短く（よくやった／休め）", "evidence_ids": ["sub:9", "sub:29"]}
+      ],
+      "sentence_ending_rules": {
+        "neutral": "言い切り（〜だ／体言止め）",
+        "question": "〜か（の・かしら 不使用）",
+        "command": "命令形（〜しろ／〜へ）",
+        "emotional_shifts": "危機でも文長・語彙を変えない",
+        "assertion_style": "言い切る",
+        "final_particles": "ほぼ使わない",
+        "forbidden_endings": ["だわ", "かしら", "のよ", "わね"]
+      },
+      "preferred_vocabulary": [{"word": "簡潔な操船命令（針路・回頭・全速）", "context": "指揮時", "evidence_ids": ["sub:7", "sub:27"]}],
+      "prohibited_vocabulary": ["感情的な強調語", "女性語尾"],
+      "catchphrases": [],
+      "emotion_rules": {
+        "neutral": {"sentence_length": "短い", "vocabulary": "命令・操船用語", "politeness": "常体", "assertiveness": "強い", "ellipsis_tendency": "主語ほぼ常に省略", "hesitation": "なし", "sentence_ending": "命令形・言い切り", "address_shift": "役職呼び", "punctuation": "感嘆符は緊急時のみ", "evidence_ids": ["sub:7", "sub:27"]},
+        "pleased": {"sentence_length": "短い", "vocabulary": "労いは平易（よくやった）", "politeness": "常体", "assertiveness": "強い", "ellipsis_tendency": "省略維持", "hesitation": "なし", "sentence_ending": "言い切り", "address_shift": "名前呼びに変化（ダニー）", "punctuation": "感嘆符なし", "evidence_ids": ["sub:29"]},
+        "affectionate": "not_observed", "embarrassed": "not_observed", "irritated": "not_observed",
+        "angry": "not_observed", "frightened": "not_observed", "grieving": "not_observed",
+        "sarcastic": "not_observed", "authoritative": {"sentence_length": "最短", "vocabulary": "号令", "politeness": "常体", "assertiveness": "最大", "ellipsis_tendency": "目的語も省略", "hesitation": "なし", "sentence_ending": "命令形", "address_shift": "変化なし", "punctuation": "感嘆符可", "evidence_ids": ["sub:7"]},
+        "deceptive": "not_observed", "exhausted": "not_observed"
+      },
+      "evidence_ids": ["sub:2", "sub:7", "sub:9", "sub:17", "sub:20", "sub:27", "sub:29"],
+      "unresolved_questions": []
+    },
+    {
+      "character_id": "ens_cole",
+      "display_names": ["Ensign Cole", "Cole", "Danny"],
+      "role": {"value": "若手士官（少尉）", "basis": "fact", "confidence": "high", "evidence_ids": ["sub:9"]},
+      "age_range": {"value": "20代前半", "basis": "inference", "confidence": "medium", "evidence_ids": ["sub:9", "sub:18"]},
+      "social_position": {"value": "士官として最下級", "basis": "fact", "confidence": "high", "evidence_ids": ["sub:9"]},
+      "personality": {"value": "行動が先に出る。規律より結果を優先しがち", "basis": "inference", "confidence": "medium", "evidence_ids": ["sub:22", "sub:23"]},
+      "public_demeanor": {"value": "上官には端正な応答", "basis": "fact", "confidence": "high", "evidence_ids": ["sub:10", "sub:25"]},
+      "private_demeanor": {"value": "同僚には砕けて強がる", "basis": "fact", "confidence": "high", "evidence_ids": ["sub:19"]},
+      "emotional_expressiveness": {"value": "高い", "basis": "inference", "confidence": "medium", "evidence_ids": ["sub:23", "sub:26"]},
+      "gender": "male",
+      "gender_confidence": "high",
+      "first_person_rules": {"default": "省略", "formal": "自分", "casual": "俺", "intimate": "俺", "angry": "省略", "frightened": null, "comic": null, "self_directed": null, "public_speech": null},
+      "address_rules": [
+        {"listener_id": "capt_reyes", "default": "艦長", "variants": {}, "evidence_ids": ["sub:10", "sub:30"]},
+        {"listener_id": "chief_okafor", "default": "機関長", "variants": {}, "evidence_ids": ["sub:23", "sub:25"]},
+        {"listener_id": "op_morgan", "default": "省略／お前（軽口）", "variants": {}, "evidence_ids": ["sub:19"]}
+      ],
+      "politeness_rules": [
+        {"listener_id": "capt_reyes", "rules": "です・ます。復唱は『了解しました』", "evidence_ids": ["sub:10"]},
+        {"listener_id": "chief_okafor", "rules": "です・ます。弁明でも敬語を保つ（〜たんです）", "evidence_ids": ["sub:23", "sub:25"]},
+        {"listener_id": "op_morgan", "rules": "常体。強がり・軽口（〜だろ／〜しろよ）", "evidence_ids": ["sub:19"]}
+      ],
+      "sentence_ending_rules": {
+        "neutral": "公: です・ます／私: 常体",
+        "question": "公: 〜ですか／私: 〜か？",
+        "command": "私的場面のみ 〜しろ",
+        "emotional_shifts": "興奮時は短文・感嘆",
+        "assertion_style": "言い切る",
+        "final_particles": "私的場面で よ・だろ",
+        "forbidden_endings": ["ございます調", "老人語"]
+      },
+      "preferred_vocabulary": [{"word": "だろ／〜してろ（対 Morgan）", "context": "私的・強がり", "evidence_ids": ["sub:19"]}],
+      "prohibited_vocabulary": ["幼児語"],
+      "catchphrases": [],
+      "emotion_rules": {
+        "neutral": {"sentence_length": "短い", "vocabulary": "軍隊的定型", "politeness": "公: 敬語", "assertiveness": "中", "ellipsis_tendency": "一人称省略", "hesitation": "なし", "sentence_ending": "です・ます", "address_shift": "役職呼び", "punctuation": "標準", "evidence_ids": ["sub:10"]},
+        "pleased": "not_observed", "affectionate": "not_observed",
+        "embarrassed": {"sentence_length": "短い", "vocabulary": "強がり", "politeness": "常体（対同僚）", "assertiveness": "過剰に強い", "ellipsis_tendency": "一人称・二人称とも省略気味", "hesitation": "なし", "sentence_ending": "〜だろ", "address_shift": "お前", "punctuation": "標準", "evidence_ids": ["sub:19"]},
+        "irritated": "not_observed", "angry": "not_observed",
+        "frightened": "not_observed", "grieving": "not_observed", "sarcastic": "not_observed",
+        "authoritative": "not_observed", "deceptive": "not_observed",
+        "exhausted": "not_observed"
+      },
+      "evidence_ids": ["sub:10", "sub:19", "sub:23", "sub:25", "sub:26"],
+      "unresolved_questions": []
+    },
+    {
+      "character_id": "chief_okafor",
+      "display_names": ["Chief"],
+      "role": {"value": "機関長（下士官の長）", "basis": "fact", "confidence": "high", "evidence_ids": ["sub:2", "sub:21"]},
+      "age_range": {"value": "50代", "basis": "inference", "confidence": "low", "evidence_ids": ["sub:21"]},
+      "social_position": {"value": "階級は艦長の下だが経験で一目置かれる", "basis": "inference", "confidence": "medium", "evidence_ids": ["sub:20", "sub:21"]},
+      "personality": {"value": "職人気質。手順への信仰。誇り高い", "basis": "inference", "confidence": "high", "evidence_ids": ["sub:21", "sub:24"]},
+      "public_demeanor": {"value": "常に統制された丁寧な話し方", "basis": "fact", "confidence": "high", "evidence_ids": ["sub:3", "sub:21", "sub:24"]},
+      "private_demeanor": {"value": "同じ（切替が観察されない）", "basis": "fact", "confidence": "medium", "evidence_ids": ["sub:24"]},
+      "emotional_expressiveness": {"value": "怒りも文法的に統制して出す", "basis": "fact", "confidence": "high", "evidence_ids": ["sub:22", "sub:24"]},
+      "gender": "male",
+      "gender_confidence": "medium",
+      "first_person_rules": {"default": "私", "formal": "私", "casual": "私", "intimate": null, "angry": "私", "frightened": null, "comic": null, "self_directed": null, "public_speech": "私"},
+      "address_rules": [
+        {"listener_id": "capt_reyes", "default": "艦長", "variants": {}, "evidence_ids": ["sub:3", "sub:21"]},
+        {"listener_id": "ens_cole", "default": "コール（姓呼び捨て）", "variants": {}, "evidence_ids": ["sub:22"]}
+      ],
+      "politeness_rules": [
+        {"listener_id": "capt_reyes", "rules": "です・ます＋謙譲の前置き（恐れながら）", "evidence_ids": ["sub:21"]},
+        {"listener_id": "ens_cole", "rules": "叱責でも です・ます を崩さない。命令は『〜しなさい』『〜してもらいます』で圧をかける", "evidence_ids": ["sub:22", "sub:24"]}
+      ],
+      "sentence_ending_rules": {
+        "neutral": "です・ます",
+        "question": "〜ですか",
+        "command": "〜しなさい／〜してもらいます",
+        "emotional_shifts": "怒り: 敬語を維持したまま断定が強まり文が長くなる（原文も短縮形なしの I do not care / You will）",
+        "assertion_style": "言い切る",
+        "final_particles": "使わない",
+        "forbidden_endings": ["乱暴な命令形（〜しろ）", "タメ口"]
+      },
+      "preferred_vocabulary": [{"word": "手順・機関・恐れながら", "context": "職務全般", "evidence_ids": ["sub:21", "sub:24"]}],
+      "prohibited_vocabulary": ["罵倒語", "くだけた間投詞"],
+      "catchphrases": [
+        {"source_phrase": "Steady as she goes", "default_translation": "ようそろ", "variants": [], "fixed_part": "ようそろ", "flexible_part": null, "evidence_ids": ["sub:8", "sub:28"]}
+      ],
+      "emotion_rules": {
+        "neutral": {"sentence_length": "中", "vocabulary": "職務用語", "politeness": "です・ます", "assertiveness": "中", "ellipsis_tendency": "一人称は自己主張時のみ『私』", "hesitation": "なし", "sentence_ending": "です・ます", "address_shift": "役職・姓呼び", "punctuation": "感嘆符ほぼなし", "evidence_ids": ["sub:3"]},
+        "pleased": "not_observed", "affectionate": "not_observed", "embarrassed": "not_observed",
+        "irritated": "not_observed",
+        "angry": {"sentence_length": "長くなる（省略が減る）", "vocabulary": "手順・規律の語彙", "politeness": "敬語を崩さない", "assertiveness": "最大（〜してもらいます）", "ellipsis_tendency": "省略が減り明示的になる", "hesitation": "なし", "sentence_ending": "〜しなさい／〜してもらいます", "address_shift": "姓呼び捨て＋感嘆", "punctuation": "感嘆符可", "evidence_ids": ["sub:22", "sub:24"]},
+        "frightened": "not_observed", "grieving": "not_observed",
+        "sarcastic": "not_observed",
+        "authoritative": {"sentence_length": "中", "vocabulary": "職務", "politeness": "です・ます", "assertiveness": "強い", "ellipsis_tendency": "標準", "hesitation": "なし", "sentence_ending": "断定", "address_shift": "変化なし", "punctuation": "標準", "evidence_ids": ["sub:14-16"]},
+        "deceptive": "not_observed", "exhausted": "not_observed"
+      },
+      "evidence_ids": ["sub:3", "sub:8", "sub:21", "sub:22", "sub:24", "sub:28"],
+      "unresolved_questions": ["Chief が機関長か甲板長かは艦種に依存（sub:20-21 から機関長と推定）"]
+    },
+    {
+      "character_id": "op_morgan",
+      "display_names": ["Morgan"],
+      "role": {"value": "通信士", "basis": "fact", "confidence": "high", "evidence_ids": ["sub:11"]},
+      "age_range": {"value": "20-30代", "basis": "inference", "confidence": "low", "evidence_ids": ["sub:13"]},
+      "social_position": {"value": "下士官または専門職クルー", "basis": "inference", "confidence": "medium", "evidence_ids": ["sub:11"]},
+      "personality": {"value": "反応が速い。緊迫下でも軽口", "basis": "fact", "confidence": "high", "evidence_ids": ["sub:12", "sub:13"]},
+      "public_demeanor": {"value": "艦長にも簡潔な常体（許容されている）", "basis": "fact", "confidence": "medium", "evidence_ids": ["sub:12"]},
+      "private_demeanor": {"value": "同僚を気遣う", "basis": "fact", "confidence": "high", "evidence_ids": ["sub:18"]},
+      "emotional_expressiveness": {"value": "中。皮肉で処理する", "basis": "inference", "confidence": "medium", "evidence_ids": ["sub:13"]},
+      "gender": "unknown",
+      "gender_confidence": "low",
+      "first_person_rules": {"default": "省略", "formal": null, "casual": "省略", "intimate": null, "angry": null, "frightened": null, "comic": "省略", "self_directed": "省略", "public_speech": null},
+      "address_rules": [
+        {"listener_id": "ens_cole", "default": "ダニー（名前呼び）", "variants": {}, "evidence_ids": ["sub:18"]},
+        {"listener_id": "capt_reyes", "default": "省略", "variants": {}, "evidence_ids": ["sub:12"]}
+      ],
+      "politeness_rules": [
+        {"listener_id": "capt_reyes", "rules": "常体・最小限の応答（もうやってる）", "evidence_ids": ["sub:12"]},
+        {"listener_id": "ens_cole", "rules": "常体・気さく（〜？／〜よ）", "evidence_ids": ["sub:18"]}
+      ],
+      "sentence_ending_rules": {
+        "neutral": "常体・短文",
+        "question": "〜？（上昇調のみ）",
+        "command": "not_observed",
+        "emotional_shifts": "皮肉時は反語（ついてるよ 等）",
+        "assertion_style": "軽く言い切る",
+        "final_particles": "よ（性別を特定しない範囲で）",
+        "forbidden_endings": ["だわ", "かしら", "だぜ", "ぞ"]
+      },
+      "preferred_vocabulary": [{"word": "反語的な軽口", "context": "緊迫の緩和", "evidence_ids": ["sub:13"]}],
+      "prohibited_vocabulary": ["性別を特定させる語尾"],
+      "catchphrases": [],
+      "emotion_rules": {
+        "neutral": {"sentence_length": "最短", "vocabulary": "通信用語＋日常語", "politeness": "常体", "assertiveness": "軽い", "ellipsis_tendency": "主語ほぼ全省略", "hesitation": "なし", "sentence_ending": "言い切り・〜よ", "address_shift": "名前呼び", "punctuation": "感嘆符控えめ", "evidence_ids": ["sub:12"]},
+        "sarcastic": {"sentence_length": "短文の連続", "vocabulary": "反語（最高・ついてる）", "politeness": "常体", "assertiveness": "見かけ上の断定", "ellipsis_tendency": "全省略", "hesitation": "なし", "sentence_ending": "〜ね／〜よ", "address_shift": "なし", "punctuation": "感嘆符を使わず平叙で落とす", "evidence_ids": ["sub:13"]},
+        "pleased": "not_observed", "affectionate": "not_observed", "embarrassed": "not_observed",
+        "irritated": "not_observed", "angry": "not_observed", "frightened": "not_observed",
+        "grieving": "not_observed", "authoritative": "not_observed", "deceptive": "not_observed",
+        "exhausted": "not_observed"
+      },
+      "evidence_ids": ["sub:11", "sub:12", "sub:13", "sub:18"],
+      "unresolved_questions": ["性別を示す証拠なし。性別非依存の語尾設計を維持すること"]
+    }
+  ],
+  "relationship_map": [
+    {"speaker_id": "capt_reyes", "listener_id": "chief_okafor", "relationship": "艦長と機関長（長年の相互信頼）", "power_balance": "reyes 上位・経験では okafor に一目", "public_register": "常体・命令形", "private_register": "常体（労いで君）", "default_address": "機関長", "address_variants": {"acknowledging": "君"}, "first_person_variant": null, "changes_over_time": null, "valid_range": null, "evidence_ids": ["sub:2", "sub:20"]},
+    {"speaker_id": "chief_okafor", "listener_id": "capt_reyes", "relationship": "同上（部下側）", "power_balance": "下位", "public_register": "です・ます＋恐れながら", "private_register": "同じ", "default_address": "艦長", "address_variants": {}, "first_person_variant": "私", "changes_over_time": null, "valid_range": null, "evidence_ids": ["sub:3", "sub:21"]},
+    {"speaker_id": "capt_reyes", "listener_id": "ens_cole", "relationship": "艦長と新任少尉 → 信頼の獲得", "power_balance": "reyes 上位", "public_register": "常体・命令形", "private_register": "常体・労い", "default_address": "コール少尉", "address_variants": {}, "first_person_variant": null, "changes_over_time": "救助成功後に名前呼びへ", "valid_range": "sub:1-28", "evidence_ids": ["sub:9"]},
+    {"speaker_id": "capt_reyes", "listener_id": "ens_cole", "relationship": "信頼獲得後", "power_balance": "reyes 上位", "public_register": "常体", "private_register": "常体・親愛", "default_address": "ダニー", "address_variants": {}, "first_person_variant": null, "changes_over_time": null, "valid_range": "sub:29-30", "evidence_ids": ["sub:29"]},
+    {"speaker_id": "ens_cole", "listener_id": "capt_reyes", "relationship": "新任少尉と艦長", "power_balance": "下位", "public_register": "です・ます", "private_register": "です・ます", "default_address": "艦長", "address_variants": {}, "first_person_variant": "自分／省略", "changes_over_time": null, "valid_range": null, "evidence_ids": ["sub:10", "sub:30"]},
+    {"speaker_id": "chief_okafor", "listener_id": "ens_cole", "relationship": "ベテランと新任（指導）", "power_balance": "okafor 上位（経験）", "public_register": "です・ます（叱責でも維持）", "private_register": "同じ", "default_address": "コール", "address_variants": {}, "first_person_variant": "私", "changes_over_time": null, "valid_range": null, "evidence_ids": ["sub:22", "sub:24"]},
+    {"speaker_id": "ens_cole", "listener_id": "chief_okafor", "relationship": "新任とベテラン", "power_balance": "下位", "public_register": "です・ます", "private_register": "です・ます", "default_address": "機関長", "address_variants": {}, "first_person_variant": "省略", "changes_over_time": null, "valid_range": null, "evidence_ids": ["sub:23", "sub:25"]},
+    {"speaker_id": "op_morgan", "listener_id": "ens_cole", "relationship": "同僚（親しい）", "power_balance": "対等", "public_register": "常体", "private_register": "常体・気遣い", "default_address": "ダニー", "address_variants": {}, "first_person_variant": "省略", "changes_over_time": null, "valid_range": null, "evidence_ids": ["sub:18"]},
+    {"speaker_id": "ens_cole", "listener_id": "op_morgan", "relationship": "同僚（親しい）", "power_balance": "対等", "public_register": "常体", "private_register": "常体・強がり", "default_address": "省略／お前", "address_variants": {}, "first_person_variant": "俺／省略", "changes_over_time": null, "valid_range": null, "evidence_ids": ["sub:19"]},
+    {"speaker_id": "capt_reyes", "listener_id": "op_morgan", "relationship": "艦長と通信士", "power_balance": "reyes 上位", "public_register": "常体・命令形", "private_register": "not_observed", "default_address": "モーガン", "address_variants": {}, "first_person_variant": null, "changes_over_time": null, "valid_range": null, "evidence_ids": ["sub:11"]},
+    {"speaker_id": "op_morgan", "listener_id": "capt_reyes", "relationship": "通信士と艦長", "power_balance": "下位（ただし応答は簡潔常体が許容）", "public_register": "常体・短文", "private_register": "not_observed", "default_address": "省略", "address_variants": {}, "first_person_variant": "省略", "changes_over_time": null, "valid_range": null, "evidence_ids": ["sub:12"]}
+  ],
+  "address_map": [
+    {"speaker_id": "capt_reyes", "listener_id": "chief_okafor", "default_address": "機関長", "notes": "労いで君"},
+    {"speaker_id": "capt_reyes", "listener_id": "ens_cole", "default_address": "コール少尉→ダニー(sub:29-)", "notes": "関係変化あり"},
+    {"speaker_id": "capt_reyes", "listener_id": "op_morgan", "default_address": "モーガン", "notes": null},
+    {"speaker_id": "ens_cole", "listener_id": "capt_reyes", "default_address": "艦長", "notes": null},
+    {"speaker_id": "ens_cole", "listener_id": "chief_okafor", "default_address": "機関長", "notes": null},
+    {"speaker_id": "ens_cole", "listener_id": "op_morgan", "default_address": "省略／お前", "notes": "軽口"},
+    {"speaker_id": "chief_okafor", "listener_id": "capt_reyes", "default_address": "艦長", "notes": null},
+    {"speaker_id": "chief_okafor", "listener_id": "ens_cole", "default_address": "コール", "notes": "叱責でも敬語"},
+    {"speaker_id": "op_morgan", "listener_id": "ens_cole", "default_address": "ダニー", "notes": null},
+    {"speaker_id": "op_morgan", "listener_id": "capt_reyes", "default_address": "省略", "notes": null}
+  ],
+  "phrase_map_draft": [
+    {"source_phrase": "Steady as she goes", "speaker_id": "chief_okafor", "function": "操舵号令（決め台詞）", "default_translation": "ようそろ", "allowed_variants": [], "forbidden_variants": ["彼女が行くように安定して", "このまま安定"], "scene_conditions": "操舵時", "emotion_conditions": null, "evidence_ids": ["sub:8", "sub:28"]},
+    {"source_phrase": "Aye, Captain", "speaker_id": "ens_cole", "function": "復唱", "default_translation": "了解しました", "allowed_variants": ["はい　艦長"], "forbidden_variants": ["アイ・キャプテン"], "scene_conditions": "命令受領時", "emotion_conditions": null, "evidence_ids": ["sub:10"]}
+  ],
+  "unresolved_inferences": [
+    {"topic": "sub:5 の話者（遭難者）", "current_guess": "遭難船の乗員", "confidence": "low", "candidates": ["漁船乗員", "プレジャーボート乗員"], "evidence_ids": ["sub:3", "sub:5"], "impact": "口調を演出できない。中立の断片訳とする"},
+    {"topic": "op_morgan の性別", "current_guess": null, "confidence": "low", "candidates": [], "evidence_ids": [], "impact": "性別非依存の語尾設計を維持する"},
+    {"topic": "sub:1 の話者", "current_guess": "当直クルー", "confidence": "low", "candidates": ["crew"], "evidence_ids": ["sub:1"], "impact": "掛け声として中立に訳す"},
+    {"topic": "sub:14-16 の話者", "current_guess": "chief_okafor（短縮形なしの統制された話法が一致）", "confidence": "medium", "candidates": ["chief_okafor", "capt_reyes"], "evidence_ids": ["sub:14-16", "sub:21", "sub:24"], "impact": "敬語か常体かが変わる"}
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "batch_id": "001",
+  "item_count": 10,
+  "review_type": "polish",
+  "items": [
+    {"id": "21", "original": "With respect, Captain, I am always right about engines.", "translation": "恐れながら艦長　機関で私は間違えません", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "22", "original": "Cole! Get down from there! Are you out of your mind?", "translation": "コール！　降りなさい！　正気ですか", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "23", "original": "The line was fouled, Chief!", "translation": "索が絡んだんです！", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "24", "original": "I do not care if it was on fire. You will follow procedure.", "translation": "燃えていても同じです　手順には従ってもらいます", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "25", "original": "Understood, Chief.", "translation": "はい　機関長", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "26", "original": "There! Off the port bow!", "translation": "いました！　左舷前方です！", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "27", "original": "I see them. Bring us about.", "translation": "確認した　回頭しろ", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "28", "original": "Steady as she goes, ma'am.", "translation": "ようそろ", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "29", "original": "Nice work today, Danny. Get some rest.", "translation": "今日はよくやった　ダニー　休め", "polished_text": null, "polish_tag": null, "note": null},
+    {"id": "30", "original": "You too, Captain.", "translation": "艦長も", "polished_text": null, "polish_tag": null, "note": null}
+  ]
+}

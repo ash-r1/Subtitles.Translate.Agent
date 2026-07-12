@@ -1,0 +1,46 @@
+# 用語集テンプレート（Step 3 出力に対応）
+# translation_status: official（公式訳・最優先）| confirmed（作品内確定）| provisional（暫定）
+
+naming_conventions:
+  long_vowel: null      # 長音の方針（例: 「ー」を使う）
+  middle_dot: null      # 姓名間は中黒
+  v_sound: null         # 「ヴ」を使うか
+
+character_map:
+  - character_id: example_id
+    speaker_labels: []        # 字幕上の話者表記の揺れ
+    aliases: []
+    source_name: null
+    target_name: null
+    name_reading: null        # カタカナ読み
+    gender: unknown
+    gender_confidence: low
+    translation_status: provisional
+    identity_note: null
+    relationship_notes: null
+    # 話し方系は Step 2 の profile への参照で持つ（重複記述を避ける）
+    first_person_rules: {ref: "work/02-character-analysis.json#example_id"}
+    address_rules: {ref: "work/02-character-analysis.json#example_id"}
+    politeness_rules: {ref: "work/02-character-analysis.json#example_id"}
+    sentence_ending_rules: {ref: "work/02-character-analysis.json#example_id"}
+    preferred_vocabulary: {ref: "work/02-character-analysis.json#example_id"}
+    prohibited_vocabulary: {ref: "work/02-character-analysis.json#example_id"}
+    catchphrases: {ref: "work/02-character-analysis.json#example_id"}
+    emotion_rules: {ref: "work/02-character-analysis.json#example_id"}
+    evidence_ids: []
+    unresolved_questions: []
+
+location_map:
+  - source_term: null
+    target_term: null
+    type: real            # real | fictional | micro
+    translation_status: provisional
+    evidence_ids: []
+
+terminology_map:
+  - source_term: null
+    target_term: null
+    domain: null
+    definition: null
+    translation_status: provisional
+    evidence_ids: []
